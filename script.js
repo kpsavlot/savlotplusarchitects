@@ -26,11 +26,12 @@ function createObserver(callback, options = {}) {
   hero.style.backgroundImage = 'none';
 
   const MIN_DURATION = 8000;
+  const heroVideoUrl = new URL('./public/hero-video.mp4', import.meta.url).href;
 
   const hc = [
-    { title: 'THE NOIR RESIDENCE', desc: 'Currently in the final styling phase. This turnkey project in Ahmedabad explores the balance between ambient lighting and deep, tactile textures.', status: 'HANDOVER PHASE', location: 'SATELLITE, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: './public/hero-video.mp4' },
-    { title: 'THE MONOLITH HOUSE', desc: 'Full Architecture & Turnkey execution. Achieved 40% more natural light via a central atrium. 14 Months from soil-test to shoes-off.', status: 'COMPLETED', location: 'BOPAL, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: './public/hero-video.mp4' },
-    { title: 'THE SKY VILLA', desc: 'A minimalist penthouse with panoramic city views. Floor-to-ceiling glass walls blur the line between indoor and outdoor living.', status: 'ONGOING', location: 'PRAHLADNAGAR, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: './public/hero-video.mp4' },
+    { title: 'THE NOIR RESIDENCE', desc: 'Currently in the final styling phase. This turnkey project in Ahmedabad explores the balance between ambient lighting and deep, tactile textures.', status: 'HANDOVER PHASE', location: 'SATELLITE, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: heroVideoUrl },
+    { title: 'THE MONOLITH HOUSE', desc: 'Full Architecture & Turnkey execution. Achieved 40% more natural light via a central atrium. 14 Months from soil-test to shoes-off.', status: 'COMPLETED', location: 'BOPAL, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: heroVideoUrl },
+    { title: 'THE SKY VILLA', desc: 'A minimalist penthouse with panoramic city views. Floor-to-ceiling glass walls blur the line between indoor and outdoor living.', status: 'ONGOING', location: 'PRAHLADNAGAR, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: heroVideoUrl },
   ];
 
   let ci = 0;
