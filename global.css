@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* Common Style Variables */
+
+  /* Gradients */
+  --EXPLORE: linear-gradient(135deg, #ff9292, #6aafff);
+  --footer-bg: radial-gradient(
+    70.05% 86.33% at 50% 129.22%,
+    #c2deff,
+    #294b72 25.23%,
+    #000 85.28%
+  );
+  --Main-BG: linear-gradient(
+    158.41deg,
+    #f6e4e4,
+    #f2f4e3 29.81%,
+    #e8f0f5 65.38%,
+    #e1e5f4
+  );
+  --Review-Card: linear-gradient(153.63deg, #fffabf, #ffdada);
+}
