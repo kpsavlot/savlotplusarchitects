@@ -84,9 +84,11 @@ function createObserver(callback, options = {}) {
   playVideo(0);
 
   const o = document.createElement('div');
-  o.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7));z-index:0;pointer-events:none;';
-  hero.insertBefore(o, hero.firstChild.nextSibling);
-  hero.querySelectorAll('.header, .content-parent').forEach(e => { e.style.position = 'relative'; e.style.zIndex = '1'; });
+  o.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7));z-index:1;pointer-events:none;';
+  hero.insertBefore(o, hero.firstChild);
+  const cp = hero.querySelector('.content-parent');
+  cp.style.position = 'relative';
+  cp.style.zIndex = '2';
 })();
 
 // ── Service Section: Card Stack ──
@@ -94,7 +96,7 @@ function createObserver(callback, options = {}) {
   const c = document.querySelector('.service-section');
   if (!c) return;
   const h = c.querySelector('.service-main-view');
-  const cards = c.querySelectorAll('.interiro-card, .turnkey-card');
+  const cards = c.querySelectorAll('.interiro-card');
   if (!cards.length) return;
 
   if (h) { h.style.position = 'sticky'; h.style.top = '0'; h.style.zIndex = '1'; h.style.height = '100vh'; h.style.display = 'flex'; h.style.flexDirection = 'column'; h.style.justifyContent = 'center'; }
@@ -121,7 +123,7 @@ function createObserver(callback, options = {}) {
   }
 
   // Custom cursor (on .frame-parent children)
-  const cursorTargets = c.querySelectorAll('.interiro-card > .frame-parent, .turnkey-card > .frame-parent');
+  const cursorTargets = c.querySelectorAll('.interiro-card > .frame-parent');
   cursorTargets.forEach(target => {
     const cur = document.createElement('div');
     cur.className = 'custom-cursor'; cur.textContent = 'VIEW MORE';
@@ -240,7 +242,7 @@ function createObserver(callback, options = {}) {
   const sec = document.querySelector('.benefit-section');
   if (!sec) return;
   const h = sec.querySelector('.heading-wrapper');
-  const cards = sec.querySelectorAll('.card1, .card2, .card3');
+  const cards = sec.querySelectorAll('.card1, .card2, .card3, .card4, .card5, .card6');
 
   const o = createObserver(e => {
     e.forEach(en => {
@@ -400,10 +402,13 @@ const backTexts = {
   card1: 'Every visual element follows a cohesive system — from typography to material palettes — ensuring your project speaks with one clear, refined voice.',
   card2: 'We manage every detail from concept to handover so you don\'t have to. No surprises, no delays — just a smooth, transparent process.',
   card3: 'We source materials directly from trusted makers and mills, guaranteeing quality, traceability, and character that off-the-shelf options can\'t match.',
+  card4: 'Tailored for clients seeking a premium lifestyle, this point highlights the transition from standard spaces to high-end, curated environments.',
+  card5: 'Complete design flexibility that eliminates rigid templates, allowing every layout, piece of furniture, and material palette to be tailored to your precise vision.',
+  card6: 'Years of deep industry knowledge and technical mastery that turn complex structural challenges into seamless, award-winning spaces.',
 };
 
-document.querySelectorAll('.card1, .card2, .card3').forEach(card => {
-  const cls = card.className.match(/card[123]/)[0];
+document.querySelectorAll('.card1, .card2, .card3, .card4, .card5, .card6').forEach(card => {
+  const cls = card.className.match(/card[1-6]/)[0];
   const inner = document.createElement('div');
   inner.className = 'flip-inner';
 

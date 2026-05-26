@@ -51,13 +51,11 @@ body {
   height: 100vh;
 }
 .div {
+  flex: 1;
+  justify-content: space-between;
   padding: 35px 50px 33px;
   box-sizing: border-box;
-  gap: 461px;
-  background-image: url(./public/div@3x.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
+  position: relative;
 }
 .div,
 .header,
@@ -200,7 +198,6 @@ body {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 0.5px;
-  /* Hover transition removed as requested */
 }
 
 .nav-links li {
@@ -241,6 +238,8 @@ body {
   font-weight: 400;
   white-space: nowrap;
 }
+
+
 
 /* Hamburger Icon Wrapper */
 .hamburger-wrapper {
@@ -532,11 +531,12 @@ body {
   color: #000;
   font-family: "Host Grotesk";
 }
-.crafting-immersive-interiors-t-wrapper {
+.lets-build-your-container-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
+  margin-right: 80px;
 }
 .crafting-immersive-interiors-container {
   width: 541px;
@@ -663,13 +663,10 @@ body {
   font-size: 64px;
   color: #000;
 }
-.explore-link2,
-.turnkey-card {
+.explore-link2 {
   display: flex;
   align-items: center;
   box-sizing: border-box;
-}
-.explore-link2 {
   border-radius: 19px;
   background: var(--EXPLORE);
   overflow: hidden;
@@ -677,12 +674,6 @@ body {
   width: px;
   height: px;
   cursor: pointer;
-}
-.turnkey-card {
-  align-self: stretch;
-  height: 746px;
-  justify-content: center;
-  padding: 25px 37px;
 }
 .title-container {
   display: flex;
@@ -797,8 +788,9 @@ body {
 .item:nth-child(n+2) {
   width: 180px;
   height: 250px;
-  top: 60%;
-  transform: translateY(-50%);
+  bottom: 130px;
+  top: auto;
+  transform: none;
   border-radius: 8px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.4);
   border: 2px solid rgba(255,255,255,0.1);
@@ -811,9 +803,8 @@ body {
 
 .item-content {
   position: absolute;
-  top: 55%;
+  bottom: 80px;
   left: 5vw;
-  transform: translateY(-50%);
   width: 450px;
   z-index: 10;
   display: none;
@@ -978,8 +969,8 @@ body {
 /* NEXT animations */
 .carousel.next .item:nth-child(1) { animation: nextMain 0.6s cubic-bezier(0.8,0,0.2,1) 1 forwards; }
 @keyframes nextMain {
-  from { width: 180px; height: 250px; top: 60%; transform: translateY(-50%); left: 50%; border-radius: 8px; opacity: 0; }
-  to { width: 100%; height: 100%; top: 0; transform: translateY(0); left: 0; border-radius: 0; opacity: 1; }
+  from { width: 180px; height: 250px; bottom: 130px; top: auto; transform: none; left: 50%; border-radius: 8px; opacity: 0; }
+  to { width: 100%; height: 100%; top: 0; left: 0; border-radius: 0; opacity: 1; }
 }
 .carousel.next .item:nth-child(2) { animation: nextCard1 0.6s cubic-bezier(0.8,0,0.2,1) 1 forwards; }
 @keyframes nextCard1 { from { left: calc(50% + 210px); } to { left: 50%; } }
@@ -993,8 +984,8 @@ body {
 /* PREV animations */
 .carousel.prev .item:nth-child(2) { animation: prevMain 0.6s cubic-bezier(0.8,0,0.2,1) 1 forwards; z-index: 10; }
 @keyframes prevMain {
-  from { width: 100%; height: 100%; top: 0; transform: translateY(0); left: 0; border-radius: 0; }
-  to { width: 180px; height: 250px; top: 60%; transform: translateY(-50%); left: 50%; border-radius: 8px; }
+  from { width: 100%; height: 100%; top: 0; left: 0; border-radius: 0; }
+  to { width: 180px; height: 250px; bottom: 130px; top: auto; transform: none; left: 50%; border-radius: 8px; }
 }
 .carousel.prev .item:nth-child(1) { animation: prevFadeIn 0.6s ease-in-out 1 forwards; z-index: 1; }
 @keyframes prevFadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -1016,13 +1007,23 @@ body {
   align-self: stretch;
   background-color: #fff;
   justify-content: center;
-  padding: 45px 43px;
+  padding: 45px 0;
   gap: 75px;
   z-index: 8;
   text-align: left;
   font-size: 64px;
   color: #000;
   font-family: "Playfair Display";
+}
+.about-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1920px;
+  padding: 0 80px;
+  gap: 75px;
 }
 .photo {
   padding: 10px;
@@ -1262,26 +1263,28 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 66px 106px 161px;
+  padding: 45px 80px;
   box-sizing: border-box;
   gap: 77px;
-  max-width: 100%;
+  height: auto;
   text-align: left;
   font-size: 24px;
   color: #fff;
   font-family: "Host Grotesk";
 }
-.heading-wrapper,
-.heading4 {
-  width: 1207.3px;
+.heading-wrapper {
+  width: 100%;
+  max-width: 1920px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  max-width: 100%;
 }
 .heading4 {
   width: 372.7px;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  max-width: 100%;
   padding: 10px;
   box-sizing: border-box;
 }
@@ -1298,11 +1301,12 @@ body {
 }
 
 
-.card1, .card2, .card3 {
+.card1, .card2, .card3, .card4, .card5, .card6 {
   perspective: 1000px;
 }
 .flip-inner {
   display: grid;
+  height: 372px;
   transform-style: preserve-3d;
   transition: transform 0.6s ease;
 }
@@ -1333,13 +1337,17 @@ body {
 
 .card1,
 .card1-parent {
-  display: flex;
-  align-items: flex-start;
   max-width: 100%;
 }
 .card1-parent {
-  width: 1208px;
-  flex: 1;
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 373px));
+  align-items: center;
+  justify-content: center;
   gap: 45px;
   text-align: center;
   font-size: 96px;
@@ -1347,8 +1355,8 @@ body {
   font-family: Geom;
 }
 .card1 {
-  align-self: stretch;
   flex: 1.0232;
+  display: flex;
   flex-direction: column;
   padding: 79px 10px;
   box-sizing: border-box;
@@ -1367,7 +1375,10 @@ body {
   z-index: 0;
   flex-shrink: 0;
 }
-.content4 {
+.content4,
+.content7,
+.content8,
+.content9 {
   width: 351px;
   height: 205px;
   position: relative;
@@ -1410,13 +1421,15 @@ body {
   flex-shrink: 0;
 }
 .card3,
+.card4,
+.card5,
+.card6,
 .content5,
 .content6 {
   position: relative;
   display: flex;
 }
 .card3 {
-  align-self: stretch;
   flex: 1;
   flex-direction: column;
   align-items: flex-start;
@@ -1426,7 +1439,21 @@ body {
   gap: 10px;
   max-width: 100%;
 }
-.content6 {
+.card4,
+.card5,
+.card6 {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 79px 14px;
+  box-sizing: border-box;
+  isolation: isolate;
+  gap: 10px;
+  max-width: 100%;
+}
+.content6,
+.content7,
+.content8,
+.content9 {
   width: 343px;
   height: 205px;
   line-height: 35%;
@@ -1452,13 +1479,22 @@ body {
   color: #000;
   font-family: "Arial MT Black";
 }
+.testimonial-inner {
+  width: 100%;
+  max-width: 1920px;
+  padding: 0 80px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  row-gap: 20px;
+}
 .heading5 {
   height: 746px;
   flex: 1;
   overflow: hidden;
   flex-direction: column;
   align-items: flex-start;
-  padding: 67px 58px;
+  padding: 0;
   box-sizing: border-box;
   min-width: 468px;
 }
@@ -1494,7 +1530,7 @@ body {
   flex: 1.0994;
   align-items: center;
   justify-content: center;
-  padding: 0 28px;
+  padding: 0;
   box-sizing: border-box;
   min-width: 468px;
 }
@@ -1614,32 +1650,37 @@ body {
   left: 124px;
   z-index: 2;
 }
-.cta-section,
 .form-div {
   height: 746px;
   display: flex;
   align-items: center;
+  width: 50%;
+  margin: 0 !important;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 .cta-section {
   width: 100%;
-  /* justify-content: space-between; */
+  height: 100vh;
+  background: linear-gradient(to right, #fff 50%, #000 50%);
+  display: flex;
+  justify-content: center;
   position: relative;
   isolation: isolate;
   gap: 0;
-  max-width: 100%;
   z-index: 5;
   text-align: left;
   font-size: 18px;
   color: #000;
   font-family: "Host Grotesk";
 }
-.form-div {
-  width: 50%;
-  margin: 0 !important;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  z-index: 0;
+.cta-wrapper {
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 .form,
 .form-div,
@@ -1942,10 +1983,9 @@ select:invalid, textarea::placeholder, input::placeholder {
   margin: 0 !important;
   top: 0;
   left: 720px;
-  background-color: #000;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   z-index: 1;
   text-align: right;
   font-size: 70px;
@@ -1989,7 +2029,7 @@ select:invalid, textarea::placeholder, input::placeholder {
 }
 .footer-section {
   align-self: stretch;
-  height: 746px;
+  height: 100vh;
   background: var(--footer-bg);
   align-items: center;
   justify-content: flex-end;
@@ -2009,6 +2049,7 @@ select:invalid, textarea::placeholder, input::placeholder {
   background-repeat: no-repeat;
   background-position: top;
   width: 100%;
+  height: 100%;
 }
 .animated-logo {
   position: absolute;
@@ -2025,6 +2066,7 @@ select:invalid, textarea::placeholder, input::placeholder {
 }
 .div12 {
   width: 100%;
+  height: 100%;
   align-items: center;
   gap: 20px;
 }
@@ -2033,7 +2075,7 @@ select:invalid, textarea::placeholder, input::placeholder {
   flex-direction: column;
 }
 .logo-parent {
-  height: 646px;
+  height: 100%;
   width: 328px;
   align-items: flex-start;
   gap: 20px;
@@ -2104,7 +2146,8 @@ a {
 }
 .footer-links-parent {
   width: 500px;
-  gap: 282px;
+  height: 100%;
+  justify-content: space-between;
   text-align: right;
   font-size: 17px;
   font-family: Geom;
@@ -2297,8 +2340,8 @@ a {
 /* ── Animation base states ── */
 .photo, .content3, .line, .stats2 .category-labels,
 .stats2 .commercial-wrapper, .stats2 .turnkey-wrapper,
-.service-main-view, .interiro-card, .turnkey-card,
-.heading-wrapper, .card1, .card2, .card3,
+.service-main-view, .interiro-card,
+.heading-wrapper, .card1, .card2, .card3, .card4, .card5, .card6,
 .heading5, .form-div, .heading-div,
 .logo-parent {
   will-change: transform, opacity;
@@ -2386,11 +2429,6 @@ a {
   .architecture {
     font-size: 51px;
   }
-  .turnkey-card {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    box-sizing: border-box;
-  }
   .space {
     font-size: 64px;
   }
@@ -2430,7 +2468,10 @@ a {
   }
   .content4,
   .content5,
-  .content6 {
+  .content6,
+  .content7,
+  .content8,
+  .content9 {
     font-size: 32px;
     line-height: 99px;
   }
