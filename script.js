@@ -62,7 +62,7 @@ function createObserver(callback, options = {}) {
   }
 
   const v = document.createElement('video');
-  v.autoplay = true; v.muted = true; v.playsInline = true;
+  v.autoplay = true; v.muted = true; v.playsInline = true; v.preload = 'metadata';
   v.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;';
   hero.style.position = 'relative';
   hero.insertBefore(v, hero.firstChild);
