@@ -452,12 +452,20 @@ function updateThumb(progress) {
   scrollThumb.style.top = (progress * (trackH - thumbH)) + 'px';
 }
 
-lenis.on('scroll', ({ progress }) => updateThumb(progress));
+let hideTimer;
+lenis.on('scroll', ({ progress }) => {
+  updateThumb(progress);
+  scrollThumb.classList.add('visible');
+  clearTimeout(hideTimer);
+  hideTimer = setTimeout(() => scrollThumb.classList.remove('visible'), 1000);
+});
 
 let dragging = false;
 scrollThumb.addEventListener('mousedown', (e) => {
   dragging = true;
   scrollThumb.style.cursor = 'grabbing';
+  scrollThumb.classList.add('visible');
+  clearTimeout(hideTimer);
   e.preventDefault();
 });
 document.addEventListener('mousemove', (e) => {
@@ -475,6 +483,8 @@ document.addEventListener('mouseup', () => {
     scrollThumb.style.cursor = 'grab';
   }
 });
+scrollTrack.addEventListener('mouseenter', () => { scrollThumb.classList.add('visible'); clearTimeout(hideTimer); });
+scrollTrack.addEventListener('mouseleave', () => { hideTimer = setTimeout(() => scrollThumb.classList.remove('visible'), 1000); });
 scrollTrack.addEventListener('click', (e) => {
   if (e.target === scrollThumb) return;
   const rect = scrollTrack.getBoundingClientRect();

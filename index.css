@@ -20,6 +20,11 @@ html.lenis::-webkit-scrollbar { display: none; }
   background: #1A365D;
   border-radius: 0;
   cursor: grab;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#scroll-thumb.visible {
+  opacity: 1;
 }
 .lenis.lenis-smooth { scroll-behavior: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
