@@ -511,3 +511,34 @@ window.addEventListener('load', () => {
     }, 1500);
   }
 });
+
+// ── WhatsApp Popup ──
+(function () {
+  const floatBtn = document.querySelector('.whatsapp-float');
+  const popup = document.querySelector('.whatsapp-popup');
+  const closeBtn = document.querySelector('.whatsapp-popup-close');
+  const openChatBtn = document.querySelector('.whatsapp-open-chat');
+  if (!floatBtn || !popup || !closeBtn || !openChatBtn) return;
+
+  const phoneNumber = '919099898794'; // placeholder
+  const message = encodeURIComponent('Hi! I would like to book a design consultation with your team. I want to discuss design ideas for my property. Please share your next available slots for a phone call or site visit.');
+
+  floatBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    popup.classList.toggle('open');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    popup.classList.remove('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!popup.contains(e.target) && e.target !== floatBtn && !floatBtn.contains(e.target)) {
+      popup.classList.remove('open');
+    }
+  });
+
+  openChatBtn.addEventListener('click', () => {
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  });
+})();
