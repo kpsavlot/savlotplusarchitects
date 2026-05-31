@@ -362,7 +362,6 @@
 }
 .portfolio-card-grid > section {
   position: relative;
-  cursor: pointer;
 }
 [class^="content-parent"]::before {
   opacity: 0;
@@ -414,6 +413,7 @@
   position: relative;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .content {
   align-self: stretch;
