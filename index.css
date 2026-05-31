@@ -111,9 +111,9 @@ body {
   height: 33px;
   position: relative;
   font-size: inherit;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.08em;
   line-height: 102.72%;
-  font-weight: 400;
+  font-weight: 500;
   font-family: inherit;
   display: inline-block;
 }
@@ -2686,7 +2686,8 @@ a {
   font-size: 32px;
   color: #ffffff;
   margin: 0;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.08em;
+  font-weight: 500;
   line-height: 102.72%;
 }
 
@@ -2695,7 +2696,8 @@ a {
   font-size: 20px;
   color: #ffffff;
   margin: 0;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.08em;
+  font-weight: 500;
   line-height: 102.72%;
 }
 
