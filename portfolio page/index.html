@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geom:wght@500;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair Display:wght@800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Host Grotesk:wght@400;600&display=swap"
+    />
+
+    <style>
+      @font-face {
+        font-family: "Bank Gothic Light";
+        src: url("./public/fonts/Bank Gothic Light Regular.otf");
+        font-weight: 400;
+        font-display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader" class="savlot-loader-overlay">
+      <div class="loader-logo">
+        <p class="loader-title">Savlot + Architects</p>
+        <p class="loader-subtitle">Kailash M Savlot</p>
+      </div>
+      <div class="loader-bar">
+        <div class="loader-bar-fill"></div>
+      </div>
+    </div>
+    <div class="portfolio-page" id="top">
+      <div class="portfolio-hero-parent">
+        <div class="portfolio-hero">
+          <header class="portfolio-header">
+            <div class="header">
+              <div class="logo">
+                <h1 class="savlot-architects">Savlot + Architects</h1>
+                <h3 class="kailash-m-savlot">Kailash M Savlot</h3>
+              </div>
+              <div class="pill-menu">
+                <ul class="nav-links">
+                  <li><a href="#">HOME</a></li>
+                  <li class="menu-item-has-children">
+                    <a href="#">SERVICE</a>
+                    <ul class="sub-menu">
+                      <li><a href="#">Interior</a></li>
+                      <li><a href="#">Architecture</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">ABOUT</a></li>
+                  <li><a href="#">CONTACT</a></li>
+                </ul>
+                <div class="hamburger-wrapper">
+                  <div class="menu-button">
+                    <span class="project-name"></span>
+                    <span class="project-name2"></span>
+                    <span class="project-name"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div class="portfolio-heading">
+            <span class="the">THE<br /></span>
+            <span class="portfolio">PORTFOLIO</span>
+          </div>
+        </div>
+        <div class="portfolio-filter">
+          <div class="main-filter">
+            <button class="filter-btn main-filter-btn active" data-filter="interior">
+              <h3 class="interior">INTERIOR</h3>
+            </button>
+            <button class="filter-btn main-filter-btn" data-filter="architecture">
+              <h3 class="architecture">ARCHITECTURE</h3>
+            </button>
+          </div>
+          <div class="sub-filter">
+            <button class="filter-btn sub-filter-btn active" data-filter="all">
+              <h3 class="interior">ALL</h3>
+            </button>
+            <button class="filter-btn sub-filter-btn" data-filter="residential">
+              <h3 class="retails">RESIDENTIAL</h3>
+            </button>
+            <button class="filter-btn sub-filter-btn" data-filter="commercial">
+              <h3 class="commercial2">COMMERCIAL</h3>
+            </button>
+            <button class="filter-btn sub-filter-btn" data-filter="retails">
+              <h3 class="retails">RETAILS</h3>
+            </button>
+          </div>
+        </div>
+      </div>
+      <main class="portfolio-filter-parent">
+        
+        <div class="portfolio-card-grid" id="portfolio-card-grid">
+          <section class="card01" data-main="interior" data-sub="residential">
+            <div class="content-parent">
+              <div class="content">
+                <h2 class="project-1">PROJECT - 1</h2>
+                <div class="bopal-2024">BOPAL, 2024</div>
+              </div>
+            </div>
+          </section>
+          <section class="card02" data-main="interior" data-sub="commercial">
+            <div class="content-parent2">
+              <div class="content">
+                <h2 class="project-1">PROJECT - 2</h2>
+                <div class="bopal-2024">SETELLITE, 2025</div>
+              </div>
+            </div>
+          </section>
+          <div class="blank-card"></div>
+          <section class="card03" data-main="interior" data-sub="retails">
+            <div class="content-parent3">
+              <div class="content3">
+                <h2 class="project-1">PROJECT - 3</h2>
+                <div class="bopal-2024">PRAHLAD NAGAR, 2022</div>
+              </div>
+            </div>
+          </section>
+          <div class="blank-card2"></div>
+          <section class="card04" data-main="interior" data-sub="residential">
+            <div class="content-parent4">
+              <div class="content3">
+                <h2 class="project-1">PROJECT - 4</h2>
+                <div class="bopal-2024">BODAKDEV, 2025</div>
+              </div>
+            </div>
+          </section>
+          <section class="card05" data-main="interior" data-sub="residential">
+            <div class="content-parent5">
+              <div class="content3">
+                <h2 class="project-1">PROJECT - 5</h2>
+                <div class="bopal-2024">SHILAJ, 2021</div>
+              </div>
+            </div>
+          </section>
+          <section class="card06" data-main="interior" data-sub="commercial">
+            <div class="content-parent6">
+              <div class="content3">
+                <h2 class="project-1">PROJECT - 6</h2>
+                <div class="bopal-2024">SHILAJ, 2021</div>
+              </div>
+            </div>
+          </section>
+          <div class="blank-card3"></div>
+          <div class="blank-card4"></div>
+          <section class="card07" data-main="interior" data-sub="retails">
+            <div class="content-parent7">
+              <div class="content3">
+                <h2 class="project-1">PROJECT - 7</h2>
+                <div class="bopal-2024">GOTA, 2026</div>
+              </div>
+            </div>
+          </section>
+          <section class="card08" data-main="interior" data-sub="residential">
+            <div class="content-parent8">
+              <div class="content3">
+                <h2 class="project-1">PROJECT - 8</h2>
+                <div class="bopal-2024">GOTA, 2026</div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="footer-section">
+        <div class="div4">
+          <div class="animated-logo">
+            <img loading="lazy" height="100%" src="./public/div2@3x.png" alt="">
+          </div>
+          <div class="div12">
+            <div class="logo-parent">
+              <div class="logo2">
+                <h2 class="savlot-architects2">Savlot + Architects</h2>
+                <h3 class="kailash-m-savlot2">Kailash M Savlot</h3>
+              </div>
+              <div class="contacts">
+                <div class="email">
+                  <div class="infosavlotplusarchitectscom">
+                    <a href="mailto:info@savlotplusarchitects.com">info@savlotplusarchitects.com</a>
+                  </div>
+                </div>
+                <div class="social-media-links2">
+                  <a href="#"><div class="insta-icon2 insta-icon-instagram"></div></a>
+                  <a href="#"><div class="insta-icon2 insta-icon-facebook"></div></a>
+                  <a href="#"><div class="insta-icon2 insta-icon-linkedin"></div></a>
+                  <a href="#"><div class="insta-icon2 insta-icon-yt"></div></a>
+                </div>
+              </div>
+            </div>
+            <div class="footer-links-parent">
+              <div class="footer-links">
+                <a class="links" href="#">service</a>
+                <a class="links" href="#">interior designing</a>
+                <a class="links" href="#">architecture</a>
+                <a class="links" href="#">turnkey project</a>
+                <a class="links" href="#">portfolio</a>
+                <a class="links" href="#">about us</a>
+                <a class="links" href="#">contact us</a>
+              </div>
+              <div class="termsconditions">
+                <div class="infosavlotplusarchitectscom">
+                  ©  2026 savlot plus architects
+                </div>
+                <div class="infosavlotplusarchitectscom">
+                  <a class="terms-link" href="#">terms & conditions</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div id="scroll-track"><div id="scroll-thumb"></div></div>
+    <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
+    <script type="module" src="./script.js" defer></script>
+  </body>
+</html>
