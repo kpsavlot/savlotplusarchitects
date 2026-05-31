@@ -407,7 +407,7 @@
   display: flex;
   max-width: 100%;
 }
-.content-parent {
+[class^="content-parent"] {
   height: 538px;
   overflow: hidden;
   position: relative;
