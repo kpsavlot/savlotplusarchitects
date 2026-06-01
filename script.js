@@ -84,7 +84,7 @@ function createObserver(callback, options = {}) {
   playVideo(0);
 
   const o = document.createElement('div');
-  o.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7));z-index:1;pointer-events:none;';
+  o.className = 'hero-overlay';
   hero.insertBefore(o, hero.firstChild);
   const cp = hero.querySelector('.content-parent');
   cp.style.position = 'relative';
