@@ -9,7 +9,7 @@
   "name": "my_projects_s_project_-_1",
   "scripts": {
     "start": "parcel ./*.html ",
-    "build": "parcel build ./*.html --dist-dir ./dist --no-source-maps"
+    "build": "parcel build ./*.html ./project\\ page/*.html ./portfolio\\ page/*.html --dist-dir ./dist --no-source-maps"
   },
   "version": "1.0.0",
   "dependencies": {
