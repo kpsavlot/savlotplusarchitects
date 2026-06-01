@@ -148,7 +148,7 @@ body {
   width: px;
   height: px;
 }
-.insta-icon {
+.insta-div .social-icon {
   width: 22px;
   height: 22px;
 }
@@ -2140,7 +2140,7 @@ a {
   align-items: center;
   gap: 28px;
 }
-.insta-icon2 {
+.social-icon {
   width: 30px;
   position: relative;
   max-height: 100%;
@@ -2262,7 +2262,7 @@ a {
 }
 
 /* ── Social Media Icon Brand Colors via Mask ── */
-.insta-icon, .insta-icon2 {
+.social-icon {
   background-color: #fff;
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -2278,9 +2278,8 @@ a {
 @property --color-5 { syntax: '<color>'; inherits: false; initial-value: #ffffff; }
 
 
-.insta-icon { width: 22px; height: 22px; }
-.insta-icon2 { width: 30px; height: 30px; }
-.insta-icon-instagram {
+.social-icon { width: 30px; height: 30px; }
+.icon-ig {
   cursor: pointer;
   mask-image: url('./public/insta.svg');
   -webkit-mask-image: url('./public/insta.svg');
@@ -2288,7 +2287,7 @@ a {
   background-image: radial-gradient(circle at 30% 107%, var(--color-1) 0%, var(--color-2) 5%, var(--color-3) 45%, var(--color-4) 60%, var(--color-5) 90%);
   transition: --color-1 0.3s ease, --color-2 0.3s ease, --color-3 0.3s ease, --color-4 0.3s ease,--color-5 0.3s ease;
 }
-.insta-icon-instagram:hover {
+.icon-ig:hover {
   --color-1: #fdf497;
   --color-2: #fdf497;
   --color-3: #fd5949;
@@ -2296,35 +2295,35 @@ a {
   --color-5: #285aeb;
   transition: --color-1 0.5s ease, --color-2 0.5s ease, --color-3 0.5s ease, --color-4 0.5s ease,--color-5 0.5s ease;
 }
-.insta-icon-facebook {
+.icon-fb {
   cursor: pointer;
   mask-image: url('./public/facebook.svg');
   -webkit-mask-image: url('./public/facebook.svg');
   background-color: #ffffff;
   transition: background-color 0.3s ease;
 }
-.insta-icon-facebook:hover {
+.icon-fb:hover {
   background-color: #1877f2;
   transition: background-color 0.5s ease;
 }
-.insta-icon-linkedin {
+.icon-in {
   cursor: pointer;
   mask-image: url('./public/in.svg');
   -webkit-mask-image: url('./public/in.svg');
   background-color: #fff;
   transition: background-color 0.3s ease;
 }
-.insta-icon-linkedin:hover {
+.icon-in:hover {
   background-color: #0a66c2;
   transition: background-color 0.5s ease;
 }
-.insta-icon-yt {
-  mask-image: url('./public/Vector1.svg');
-  -webkit-mask-image: url('./public/Vector1.svg');
+.icon-wa {
+  mask-image: url('./public/whatsapp.svg');
+  -webkit-mask-image: url('./public/whatsapp.svg');
   background-color: #fff;
   transition: background-color 0.3s ease;
 }
-.insta-icon-yt:hover {
+.icon-wa:hover {
   background-color: #25d366;
   transition: background-color 0.5s ease;
 }
