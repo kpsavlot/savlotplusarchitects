@@ -8,8 +8,8 @@
   "license": "ISC",
   "name": "my_projects_s_project_-_1",
   "scripts": {
-    "start": "parcel ./*.html ",
-    "build": "parcel build ./*.html ./project\\ page/*.html ./portfolio\\ page/*.html --dist-dir ./dist --no-source-maps"
+    "start": "parcel index.html \"project page/project.html\" \"portfolio page/portfolio.html\"",
+    "build": "parcel build index.html \"project page/project.html\" \"portfolio page/portfolio.html\" --dist-dir ./dist --no-source-maps"
   },
   "version": "1.0.0",
   "dependencies": {

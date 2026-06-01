@@ -289,3 +289,17 @@ window.addEventListener('load', function() {
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   });
 })();
+
+// ── Portfolio card navigation ──
+(function () {
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('[data-id]');
+    if (!link) return;
+    e.preventDefault();
+    var id = link.getAttribute('data-id');
+    var href = link.getAttribute('href');
+    if (href && id) {
+      window.location.href = href + '?id=' + id;
+    }
+  });
+})();
