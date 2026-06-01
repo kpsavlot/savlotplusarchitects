@@ -168,6 +168,32 @@ const projects = {
 };
 
 // ── Render Project ──
+function animateStats() {
+  var cards = document.querySelectorAll('#stats-section .stat-card');
+  if (!cards.length) return;
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var card = entry.target;
+      obs.unobserve(card);
+      var rollers = card.querySelectorAll('.digit-roller');
+      var len = rollers.length;
+      if (!len) return;
+      rollers.forEach(function (roller, idx) {
+        var target = parseInt(roller.getAttribute('data-digit'));
+        if (isNaN(target)) return;
+        var strip = roller.querySelector('.digit-strip');
+        if (!strip) return;
+        var delay = (len - 1 - idx) * 140;
+        setTimeout(function () {
+          strip.style.transform = 'translateY(-' + (target * 1.25) + 'em)';
+        }, delay);
+      });
+    });
+  }, { threshold: 0.3 });
+  cards.forEach(function (c) { obs.observe(c); });
+}
+
 function renderProject(id) {
   const data = projects[id];
   if (!data) return;
@@ -198,10 +224,41 @@ function renderProject(id) {
     data.stats.forEach(s => {
       const div = document.createElement('div');
       div.className = 'stat-card';
-      div.innerHTML = `<h1 class="stat-value">${s.value}</h1><h2 class="stat-label">${s.label}</h2>`;
+      var valHtml = '';
+      var valStr = s.value;
+      var numMatch = valStr.match(/^(-?[\d]+)(\.[\d]+)?(.*)$/);
+      if (numMatch) {
+        var intPart = numMatch[1];
+        var decPart = numMatch[2] || '';
+        var suffix = numMatch[3] || '';
+        for (var i = 0; i < intPart.length; i++) {
+          var ch = intPart[i];
+          if (ch === '-') {
+            valHtml += '<span class="stat-digit-static">-</span>';
+          } else {
+            valHtml += '<span class="digit-roller" data-digit="' + ch + '"><span class="digit-strip">';
+            for (var d = 0; d <= 9; d++) valHtml += '<span>' + d + '</span>';
+            valHtml += '</span></span>';
+          }
+        }
+        if (decPart) {
+          valHtml += '<span class="stat-digit-static">.</span>';
+          for (var i = 1; i < decPart.length; i++) {
+            var ch = decPart[i];
+            valHtml += '<span class="digit-roller" data-digit="' + ch + '"><span class="digit-strip">';
+            for (var d = 0; d <= 9; d++) valHtml += '<span>' + d + '</span>';
+            valHtml += '</span></span>';
+          }
+        }
+        valHtml += '<span class="stat-digit-static">' + suffix + '</span>';
+      } else {
+        valHtml = '<span class="stat-digit-static">' + valStr + '</span>';
+      }
+      div.innerHTML = '<h1 class="stat-value">' + valHtml + '</h1><h2 class="stat-label">' + s.label + '</h2>';
       statsEl.appendChild(div);
     });
     statsEl.classList.remove('hidden-section');
+    animateStats();
   } else {
     statsEl.classList.add('hidden-section');
   }
