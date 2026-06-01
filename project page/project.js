@@ -19,10 +19,20 @@ function createObserver(callback, options = {}) {
   logo.style.transition = 'opacity 0.8s ease';
 })();
 
+// ── Asset URLs (bundler-friendly) ──
+const heroImgUrl = new URL('./public/project-bg@2x.png', import.meta.url).href;
+const posterUrl = new URL('./public/28-1@2x.png', import.meta.url).href;
+const videoMp4Url = new URL('./public/project-video.mp4', import.meta.url).href;
+const videoWebmUrl = new URL('./public/project-video.webm', import.meta.url).href;
+const gallery1Url = new URL('./public/Image1@2x.png', import.meta.url).href;
+const gallery2Url = new URL('./public/Image2@2x.png', import.meta.url).href;
+const gallery3Url = new URL('./public/Image@2x.png', import.meta.url).href;
+const galleryImgs = [gallery1Url, gallery2Url, gallery3Url];
+
 // ── Project Data ──
 const projects = {
   1: {
-    hero: './public/project-bg@2x.png',
+    hero: heroImgUrl,
     title: 'THE MONOLITH HOUSE',
     location: 'SHILAJ, 2021',
     brief: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -36,11 +46,11 @@ const projects = {
       { value: '35%', label: 'Energy Bill Reduction' },
       { value: '85%', label: 'Daylight Autonomy' },
     ],
-    video: { poster: './public/28-1@2x.png', sources: ['./public/project-video.mp4', './public/project-video.webm'] },
-    gallery: ['./public/Image1@2x.png', './public/Image2@2x.png', './public/Image@2x.png'],
+    video: { poster: posterUrl, sources: [videoMp4Url, videoWebmUrl] },
+    gallery: galleryImgs,
   },
   2: {
-    hero: './public/project-bg@2x.png',
+    hero: heroImgUrl,
     title: 'THE GLASS PAVILION',
     location: 'SATELLITE, 2025',
     brief: 'A minimalist exploration of transparency and reflection. This residence negotiates privacy and openness through carefully calibrated glass planes that dissolve the boundary between interior and landscape.',
@@ -54,11 +64,11 @@ const projects = {
       { value: '40%', label: 'Glass Coverage' },
       { value: '2.5\u00b0C', label: 'Indoor Stability' },
     ],
-    video: { poster: './public/28-1@2x.png', sources: ['./public/project-video.mp4', './public/project-video.webm'] },
-    gallery: ['./public/Image1@2x.png', './public/Image2@2x.png', './public/Image@2x.png'],
+    video: { poster: posterUrl, sources: [videoMp4Url, videoWebmUrl] },
+    gallery: galleryImgs,
   },
   3: {
-    hero: './public/project-bg@2x.png',
+    hero: heroImgUrl,
     title: 'THE COURTYARD VILLA',
     location: 'PRAHLAD NAGAR, 2022',
     brief: 'A modern reinterpretation of the traditional Indian courtyard home. The design centers on a landscaped water court that cools the surrounding living spaces and anchors the family life.',
@@ -72,11 +82,11 @@ const projects = {
       { value: '60%', label: 'Open-to-Sky Ratio' },
       { value: '2x', label: 'Cross Ventilation' },
     ],
-    video: { poster: './public/28-1@2x.png', sources: ['./public/project-video.mp4', './public/project-video.webm'] },
-    gallery: ['./public/Image1@2x.png', './public/Image2@2x.png', './public/Image@2x.png'],
+    video: { poster: posterUrl, sources: [videoMp4Url, videoWebmUrl] },
+    gallery: galleryImgs,
   },
   4: {
-    hero: './public/project-bg@2x.png',
+    hero: heroImgUrl,
     title: 'THE URBAN NEST',
     location: 'BODAKDEV, 2025',
     brief: 'A compact luxury apartment designed for the modern professional. Every square foot is optimized through custom millwork and hidden storage, creating a serene urban refuge.',
@@ -90,11 +100,11 @@ const projects = {
       { value: '14\u2019', label: 'Peak Ceiling' },
       { value: '40%', label: 'Storage Ratio' },
     ],
-    video: { poster: './public/28-1@2x.png', sources: ['./public/project-video.mp4', './public/project-video.webm'] },
-    gallery: ['./public/Image1@2x.png', './public/Image2@2x.png', './public/Image@2x.png'],
+    video: { poster: posterUrl, sources: [videoMp4Url, videoWebmUrl] },
+    gallery: galleryImgs,
   },
   5: {
-    hero: './public/project-bg@2x.png',
+    hero: heroImgUrl,
     title: 'THE NOIR RESIDENCE',
     location: 'BOPAL, 2024',
     brief: 'Currently in the final styling phase. This turnkey project explores the balance between ambient lighting and deep, tactile textures. A study in contrasts \u2014 matte against gloss, rough stone against smooth leather.',
@@ -108,11 +118,11 @@ const projects = {
       { value: '35%', label: 'Matte Finish' },
       { value: '6', label: 'Art Niches' },
     ],
-    video: { poster: './public/28-1@2x.png', sources: ['./public/project-video.mp4', './public/project-video.webm'] },
-    gallery: ['./public/Image1@2x.png', './public/Image2@2x.png', './public/Image@2x.png'],
+    video: { poster: posterUrl, sources: [videoMp4Url, videoWebmUrl] },
+    gallery: galleryImgs,
   },
   6: {
-    hero: './public/project-bg@2x.png',
+    hero: heroImgUrl,
     title: 'THE SKY VILLA',
     location: 'SHILAJ, 2021',
     brief: 'A penthouse residence with panoramic city views and a rooftop garden. The design prioritizes indoor-outdoor living with a seamless flow from living spaces to the terrace.',
@@ -126,11 +136,11 @@ const projects = {
       { value: '1500\u00b2', label: 'Terrace Garden' },
       { value: '25\u2019', label: 'Ceiling Height' },
     ],
-    video: { poster: './public/28-1@2x.png', sources: ['./public/project-video.mp4', './public/project-video.webm'] },
-    gallery: ['./public/Image1@2x.png', './public/Image2@2x.png', './public/Image@2x.png'],
+    video: { poster: posterUrl, sources: [videoMp4Url, videoWebmUrl] },
+    gallery: galleryImgs,
   },
   7: {
-    hero: './public/project-bg@2x.png',
+    hero: heroImgUrl,
     title: 'THE HERITAGE RESIDENCE',
     location: 'GOTA, 2026',
     brief: 'Blending contemporary luxury with classical design motifs. This residence features bespoke brass fittings, imported marble, and hand-painted wall finishes throughout the public spaces.',
@@ -144,11 +154,11 @@ const projects = {
       { value: '7', label: 'Bespoke Chandeliers' },
       { value: '4', label: 'Material Palettes' },
     ],
-    video: { poster: './public/28-1@2x.png', sources: ['./public/project-video.mp4', './public/project-video.webm'] },
-    gallery: ['./public/Image1@2x.png', './public/Image2@2x.png', './public/Image@2x.png'],
+    video: { poster: posterUrl, sources: [videoMp4Url, videoWebmUrl] },
+    gallery: galleryImgs,
   },
   8: {
-    hero: './public/project-bg@2x.png',
+    hero: heroImgUrl,
     title: 'THE GARDEN PAVILION',
     location: 'GOTA, 2026',
     brief: 'A weekend retreat that blurs the line between architecture and landscape. The pavilion sits lightly on the land with a cantilevered roof that shelters both indoor and outdoor rooms.',
@@ -162,8 +172,8 @@ const projects = {
       { value: '14\u2019', label: 'Roof Overhang' },
       { value: '100%', label: 'Indoor-Outdoor Flow' },
     ],
-    video: { poster: './public/28-1@2x.png', sources: ['./public/project-video.mp4', './public/project-video.webm'] },
-    gallery: ['./public/Image1@2x.png', './public/Image2@2x.png', './public/Image@2x.png'],
+    video: { poster: posterUrl, sources: [videoMp4Url, videoWebmUrl] },
+    gallery: galleryImgs,
   },
 };
 
