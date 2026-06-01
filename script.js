@@ -23,15 +23,13 @@ function createObserver(callback, options = {}) {
   const hero = document.querySelector('.hero-section .div');
   if (!hero) return;
 
-  hero.style.backgroundImage = 'none';
-
   const MIN_DURATION = 8000;
-  const heroVideoUrl = new URL('./public/hero-video.mp4', import.meta.url).href;
+  const video1Url = new URL('./public/hero-video-1.mp4', import.meta.url).href;
+  const video2Url = new URL('./public/hero-video-2.mp4', import.meta.url).href;
 
   const hc = [
-    { title: 'THE NOIR RESIDENCE', desc: 'Currently in the final styling phase. This turnkey project in Ahmedabad explores the balance between ambient lighting and deep, tactile textures.', status: 'HANDOVER PHASE', location: 'SATELLITE, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: heroVideoUrl },
-    { title: 'THE MONOLITH HOUSE', desc: 'Full Architecture & Turnkey execution. Achieved 40% more natural light via a central atrium. 14 Months from soil-test to shoes-off.', status: 'COMPLETED', location: 'BOPAL, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: heroVideoUrl },
-    { title: 'THE SKY VILLA', desc: 'A minimalist penthouse with panoramic city views. Floor-to-ceiling glass walls blur the line between indoor and outdoor living.', status: 'ONGOING', location: 'PRAHLADNAGAR, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: heroVideoUrl },
+    { title: 'THE NOIR RESIDENCE', desc: 'Currently in the final styling phase. This turnkey project in Ahmedabad explores the balance between ambient lighting and deep, tactile textures.', status: 'HANDOVER PHASE', location: 'SATELLITE, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: video1Url },
+    { title: 'THE MONOLITH HOUSE', desc: 'Full Architecture & Turnkey execution. Achieved 40% more natural light via a central atrium. 14 Months from soil-test to shoes-off.', status: 'COMPLETED', location: 'BOPAL, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: video2Url },
   ];
 
   let ci = 0;
@@ -63,8 +61,7 @@ function createObserver(callback, options = {}) {
 
   const v = document.createElement('video');
   v.autoplay = true; v.muted = true; v.playsInline = true;
-  v.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;';
-  hero.style.position = 'relative';
+  v.className = 'hero-video';
   hero.insertBefore(v, hero.firstChild);
 
   function playVideo(i) {
@@ -83,12 +80,8 @@ function createObserver(callback, options = {}) {
 
   playVideo(0);
 
-  const o = document.createElement('div');
-  o.className = 'hero-overlay';
-  hero.insertBefore(o, hero.firstChild);
   const cp = hero.querySelector('.content-parent');
-  cp.style.position = 'relative';
-  cp.style.zIndex = '2';
+  cp.classList.add('hero-content');
 })();
 
 // ── Service Section: Card Stack ──
