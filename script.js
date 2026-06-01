@@ -542,3 +542,24 @@ window.addEventListener('load', () => {
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   });
 })();
+
+// ── Mobile input: prefix on focus, placeholder on blur, digits only ──
+(function () {
+  var input = document.getElementById('mobile-input');
+  if (!input) return;
+  input.addEventListener('focus', function () {
+    if (this.value === '') this.value = '+91';
+  });
+  input.addEventListener('blur', function () {
+    if (this.value === '+91') this.value = '';
+  });
+  input.addEventListener('input', function () {
+    var val = this.value;
+    var cleaned = '';
+    for (var i = 0; i < val.length; i++) {
+      var ch = val.charAt(i);
+      if ((ch >= '0' && ch <= '9') || (ch === '+' && i === 0)) cleaned += ch;
+    }
+    this.value = cleaned.substring(0, 13);
+  });
+})();

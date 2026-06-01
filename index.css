@@ -1734,6 +1734,8 @@ body {
   min-width: 250px;
   z-index: 1;
   font-size: 17px;
+  font-family: 'Host Grotesk';
+  color: #4f4f4f;
   padding-left: 5px;
 }
 .mobile,
@@ -1762,6 +1764,15 @@ body {
   isolation: isolate;
   gap: 8px;
   max-width: 100%;
+}
+.mobile-input-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.mobile-input-wrap .footer-info {
+  padding-left: 5px;
 }
 .div3,
 .mobile2 {
@@ -1828,6 +1839,10 @@ body {
   border: 1px solid #bfbfbf;
   box-sizing: border-box;
   z-index: 1;
+  font-family: 'Host Grotesk';
+  font-size: 17px;
+  color: #4f4f4f;
+  padding-left: 5px;
 }
 select:invalid, textarea::placeholder, input::placeholder {
   font-family: 'Host Grotesk';
@@ -1916,6 +1931,8 @@ select:invalid, textarea::placeholder, input::placeholder {
   box-sizing: border-box;
   z-index: 1;
   font-size: 17px;
+  font-family: 'Host Grotesk';
+  color: #4f4f4f;
   padding-left: 5px;
 }
 
