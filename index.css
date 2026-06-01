@@ -1167,7 +1167,7 @@ body {
   position: relative;
   font-size: 20px;
 }
-.residential {
+.stat-label {
   margin: 0;
   position: relative;
   font-size: inherit;
@@ -1253,7 +1253,7 @@ body {
   height: 97px;
   width: 61px;
 }
-.turnkey-wrapper {
+.retail-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2345,7 +2345,7 @@ a {
 
 /* ── Animation base states ── */
 .photo, .content3, .line, .stats2 .category-labels,
-.stats2 .commercial-wrapper, .stats2 .turnkey-wrapper,
+.stats2 .commercial-wrapper, .stats2 .retail-wrapper,
 .service-main-view, .interiro-card,
 .heading-wrapper, .card1, .card2, .card3, .card4, .card5, .card6,
 .heading5, .form-div, .heading-div,
@@ -2578,7 +2578,7 @@ a {
   .blanks-two {
     font-size: 25px;
   }
-  .residential {
+  .stat-label {
     font-size: 16px;
   }
   .h23,
