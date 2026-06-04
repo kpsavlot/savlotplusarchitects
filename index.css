@@ -1490,7 +1490,7 @@ body {
   font-family: inherit;
 }
 .the-stories-behind {
-  height: 294px;
+  /* height: 294px; */
   font-size: 75px;
   line-height: 100.4%;
   font-weight: 900;
@@ -1501,7 +1501,7 @@ body {
 }
 .review-card-parent,
 .review-cards {
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
 }
@@ -1533,7 +1533,7 @@ body {
 .review-card {
   margin: 0 !important;
   position: absolute;
-  top: 67px;
+  top: 20px;
   left: -284px;
   filter: drop-shadow(9px 11px 20.3px rgba(30, 69, 133, 0.14));
   isolation: isolate;
@@ -1612,7 +1612,7 @@ body {
 .review-card3 {
   margin: 0 !important;
   position: absolute;
-  top: 67px;
+  top: 20px;
   left: 532px;
   filter: drop-shadow(9px 11px 20.3px rgba(30, 69, 133, 0.14));
   display: flex;
@@ -1675,7 +1675,7 @@ body {
 }
 .name {
   position: absolute;
-  width: 100%;
+  width: 85%;
   top: 0;
   right: 0;
   left: 0;
@@ -1727,7 +1727,7 @@ body {
   z-index: 2;
 }
 .mobile {
-  width: 100%;
+  width: 85%;
   top: 90px;
   right: 0;
   left: 0;
@@ -1793,7 +1793,7 @@ body {
 }
 .service {
   position: absolute;
-  width: 100%;
+  width: 85%;
   top: 181px;
   right: 0;
   left: 0;
@@ -1836,7 +1836,7 @@ select:invalid, textarea::placeholder, input::placeholder {
 }
 .project {
   position: absolute;
-  width: 100%;
+  width: 85%;
   top: 271px;
   right: 0;
   left: 0;
@@ -1872,7 +1872,7 @@ select:invalid, textarea::placeholder, input::placeholder {
 }
 .message {
   position: absolute;
-  width: 100%;
+  width: 85%;
   top: 362px;
   right: 0;
   left: 0;
@@ -2466,7 +2466,7 @@ a {
     min-width: 100%;
   }
   .h1 {
-    font-size: 88px;
+    font-size: 150px;
     line-height: 48px;
   }
   .the-stories-behind {
@@ -2588,7 +2588,7 @@ a {
     line-height: 74px;
   }
   .h1 {
-    font-size: 55px;
+    font-size: 120px;
     line-height: 32px;
   }
   .the-stories-behind {
@@ -2831,11 +2831,19 @@ a {
   }
   .testimonial-section {
     flex-direction: column;
+    height: 100svh;
+  }
+  .testimonial-inner {
+    flex-direction: column;
+    padding: 0 20px;
+    height: 100%;
+    gap: 0;
   }
   .heading5 {
     height: auto;
     min-width: 100%;
     padding: 30px 20px;
+    justify-content: end;
   }
   .h1 {
     font-size: 80px;
@@ -2850,7 +2858,7 @@ a {
     padding: 20px;
   }
   .review-card-parent {
-    height: auto;
+    height: 500px;
     width: 100%;
   }
   .interior-design-for-container {
@@ -2863,11 +2871,11 @@ a {
   }
   .cta-section {
     flex-direction: column;
-    height: auto;
-    background: #fff;
+    background: linear-gradient(to bottom, #fff 60%, #000 55%);
+    height: 150svh;
   }
   .cta-wrapper {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
   .form-div {
     width: 100%;
@@ -2876,8 +2884,17 @@ a {
   }
   .form {
     width: 100%;
-    height: auto;
+    height: 645px;
     margin-left: 0;
+  }
+  .name, .mobile, .project, .service, .message {
+    transform: translate(-50%, 0);
+    left: 50%;
+  }
+  .get-a-quote-button3 {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 605px;
   }
   .lets-build-your-container {
     font-size: 36px;
@@ -3098,9 +3115,10 @@ a {
   }
   .heading5 {
     padding: 20px 15px;
+    justify-content: end;
   }
   .h1 {
-    font-size: 60px;
+    font-size: 120px;
   }
   .the-stories-behind {
     font-size: 36px;
