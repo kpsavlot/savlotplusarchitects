@@ -885,6 +885,245 @@ a { color: inherit; text-decoration: inherit; }
   }
 }
 
+/* ── Enhanced Responsive ── */
+
+@media screen and (max-width: 1024px) {
+  .header {
+    gap: 10px;
+  }
+  .savlot-architects {
+    font-size: 24px;
+  }
+  .kailash-m-savlot {
+    font-size: 16px;
+  }
+  .project-header {
+    padding: 15px 30px;
+  }
+  .project-heading-section {
+    padding: 30px;
+  }
+  .project-heading {
+    width: 100%;
+    max-width: 600px;
+  }
+  .project-title {
+    font-size: 48px;
+  }
+  .project-main-content {
+    padding: 30px;
+  }
+  .brief-text {
+    font-size: 20px;
+  }
+  .point-heading {
+    font-size: 32px;
+  }
+  .point-text {
+    font-size: 20px;
+  }
+  .stats-section {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    padding: 60px 0;
+  }
+  .stat-value {
+    font-size: 96px;
+  }
+  .stat-label {
+    font-size: 26px;
+  }
+  .project-video {
+    padding: 30px 40px;
+    height: auto;
+  }
+  .video-wrapper {
+    width: 100%;
+  }
+  .video-element {
+    width: 100%;
+    height: auto;
+  }
+  .gallery-track {
+    height: 60vh;
+  }
+  .explore-title {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .project-header {
+    padding: 10px 20px;
+  }
+  .savlot-architects {
+    font-size: 18px;
+  }
+  .kailash-m-savlot {
+    font-size: 13px;
+  }
+  .project-hero {
+    padding: 30px;
+  }
+  .project-heading-section {
+    padding: 20px;
+  }
+  .project-title {
+    font-size: 36px;
+  }
+  .project-location {
+    font-size: 22px;
+  }
+  .project-main-content {
+    padding: 20px;
+  }
+  .brief-text {
+    font-size: 18px;
+  }
+  .points-section {
+    padding-top: 30px;
+  }
+  .point-heading {
+    font-size: 28px;
+    padding: 30px 0 15px;
+  }
+  .point-text {
+    font-size: 17px;
+  }
+  .stats-section {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 40px 0;
+  }
+  .stat-card {
+    height: 300px;
+  }
+  .stat-value {
+    font-size: 72px;
+  }
+  .stat-label {
+    font-size: 22px;
+  }
+  .project-video {
+    padding: 20px;
+  }
+  .gallery-track {
+    height: 40vh;
+    gap: 15px;
+  }
+  .explore-section {
+    height: auto;
+    padding: 40px 20px;
+  }
+  .explore-title {
+    font-size: 24px;
+    text-align: center;
+  }
+  .footer-section {
+    height: auto;
+    padding: 20px;
+  }
+  .div12 {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .logo-parent {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    gap: 15px;
+  }
+  .logo2 {
+    align-items: center;
+    text-align: center;
+  }
+  .animated-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .contacts {
+    align-items: center;
+  }
+  .social-media-links2 {
+    justify-content: center;
+  }
+  .footer-links-parent {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    gap: 30px;
+  }
+  .footer-links {
+    width: 100%;
+    align-items: center;
+    gap: 16px;
+  }
+  .termsconditions {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .savlot-architects {
+    font-size: 15px;
+  }
+  .kailash-m-savlot {
+    font-size: 11px;
+  }
+  .project-header {
+    padding: 8px 15px;
+  }
+  .project-hero {
+    padding: 15px;
+  }
+  .project-heading-section {
+    padding: 15px;
+  }
+  .project-title {
+    font-size: 28px;
+  }
+  .project-location {
+    font-size: 18px;
+  }
+  .project-main-content {
+    padding: 15px;
+  }
+  .brief-text {
+    font-size: 15px;
+  }
+  .point-heading {
+    font-size: 22px;
+  }
+  .point-text {
+    font-size: 15px;
+  }
+  .stat-card {
+    height: 250px;
+    padding: 15px;
+  }
+  .stat-value {
+    font-size: 56px;
+  }
+  .stat-label {
+    font-size: 18px;
+  }
+  .gallery-track {
+    height: 30vh;
+    gap: 10px;
+  }
+  .explore-title {
+    font-size: 20px;
+  }
+  .footer-links a {
+    font-size: 14px;
+  }
+  .termsconditions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
 /* ── Custom scrollbar ── */
 #scroll-track {
   position: fixed;

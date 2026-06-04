@@ -1097,6 +1097,249 @@ html {
   }
 }
 
+/* ── Enhanced Responsive ── */
+
+@media screen and (max-width: 1024px) {
+  .portfolio-header {
+    padding: 15px 30px;
+  }
+  .savlot-architects {
+    font-size: 24px;
+  }
+  .kailash-m-savlot {
+    font-size: 16px;
+  }
+  .portfolio-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 60px 30px 150px;
+    row-gap: 60px;
+  }
+  .blank-card,
+  .blank-card2,
+  .blank-card3,
+  .blank-card4 {
+    display: none;
+  }
+  .card01,
+  .card02,
+  .card03,
+  .card04,
+  .card05,
+  .card06,
+  .card07,
+  .card08 {
+    width: 100%;
+    height: auto;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+  .sub-filter {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio-header {
+    padding: 10px 20px;
+    flex-direction: column;
+  }
+  .header {
+    flex-wrap: wrap;
+  }
+  .savlot-architects {
+    font-size: 18px;
+  }
+  .kailash-m-savlot {
+    font-size: 13px;
+  }
+  .portfolio-hero-parent {
+    height: auto;
+    padding-bottom: 60px;
+  }
+  .portfolio-hero {
+    gap: 20px;
+    padding: 20px;
+  }
+  .portfolio-heading {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .portfolio-filter {
+    padding: 15px 20px;
+    position: relative;
+    top: auto;
+    margin-top: 0;
+    min-height: auto;
+  }
+  .main-filter {
+    flex-wrap: wrap;
+    gap: 20px;
+    border-right: none;
+    padding: 10px 0;
+  }
+  .sub-filter {
+    gap: 15px;
+    padding: 10px 0;
+  }
+  .interior,
+  .architecture,
+  .retails,
+  .commercial2 {
+    font-size: 16px;
+  }
+  .portfolio-card-grid {
+    grid-template-columns: 1fr;
+    padding: 40px 20px 100px;
+    row-gap: 40px;
+  }
+  [class^="content-parent"] {
+    height: 400px;
+  }
+  .content-parent2,
+  .content-parent5,
+  .content-parent8 {
+    height: 280px;
+  }
+  .content-parent4 {
+    height: 350px;
+  }
+  .content-parent6 {
+    height: 350px;
+  }
+  .card01,
+  .card02,
+  .card03,
+  .card04,
+  .card05,
+  .card06,
+  .card07,
+  .card08 {
+    width: 100%;
+    height: auto;
+  }
+  .blank-card,
+  .blank-card2,
+  .blank-card3,
+  .blank-card4 {
+    display: none;
+  }
+  .footer-section {
+    height: auto;
+    padding: 20px;
+  }
+  .div12 {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .logo-parent {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    gap: 15px;
+  }
+  .logo2 {
+    align-items: center;
+    text-align: center;
+  }
+  .animated-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .contacts {
+    align-items: center;
+  }
+  .social-media-links2 {
+    justify-content: center;
+  }
+  .footer-links-parent {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    gap: 30px;
+  }
+  .footer-links {
+    width: 100%;
+    align-items: center;
+    gap: 16px;
+  }
+  .termsconditions {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .savlot-architects {
+    font-size: 15px;
+  }
+  .kailash-m-savlot {
+    font-size: 11px;
+  }
+  .portfolio-header {
+    padding: 8px 15px;
+  }
+  .portfolio-hero-parent {
+    padding-bottom: 40px;
+  }
+  .portfolio-hero {
+    padding: 15px;
+  }
+  .portfolio-heading {
+    font-size: 22px;
+    line-height: 32px;
+  }
+  .portfolio-filter {
+    padding: 10px 15px;
+  }
+  .main-filter {
+    gap: 12px;
+  }
+  .sub-filter {
+    gap: 10px;
+  }
+  .interior,
+  .architecture,
+  .retails,
+  .commercial2 {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .portfolio-card-grid {
+    padding: 30px 15px 80px;
+    row-gap: 30px;
+  }
+  [class^="content-parent"] {
+    height: 300px;
+  }
+  .content-parent2,
+  .content-parent5,
+  .content-parent8 {
+    height: 220px;
+  }
+  .content-parent4 {
+    height: 280px;
+  }
+  .content-parent6 {
+    height: 280px;
+  }
+  .project-1 {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .bopal-2024 {
+    font-size: 14px;
+  }
+  .footer-links a {
+    font-size: 14px;
+  }
+  .termsconditions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
 /* ── Floating header ── */
 .floating-header {
   position: fixed;

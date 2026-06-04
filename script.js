@@ -20,8 +20,9 @@ function createObserver(callback, options = {}) {
 
 // ── Hero Section ──
 (function () {
+  try {
   const hero = document.querySelector('.hero-section .div');
-  if (!hero) return;
+  if (!hero) { console.error('Hero: .hero-section .div not found'); return; }
 
   const MIN_DURATION = 8000;
   const video1Url = new URL('./public/hero-video-1.mp4', import.meta.url).href;
@@ -42,33 +43,63 @@ function createObserver(callback, options = {}) {
 
   function updateContent(i) {
     const d = hc[i];
-    tEl.style.transform = 'translateY(20px)'; tEl.style.opacity = '0'; tEl.style.transition = 'transform 0.6s ease,opacity 0.6s ease';
-    setTimeout(() => { tEl.textContent = d.title; tEl.style.transform = 'translateY(0)'; tEl.style.opacity = '1'; }, 100);
-    dEl.style.opacity = '0'; dEl.style.transition = 'opacity 0.3s ease';
-    setTimeout(() => {
-      dEl.innerHTML = '';
-      d.desc.split(' ').forEach((w, i) => {
-        const sp = document.createElement('span');
-        sp.textContent = w + ' '; sp.style.opacity = '0'; sp.style.transition = `opacity 0.15s ease ${i * 0.04}s`;
-        dEl.appendChild(sp); setTimeout(() => { sp.style.opacity = '1'; }, 50);
-      });
-      dEl.style.opacity = '1';
-    }, 300);
+    if (!d) return;
+    if (tEl) {
+      tEl.style.transform = 'translateY(20px)'; tEl.style.opacity = '0'; tEl.style.transition = 'transform 0.6s ease,opacity 0.6s ease';
+      setTimeout(() => { tEl.textContent = d.title; tEl.style.transform = 'translateY(0)'; tEl.style.opacity = '1'; }, 100);
+    }
+    if (dEl) {
+      dEl.style.opacity = '0'; dEl.style.transition = 'opacity 0.3s ease';
+      setTimeout(() => {
+        dEl.innerHTML = '';
+        d.desc.split(' ').forEach((w, i) => {
+          const sp = document.createElement('span');
+          sp.textContent = w + ' '; sp.style.opacity = '0'; sp.style.transition = `opacity 0.15s ease ${i * 0.04}s`;
+          dEl.appendChild(sp); setTimeout(() => { sp.style.opacity = '1'; }, 50);
+        });
+        dEl.style.opacity = '1';
+      }, 300);
+    }
     if (sEls[0]) sEls[0].textContent = d.status;
     if (lEl) lEl.textContent = d.location;
     if (scEl) scEl.textContent = d.scope;
   }
 
-  const v = document.createElement('video');
-  v.autoplay = true; v.muted = true; v.playsInline = true;
-  v.className = 'hero-video';
-  hero.insertBefore(v, hero.firstChild);
+  const v = document.getElementById('hero-video');
+  if (!v) return;
+  v.addEventListener('error', () => { console.error('Video error:', v.error, v.error?.message); });
+  v.addEventListener('suspend', () => { console.log('Video suspend'); });
+  v.addEventListener('loadstart', () => { console.log('Video loadstart'); });
+  v.addEventListener('loadeddata', () => { console.log('Video loadeddata, readyState:', v.readyState); });
+  v.addEventListener('canplay', () => { console.log('Video canplay'); });
 
   function playVideo(i) {
     ci = i;
     videoStart = Date.now();
     v.src = hc[i].video;
-    v.play().catch(() => {});
+    v.load();
+
+    function doPlay() {
+      const p = v.play();
+      if (p !== undefined) {
+        p.catch(e => {
+          console.error('Video play failed:', e);
+        });
+      }
+    }
+
+    // Immediate attempt
+    doPlay();
+
+    // Retry after page fully settles
+    setTimeout(doPlay, 500);
+    setTimeout(doPlay, 1500);
+
+    // Retry on the next user interaction (covers all mobile browsers)
+    const retryOnce = () => { doPlay(); document.removeEventListener('touchstart', retryOnce); document.removeEventListener('click', retryOnce); };
+    document.addEventListener('touchstart', retryOnce, { once: true });
+    document.addEventListener('click', retryOnce, { once: true });
+
     updateContent(i);
   }
 
@@ -81,15 +112,25 @@ function createObserver(callback, options = {}) {
   playVideo(0);
 
   const cp = hero.querySelector('.content-parent');
-  cp.classList.add('hero-content');
+  if (cp) cp.classList.add('hero-content');
+  } catch (e) { console.error('Hero IIFE error:', e); }
 })();
+
+// ── Mobile Menu Toggle ──
+document.querySelector('.hamburger-wrapper')?.addEventListener('click', function() {
+  document.querySelector('.pill-menu')?.classList.toggle('active');
+});
+document.querySelector('.menu-item-has-children > a')?.addEventListener('click', function(e) {
+  e.preventDefault();
+  this.parentElement.classList.toggle('active');
+});
 
 // ── Service Section: Card Stack ──
 (function () {
   const c = document.querySelector('.service-section');
   if (!c) return;
   const h = c.querySelector('.service-main-view');
-  const cards = c.querySelectorAll('.interiro-card');
+  const cards = c.querySelectorAll('.interior-card');
   if (!cards.length) return;
 
   if (h) { h.style.position = 'sticky'; h.style.top = '0'; h.style.zIndex = '1'; h.style.height = '100vh'; h.style.display = 'flex'; h.style.flexDirection = 'column'; h.style.justifyContent = 'center'; }
@@ -116,7 +157,7 @@ function createObserver(callback, options = {}) {
   }
 
   // Custom cursor (on .frame-parent children)
-  const cursorTargets = c.querySelectorAll('.interiro-card > .frame-parent');
+  const cursorTargets = c.querySelectorAll('.interior-card > .frame-parent');
   cursorTargets.forEach(target => {
     const cur = document.createElement('div');
     cur.className = 'custom-cursor'; cur.textContent = 'VIEW MORE';
@@ -491,7 +532,7 @@ scrollTrack.addEventListener('click', (e) => {
 // ── Section heights ──
 document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('.hero-section, .service-section, .project-section, .about-section, .benefit-section, .testimonial-section, .cta-section, .footer-section');
-  sections.forEach(s => { if (!s.classList.contains('hero-section')) s.style.minHeight = '100vh'; });
+  sections.forEach(s => { if (!s.classList.contains('hero-section') && !s.classList.contains('project-section')) s.style.minHeight = '100vh'; });
 });
 
 // ── Loading screen ──
