@@ -546,7 +546,7 @@ body {
   box-sizing: border-box;
 }
 .heading {
-  width: 770px;
+  /* width: 770px; */
   gap: 3px;
 }
 .our-service,
@@ -1074,6 +1074,7 @@ body {
   align-items: center;
   box-sizing: border-box;
   max-width: 100%;
+  justify-content: center;
 }
 .about-section {
   align-self: stretch;
@@ -1100,10 +1101,10 @@ body {
 }
 .photo {
   padding: 10px;
-  min-width: 457px;
+  /* min-width: 457px; */
 }
 .image-b2ff19c2-1-icon {
-  width: 437px;
+  max-width: 437px;
   position: relative;
   max-height: 100%;
   object-fit: contain;
@@ -1117,6 +1118,7 @@ body {
 .content3 {
   gap: 9px;
   max-width: 100%;
+  min-width: 0;
 }
 .heading3 {
   align-self: stretch;
@@ -1150,10 +1152,13 @@ body {
   font-size: 28px;
   color: #454545;
   font-family: Geom;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .while-the-design {
   margin: 0;
-  width: 702px;
+  width: 100%;
+  max-width: 702px;
   position: relative;
   font-size: inherit;
   line-height: 145.78%;
@@ -1192,6 +1197,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 0;
 }
 .frame-wrapper {
   display: flex;
@@ -1202,6 +1208,8 @@ body {
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  max-width: 100%;
+  min-width: 0;
 }
 .blanks,
 .blanks-two {
@@ -1211,6 +1219,7 @@ body {
   font-weight: 800;
   font-family: inherit;
   display: inline-block;
+  max-width: 100%;
 }
 .blanks {
   letter-spacing: 0.08em;
@@ -1225,6 +1234,9 @@ body {
   margin-top: -7px;
   position: relative;
   font-size: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 .stat-label {
   margin: 0;
@@ -1233,6 +1245,7 @@ body {
   letter-spacing: 0.42em;
   font-weight: 700;
   font-family: inherit;
+  max-width: 100%;
 }
 
 .benefit-section {
@@ -1281,9 +1294,11 @@ body {
 
 .card1, .card2, .card3, .card4, .card5, .card6 {
   perspective: 1000px;
+  min-width: 0;
 }
 .flip-inner {
   display: grid;
+  width: 100%;
   aspect-ratio: 1;
   transform-style: preserve-3d;
   transition: transform 0.6s ease;
@@ -1304,6 +1319,11 @@ body {
 }
 .flip-inner.flipped {
   transform: rotateY(180deg);
+}
+.flip-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .flip-back-content {
   text-align: center;
@@ -1357,16 +1377,16 @@ body {
 .content7,
 .content8,
 .content9 {
-  width: 351px;
+  width: 100%;
+  /* max-width: 351px; */
   height: 205px;
   position: relative;
   line-height: 35%;
   text-transform: uppercase;
   font-weight: 500;
+  font-size: 75px;
   display: flex;
   align-items: center;
-  flex-shrink: 0;
-  max-width: 100%;
   z-index: 1;
 }
 .content-txt {
@@ -1390,13 +1410,14 @@ body {
   max-width: 100%;
 }
 .content5 {
-  width: 343px;
+  width: 100%;
+  max-width: 343px;
   height: 204px;
   line-height: 35%;
   text-transform: uppercase;
   font-weight: 500;
+  font-size: 75px;
   align-items: center;
-  max-width: 100%;
   z-index: 1;
   flex-shrink: 0;
 }
@@ -1434,13 +1455,14 @@ body {
 .content7,
 .content8,
 .content9 {
-  width: 343px;
+  width: 100%;
+  /* max-width: 343px; */
   height: 205px;
   line-height: 35%;
   text-transform: uppercase;
   font-weight: 500;
+  font-size: 75px;
   align-items: center;
-  max-width: 100%;
   flex-shrink: 0;
   z-index: 1;
 }
@@ -1468,11 +1490,12 @@ body {
   display: flex;
   align-items: center;
   row-gap: 20px;
+  justify-content: space-between;
 }
 .heading5 {
   flex-direction: column;
   align-items: flex-start;
-  min-width: 468px;
+  /* min-width: 468px; */
 }
 .h1,
 .the-stories-behind {
@@ -1480,7 +1503,7 @@ body {
   align-self: stretch;
   position: relative;
   font-size: inherit;
-  line-height: 100%;
+  line-height: 25%;
   text-transform: uppercase;
   font-weight: 400;
   font-family: inherit;
@@ -1503,12 +1526,12 @@ body {
 }
 .review-cards {
   height: 746px;
-  flex: 1.0994;
+  flex: 0.9;
   align-items: center;
   justify-content: center;
   padding: 0;
   box-sizing: border-box;
-  min-width: 468px;
+  min-width: 50%;
 }
 .review-card-parent {
   width: 92%;
@@ -2292,6 +2315,12 @@ a {
   .footer-section-mobile .animated-logo {
     height: 50vh;
   }
+  .our-service {
+    font-size: 20px;
+  }
+  .we-bring-your {
+    font-size: 36px;
+  }
 }
 @media screen and (min-width: 769px) {
   .footer-section-mobile {
@@ -2480,10 +2509,24 @@ a {
     padding-right: 21px;
     box-sizing: border-box;
   }
-  .content3,
+  /* .content3,
   .image-b2ff19c2-1-icon,
   .photo {
     flex: 1;
+  } */
+  .stats2 {
+    gap: 20px;
+  }
+  .blanks,
+  .blanks-two {
+    font-size: 60px;
+  }
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+  .category-labels {
+    padding: 5px;
   }
   .card1-parent {
     flex-wrap: wrap;
@@ -2492,8 +2535,18 @@ a {
   .card3 {
     flex: 1;
   }
+  .lets-build-your-container {
+    font-size: 51px;
+    line-height: 70px;
+  }
+  .build {
+    font-size: 80px;
+  }
+  .our-expertise, .your-ideas {
+    font-size: 50px;
+  }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1250px) {
   .div {
     height: auto;
   }
@@ -2514,11 +2567,27 @@ a {
   .heading5 {
     flex: 0 1 auto;
   }
-  .review-cards {
+  /* .review-cards {
     flex: 1;
+  } */
+  .lets-build-your-container {
+    font-size: 40px;
+    line-height: 60px;
+  }
+  .build {
+    font-size: 65px;
+  }
+  .the-stories-behind {
+    font-size: 55px;
+  }
+  .h1 {
+    font-size: 150px;
+  }
+  .image-b2ff19c2-1-icon {
+    width: 350px;
   }
 }
-@media screen and (max-width: 825px) {
+@media screen and (max-width: 880px) {
   .div {
     gap: 230px;
     padding: 23px 25px 21px;
@@ -2546,7 +2615,7 @@ a {
   }
   .interior-designing {
     font-size: 64px;
-    line-height: 115px;
+    line-height: 67px;
   }
   .architecture {
     font-size: 51px;
@@ -2560,9 +2629,12 @@ a {
     padding-bottom: 29px;
     box-sizing: border-box;
   }
-  .photo {
+  /* .photo {
     min-width: 100%;
-  }
+  } */
+   .image-b2ff19c2-1-icon {
+    width: 280px;
+   }
   .our-expertise,
   .your-ideas {
     font-size: 51px;
@@ -2590,30 +2662,30 @@ a {
   .content7,
   .content8,
   .content9 {
-    font-size: 32px;
-    line-height: 99px;
+    font-size: 70px;
+    line-height: 36px;
   }
   .heading5 {
     padding: 80px 29px 44px;
     box-sizing: border-box;
-    min-width: 100%;
+    /* min-width: 100%; */
   }
   .h1 {
     font-size: 130px;
-    line-height: 48px;
+    line-height: 45px;
   }
   .the-stories-behind {
-    font-size: 60px;
-    line-height: 60px;
+    font-size: 55px;
+    /* line-height: 60px; */
   }
-  .review-cards {
+  /* .review-cards {
     min-width: 100%;
-  }
+  } */
   .lets-build-your-container {
     font-size: 56px;
   }
   .footer-section {
-    height: auto;
+    /* height: auto; */
     padding: 23px 25px;
     box-sizing: border-box;
   }
@@ -2626,6 +2698,18 @@ a {
   }
   .termsconditions {
     flex-wrap: wrap;
+  }
+  .lets-build-your-container {
+    font-size: 33px;
+  }
+  .build {
+    font-size: 55px;
+  }
+  .testimonial-inner {
+    padding: 0 40px;
+  }
+  .our-expertise, .your-ideas {
+    font-size: 33px !important; 
   }
 }
 @media screen and (max-width: 450px) {
@@ -2658,7 +2742,7 @@ a {
   }
   .interior-designing {
     font-size: 40px;
-    line-height: 76px;
+    line-height: 27px;
   }
   .architecture {
     font-size: 38px;
@@ -2699,7 +2783,6 @@ a {
     box-sizing: border-box;
   }
   .content4 {
-    font-size: 24px;
     line-height: 74px;
   }
   .card2 {
@@ -2772,6 +2855,9 @@ a {
   .frame-container {
     width: 100%;
   }
+  .about-inner {
+    padding: 0 40px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -2805,6 +2891,21 @@ a {
   }
   .form {
     margin-left: 40px;
+  }
+  .lets-build-your-container-wrapper {
+    margin-right: 20px;
+  }
+  .savlot-architects2 {
+    font-size: 25px;
+  }
+  .termsconditions {
+    font-size: 13px;
+  }
+  .the-stories-behind {
+    font-size: 42px;
+  }
+  .our-expertise, .your-ideas {
+    font-size: 38px;
   }
 }
 
@@ -2959,8 +3060,11 @@ a {
   .content7,
   .content8,
   .content9 {
-    font-size: 28px;
-    line-height: 50px;
+    line-height: 25px;
+    font-size: 130px;
+  }
+  .unified-design-language {
+    font-size: 47px;
   }
   .testimonial-section {
     flex-direction: column;
@@ -2979,7 +3083,7 @@ a {
     justify-content: end;
   }
   .h1 {
-    font-size: 80px;
+    font-size: 100px;
   }
   .the-stories-behind {
     font-size: 48px;
@@ -2987,7 +3091,8 @@ a {
   }
   .review-cards {
     height: auto;
-    min-width: 100%;
+    /* min-width: 100%; */
+    width: 100%;
     padding: 20px;
   }
   .review-card-parent {
@@ -3010,9 +3115,9 @@ a {
   .cta-wrapper {
     flex-direction: column;
   }
-  .content-txt > .lets:last-child {
+  /* .content-txt > .lets:last-child {
     display: block;
-  }
+  } */
   .build {
     font-size: 55px;
   }
@@ -3037,7 +3142,7 @@ a {
   }
   .lets-build-your-container {
     font-size: 36px;
-    line-height: 40px;
+    line-height: 55px;
     padding: 30px 20px;
     width: 100%;
     box-sizing: border-box;
@@ -3048,7 +3153,7 @@ a {
     color: #fff;
   }
   .lets-build-your-container-wrapper {
-    margin-right: 0;
+    margin-right: 40px;
   }
   .footer-section {
     height: auto;
@@ -3111,6 +3216,12 @@ a {
   .carousel-arrow,
   .arrows {
     display: none;
+  }
+  .our-service {
+    font-size: 17px;
+  }
+  .we-bring-your {
+    font-size: 33px;
   }
 }
 
@@ -3208,10 +3319,10 @@ a {
     display: none;
   }
   .our-service {
-    font-size: 16px;
+    font-size: 14px;
   }
   .we-bring-your {
-    font-size: 28px;
+    font-size: 22px;
   }
   .h2,
   .h22 {
@@ -3245,6 +3356,9 @@ a {
     padding: 20px 30px;
     gap: 20px;
   }
+  .choose-us {
+    font-size: 28px;
+  }
   .card1-parent {
     gap: 15px;
   }
@@ -3254,8 +3368,11 @@ a {
   .content7,
   .content8,
   .content9 {
-    font-size: 22px;
     line-height: 36px;
+    font-size: 60px;
+  }
+  .unified-design-language{
+    font-size: 30px;
   }
   .heading5 {
     padding: 80px 15px 20px;
@@ -3271,15 +3388,15 @@ a {
   .review-cards {
     padding: 10px;
   }
-  .content-txt > .lets:last-child {
+  /* .content-txt > .lets:last-child {
     display: block;
-  }
+  } */
   .build {
     font-size: 43px;
   }
   .lets-build-your-container {
     font-size: 28px;
-    line-height: 38px;
+    line-height: 40px;
     padding: 20px 15px;
     width: 100%;
     box-sizing: border-box;
