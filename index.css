@@ -1284,7 +1284,7 @@ body {
 }
 .flip-inner {
   display: grid;
-  height: 372px;
+  aspect-ratio: 1;
   transform-style: preserve-3d;
   transition: transform 0.6s ease;
 }
@@ -1366,6 +1366,7 @@ body {
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  max-width: 100%;
   z-index: 1;
 }
 .content-txt {
@@ -1395,6 +1396,7 @@ body {
   text-transform: uppercase;
   font-weight: 500;
   align-items: center;
+  max-width: 100%;
   z-index: 1;
   flex-shrink: 0;
 }
@@ -1438,6 +1440,7 @@ body {
   text-transform: uppercase;
   font-weight: 500;
   align-items: center;
+  max-width: 100%;
   flex-shrink: 0;
   z-index: 1;
 }
@@ -1467,13 +1470,8 @@ body {
   row-gap: 20px;
 }
 .heading5 {
-  height: 746px;
-  flex: 1;
-  overflow: hidden;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0;
-  box-sizing: border-box;
   min-width: 468px;
 }
 .h1,
@@ -1499,7 +1497,7 @@ body {
 }
 .review-card-parent,
 .review-cards {
-  /* overflow: hidden; */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -2081,11 +2079,9 @@ select:invalid, textarea::placeholder, input::placeholder {
   align-items: center;
   gap: 0;
 }
-.kailash-m-savlot2,
 .savlot-architects2 {
   margin: 0;
   align-self: stretch;
-  height: 33px;
   position: relative;
   font-size: inherit;
   letter-spacing: -0.05em;
@@ -2095,8 +2091,16 @@ select:invalid, textarea::placeholder, input::placeholder {
   display: inline-block;
 }
 .kailash-m-savlot2 {
+  margin: 0;
+  align-self: stretch;
   height: 21px;
+  position: relative;
   font-size: 20px;
+  letter-spacing: -0.05em;
+  line-height: 102.72%;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
 }
 .contacts {
   width: 310px;
@@ -2166,6 +2170,135 @@ a {
   gap: 30px;
   text-align: left;
 }
+/* ── Mobile Footer ── */
+.footer-section-mobile {
+  display: none;
+  align-self: stretch;
+  color: #fff;
+  font-family: "Bank Gothic Light";
+  font-size: 32px;
+  background: var(--footer-bg);
+  position: relative;
+  height: 100svh;
+}
+.footer-section-mobile .div4 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+.footer-section-mobile .animated-logo {
+  position: absolute;
+  height: 90vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer-mobile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 36px 20px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+.footer-mobile-content > .logo2 {
+  margin-bottom: 40px;
+}
+.footer-mobile-content > .footer-mobile-bottom {
+  margin-top: auto;
+}
+.footer-mobile-bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  align-self: center;
+}
+.footer-section-mobile .logo2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  text-align: left;
+}
+.footer-section-mobile .savlot-architects2 {
+  font-size: 26px;
+  line-height: 26px;
+  text-align: left;
+  align-self: flex-start;
+}
+.footer-section-mobile .kailash-m-savlot2 {
+  font-size: 16px;
+  line-height: 16px;
+  text-align: left;
+  align-self: flex-start;
+}
+.footer-section-mobile .footer-links {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  font-size: 17px;
+  font-family: Geom;
+  position: static;
+}
+.footer-section-mobile .contacts {
+  width: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 13px;
+  text-align: center;
+  font-size: 17px;
+  font-family: Geom;
+}
+.footer-section-mobile .social-media-links2 {
+  justify-content: center;
+}
+.footer-section-mobile .termsconditions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  font-size: 12px;
+  font-family: Geom;
+}
+@media screen and (max-width: 768px) {
+  .footer-section {
+    display: none;
+  }
+  .footer-section-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+  }
+  .footer-section-mobile .footer-links {
+    font-size: 14px;
+  }
+  .footer-section-mobile .termsconditions {
+    font-size: 10px;
+  }
+  .footer-section-mobile .animated-logo {
+    height: 50vh;
+  }
+}
+@media screen and (min-width: 769px) {
+  .footer-section-mobile {
+    display: none;
+  }
+}
+
 /* ── Menu Dropdown ── */
 .menu-dropdown {
   position: absolute;
@@ -2378,7 +2511,9 @@ a {
   .testimonial-section {
     flex-wrap: wrap;
   }
-  .heading5,
+  .heading5 {
+    flex: 0 1 auto;
+  }
   .review-cards {
     flex: 1;
   }
@@ -2459,12 +2594,12 @@ a {
     line-height: 99px;
   }
   .heading5 {
-    padding: 44px 29px;
+    padding: 80px 29px 44px;
     box-sizing: border-box;
     min-width: 100%;
   }
   .h1 {
-    font-size: 150px;
+    font-size: 130px;
     line-height: 48px;
   }
   .the-stories-behind {
@@ -2869,11 +3004,17 @@ a {
   }
   .cta-section {
     flex-direction: column;
-    background: linear-gradient(to bottom, #fff 60%, #000 55%);
-    height: 150svh;
+    background: none;
+    height: 120svh;
   }
   .cta-wrapper {
     flex-direction: column;
+  }
+  .content-txt > .lets:last-child {
+    display: block;
+  }
+  .build {
+    font-size: 55px;
   }
   .form-div {
     width: 100%;
@@ -2898,11 +3039,16 @@ a {
     font-size: 36px;
     line-height: 40px;
     padding: 30px 20px;
-    background: #000;
-    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
   }
   .heading-div {
     width: 100%;
+    background: #000;
+    color: #fff;
+  }
+  .lets-build-your-container-wrapper {
+    margin-right: 0;
   }
   .footer-section {
     height: auto;
@@ -3112,7 +3258,7 @@ a {
     line-height: 36px;
   }
   .heading5 {
-    padding: 20px 15px;
+    padding: 80px 15px 20px;
     justify-content: end;
   }
   .h1 {
@@ -3125,10 +3271,18 @@ a {
   .review-cards {
     padding: 10px;
   }
+  .content-txt > .lets:last-child {
+    display: block;
+  }
+  .build {
+    font-size: 43px;
+  }
   .lets-build-your-container {
     font-size: 28px;
-    line-height: 32px;
+    line-height: 38px;
     padding: 20px 15px;
+    width: 100%;
+    box-sizing: border-box;
   }
   .savlot-architects2 {
     font-size: 16px;

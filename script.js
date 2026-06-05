@@ -371,19 +371,22 @@ document.querySelector('.menu-item-has-children > a')?.addEventListener('click',
         if (bw) {
           const inner = bw.querySelector('.lets');
           const text = (inner || bw).textContent;
-          (inner || bw).textContent = '';
           const parent = inner || bw;
-          parent.style.display = 'inline-block';
-          parent.style.overflow = 'hidden';
-          parent.style.verticalAlign = 'bottom';
-          parent.style.position = 'relative';
+          const fragment = document.createDocumentFragment();
           [...text].forEach((letter, i) => {
             const sp = document.createElement('span');
             sp.textContent = letter;
             sp.style.display = 'inline-block';
             sp.style.transform = 'translateY(100%)';
             sp.style.transition = `transform 0.5s ease ${i * 0.08}s`;
-            parent.appendChild(sp);
+            fragment.appendChild(sp);
+          });
+          parent.style.display = 'inline-block';
+          parent.style.overflow = 'hidden';
+          parent.style.verticalAlign = 'bottom';
+          parent.style.position = 'relative';
+          parent.replaceChildren(fragment);
+          parent.querySelectorAll('span').forEach((sp, i) => {
             setTimeout(() => { sp.style.transform = 'translateY(0)'; }, 500 + i * 80);
           });
         }
@@ -397,38 +400,42 @@ document.querySelector('.menu-item-has-children > a')?.addEventListener('click',
 
 // ── Footer ──
 (function () {
-  const footer = document.querySelector('.footer-section');
-  if (!footer) return;
+  function initFooter(footer) {
+    if (!footer) return;
+    const glow = document.querySelector('.footer-glow');
+    if (glow) {
+      const o = createObserver(e => {
+        e.forEach(en => {
+          if (en.isIntersecting) {
+            glow.style.opacity = '1';
+            o.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      o.observe(footer);
+    }
 
-  const glow = document.querySelector('.footer-glow');
-  if (glow) {
-    const o = createObserver(e => {
+    const fadeEls = footer.querySelectorAll('.savlot-architects2, .kailash-m-savlot2, .contacts, .footer-links, .termsconditions');
+    if (!fadeEls.length) return;
+
+    const o2 = createObserver(e => {
       e.forEach(en => {
         if (en.isIntersecting) {
-          glow.style.opacity = '1';
-          o.unobserve(en.target);
+          const logo = footer.querySelector('.animated-logo');
+          if (logo) { logo.classList.add('animate-zoom-in'); logo.style.opacity = '1'; }
+          fadeEls.forEach((el, i) => {
+            el.style.opacity = '0';
+            setTimeout(() => el.classList.add('animate-fade-up'), i * 100);
+          });
+          o2.unobserve(en.target);
         }
       });
-    }, { threshold: 0.2 });
-    o.observe(footer);
+    }, { threshold: 0.15 });
+    o2.observe(footer);
   }
 
-  const logo = document.querySelector('.animated-logo');
-  const fadeEls = footer.querySelectorAll('.savlot-architects2, .kailash-m-savlot2, .contacts, .footer-links, .termsconditions');
-
-  const o2 = createObserver(e => {
-    e.forEach(en => {
-      if (en.isIntersecting) {
-        if (logo) { logo.classList.add('animate-zoom-in'); logo.style.opacity = '1'; }
-        fadeEls.forEach((el, i) => {
-          el.style.opacity = '0';
-          setTimeout(() => el.classList.add('animate-fade-up'), i * 100);
-        });
-        o2.unobserve(en.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  o2.observe(footer);
+  initFooter(document.querySelector('.footer-section'));
+  initFooter(document.querySelector('.footer-section-mobile'));
 })();
 
 // ── Benefit Cards: Flip Effect ──
@@ -464,6 +471,13 @@ document.querySelectorAll('.card1, .card2, .card3, .card4, .card5, .card6').forE
 
   card.addEventListener('mouseenter', () => inner.classList.add('flipped'));
   card.addEventListener('mouseleave', () => inner.classList.remove('flipped'));
+});
+
+// ── Section heights (must run before Lenis init) ──
+// Only set sections that don't already have their own min-height from JS
+['about-section', 'benefit-section', 'testimonial-section', 'cta-section', 'footer-section'].forEach(cls => {
+  const el = document.querySelector('.' + cls);
+  if (el && !el.style.minHeight) el.style.minHeight = '100vh';
 });
 
 // ── Lenis Smooth Scroll ──
@@ -527,12 +541,6 @@ scrollTrack.addEventListener('click', (e) => {
   const thumbH = scrollThumb.clientHeight;
   const progress = Math.max(0, Math.min(1, (y - thumbH / 2) / (trackH - thumbH)));
   lenis.scrollTo(lenis.limit * progress, { immediate: false, duration: 0.5 });
-});
-
-// ── Section heights ──
-document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('.hero-section, .service-section, .project-section, .about-section, .benefit-section, .testimonial-section, .cta-section, .footer-section');
-  sections.forEach(s => { if (!s.classList.contains('hero-section') && !s.classList.contains('project-section')) s.style.minHeight = '100vh'; });
 });
 
 // ── Loading screen ──
