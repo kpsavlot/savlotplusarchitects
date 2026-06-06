@@ -110,12 +110,18 @@ import { createObserver, initLenis, initLoader, initWhatsApp } from './common.js
 })();
 
 // ── Mobile Menu Toggle ──
-document.querySelector('.hamburger-wrapper')?.addEventListener('click', function() {
+document.querySelector('.hamburger-wrapper')?.addEventListener('click', function(e) {
+  e.stopPropagation();
   document.querySelector('.pill-menu')?.classList.toggle('active');
 });
 document.querySelector('.menu-item-has-children > a')?.addEventListener('click', function(e) {
   e.preventDefault();
+  e.stopPropagation();
   this.parentElement.classList.toggle('active');
+});
+document.addEventListener('click', function() {
+  document.querySelector('.pill-menu')?.classList.remove('active');
+  document.querySelectorAll('.menu-item-has-children.active').forEach(el => el.classList.remove('active'));
 });
 
 // ── Service Section: Card Stack ──

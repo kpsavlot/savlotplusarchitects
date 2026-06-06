@@ -8,9 +8,14 @@ export function createObserver(callback, options = {}) {
 
 export function initLenis() {
   if (typeof Lenis === 'undefined') return null;
-  const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - 2 ** (-10 * t)), smoothWheel: true });
+  const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - 2 ** (-10 * t)) });
   function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
+
+  // Recalculate scroll limit when content size changes (lazy images, fonts, etc.)
+  const ro = new ResizeObserver(() => lenis.resize());
+  ro.observe(document.documentElement);
+  window.addEventListener('load', () => lenis.resize());
 
   let scrollTrack = document.getElementById('scroll-track');
   let scrollThumb = document.getElementById('scroll-thumb');
