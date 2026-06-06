@@ -1,11 +1,4 @@
-// ── Utility: Intersection Observer ──
-function createObserver(callback, options = {}) {
-  if (Array.isArray(callback)) callback = callback[0];
-  return new IntersectionObserver(callback, {
-    threshold: options.threshold || 0.15,
-    rootMargin: options.rootMargin || '0px',
-  });
-}
+import { createObserver, initLenis, initLoader, initWhatsApp } from '../common.js';
 
 // ── Header animation ──
 (function () {
@@ -314,6 +307,7 @@ renderProject(projectId);
 
 // ── Gallery drag scroll + custom cursor ──
 (function () {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
   const track = document.getElementById('project-gallery');
   if (!track) return;
   const wrapper = track.closest('.gallery-wrapper');
@@ -366,6 +360,7 @@ renderProject(projectId);
 
 // ── Video custom cursor ──
 (function () {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
   const video = document.getElementById('video-element');
   if (!video) return;
   const wrapper = video.closest('.video-wrapper');
@@ -435,60 +430,7 @@ renderProject(projectId);
 })();
 
 // ── Lenis smooth scroll ──
-(function () {
-  if (typeof Lenis === 'undefined') return;
-  const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-  requestAnimationFrame(raf);
-
-  const scrollTrack = document.getElementById('scroll-track');
-  const scrollThumb = document.getElementById('scroll-thumb');
-  if (scrollTrack && scrollThumb && lenis) {
-    let hideTimeout;
-    function showThumb() {
-      scrollThumb.classList.add('visible');
-      clearTimeout(hideTimeout);
-      hideTimeout = setTimeout(() => scrollThumb.classList.remove('visible'), 1000);
-    }
-    function updateThumb() {
-      const progress = lenis.progress;
-      const trackH = scrollTrack.clientHeight;
-      const thumbH = scrollThumb.clientHeight;
-      if (!thumbH) { setThumbSize(); return; }
-      scrollThumb.style.top = `${progress * (trackH - thumbH)}px`;
-    }
-    function setThumbSize() {
-      const ratio = window.innerHeight / document.documentElement.scrollHeight;
-      scrollThumb.style.height = `${Math.max(30, scrollTrack.clientHeight * ratio)}px`;
-    }
-    setThumbSize();
-    window.addEventListener('resize', setThumbSize);
-    lenis.on('scroll', () => { updateThumb(); showThumb(); });
-
-    let isDragging = false;
-    scrollThumb.addEventListener('mousedown', e => { isDragging = true; e.preventDefault(); });
-    document.addEventListener('mousemove', e => {
-      if (!isDragging) return;
-      const rect = scrollTrack.getBoundingClientRect();
-      const y = e.clientY - rect.top;
-      const trackH = rect.height;
-      const thumbH = scrollThumb.clientHeight;
-      const progress = Math.max(0, Math.min(1, (y - thumbH / 2) / (trackH - thumbH)));
-      lenis.scrollTo(lenis.limit * progress, { immediate: false, duration: 0.5 });
-    });
-    document.addEventListener('mouseup', () => { isDragging = false; });
-    scrollTrack.addEventListener('click', e => {
-      if (e.target === scrollThumb) return;
-      const rect = scrollTrack.getBoundingClientRect();
-      const y = e.clientY - rect.top;
-      const trackH = rect.height;
-      const thumbH = scrollThumb.clientHeight;
-      const progress = Math.max(0, Math.min(1, (y - thumbH / 2) / (trackH - thumbH)));
-      lenis.scrollTo(lenis.limit * progress, { immediate: false, duration: 0.5 });
-    });
-  }
-  window.lenis = lenis;
-})();
+initLenis();
 
 // ── Floating header ──
 (function () {
@@ -541,13 +483,7 @@ renderProject(projectId);
 })();
 
 // ── Loading screen ──
-window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
-  if (loader) {
-    loader.classList.add('hidden');
-    setTimeout(() => { if (loader.parentNode) loader.remove(); }, 800);
-  }
-});
+initLoader();
 
 // ── Scroll reveal animations ──
 (function () {
@@ -578,32 +514,4 @@ window.addEventListener('load', () => {
 })();
 
 // ── WhatsApp Popup ──
-(function () {
-  const floatBtn = document.querySelector('.whatsapp-float');
-  const popup = document.querySelector('.whatsapp-popup');
-  const closeBtn = document.querySelector('.whatsapp-popup-close');
-  const openChatBtn = document.querySelector('.whatsapp-open-chat');
-  if (!floatBtn || !popup || !closeBtn || !openChatBtn) return;
-
-  const phoneNumber = '919099898794';
-  const message = encodeURIComponent('Hi! I would like to book a design consultation with your team. I want to discuss design ideas for my property. Please share your next available slots for a phone call or site visit.');
-
-  floatBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    popup.classList.toggle('open');
-  });
-
-  closeBtn.addEventListener('click', () => {
-    popup.classList.remove('open');
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!popup.contains(e.target) && e.target !== floatBtn && !floatBtn.contains(e.target)) {
-      popup.classList.remove('open');
-    }
-  });
-
-  openChatBtn.addEventListener('click', () => {
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-  });
-})();
+initWhatsApp();

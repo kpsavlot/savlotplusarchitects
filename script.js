@@ -1,11 +1,4 @@
-// ── Utility: Intersection Observer ──
-function createObserver(callback, options = {}) {
-  if (Array.isArray(callback)) callback = callback[0];
-  return new IntersectionObserver(callback, {
-    threshold: options.threshold || 0.15,
-    rootMargin: options.rootMargin || '0px',
-  });
-}
+import { createObserver, initLenis, initLoader, initWhatsApp } from './common.js';
 
 // ── Service background shift ──
 (function () {
@@ -156,7 +149,8 @@ document.querySelector('.menu-item-has-children > a')?.addEventListener('click',
     o.observe(h);
   }
 
-  // Custom cursor (on .frame-parent children)
+  // Custom cursor (on .frame-parent children) — only on devices with a fine pointer
+  if (window.matchMedia('(pointer: fine)').matches) {
   const cursorTargets = c.querySelectorAll('.interior-card > .frame-parent');
   cursorTargets.forEach(target => {
     const cur = document.createElement('div');
@@ -167,6 +161,7 @@ document.querySelector('.menu-item-has-children > a')?.addEventListener('click',
     target.addEventListener('mouseleave', () => { cur.style.opacity = '0'; cur.style.transform = 'scale(0.5)'; target.style.cursor = ''; });
     target.addEventListener('mousemove', e => { cur.style.left = e.clientX - 50 + 'px'; cur.style.top = e.clientY - 50 + 'px'; });
   });
+  }
 
   // Doodle canvas
   const cv = document.createElement('canvas');
@@ -474,116 +469,19 @@ document.querySelectorAll('.card1, .card2, .card3, .card4, .card5, .card6').forE
 });
 
 // ── Section heights (must run before Lenis init) ──
-// Only set sections that don't already have their own min-height from JS
 ['about-section', 'benefit-section', 'testimonial-section', 'cta-section', 'footer-section'].forEach(cls => {
   const el = document.querySelector('.' + cls);
   if (el && !el.style.minHeight) el.style.minHeight = '100vh';
 });
 
-// ── Lenis Smooth Scroll ──
-const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - 2 ** (-10 * t)), smoothWheel: true });
-function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-requestAnimationFrame(raf);
-
-// ── Custom scrollbar handle ──
-const scrollTrack = document.createElement('div');
-scrollTrack.id = 'scroll-track';
-const scrollThumb = document.createElement('div');
-scrollThumb.id = 'scroll-thumb';
-scrollTrack.appendChild(scrollThumb);
-document.body.appendChild(scrollTrack);
-
-function updateThumb(progress) {
-  const trackH = scrollTrack.clientHeight;
-  const thumbH = Math.max(30, trackH * 0.15);
-  scrollThumb.style.height = thumbH + 'px';
-  scrollThumb.style.top = (progress * (trackH - thumbH)) + 'px';
-}
-
-let hideTimer;
-lenis.on('scroll', ({ progress }) => {
-  updateThumb(progress);
-  scrollThumb.classList.add('visible');
-  clearTimeout(hideTimer);
-  hideTimer = setTimeout(() => scrollThumb.classList.remove('visible'), 1000);
-});
-
-let dragging = false;
-scrollThumb.addEventListener('mousedown', (e) => {
-  dragging = true;
-  scrollThumb.style.cursor = 'grabbing';
-  scrollThumb.classList.add('visible');
-  clearTimeout(hideTimer);
-  e.preventDefault();
-});
-document.addEventListener('mousemove', (e) => {
-  if (!dragging) return;
-  const rect = scrollTrack.getBoundingClientRect();
-  const y = e.clientY - rect.top;
-  const trackH = rect.height;
-  const thumbH = scrollThumb.clientHeight;
-  const progress = Math.max(0, Math.min(1, (y - thumbH / 2) / (trackH - thumbH)));
-  lenis.scrollTo(lenis.limit * progress, { immediate: false });
-});
-document.addEventListener('mouseup', () => {
-  if (dragging) {
-    dragging = false;
-    scrollThumb.style.cursor = 'grab';
-  }
-});
-scrollTrack.addEventListener('mouseenter', () => { scrollThumb.classList.add('visible'); clearTimeout(hideTimer); });
-scrollTrack.addEventListener('mouseleave', () => { hideTimer = setTimeout(() => scrollThumb.classList.remove('visible'), 1000); });
-scrollTrack.addEventListener('click', (e) => {
-  if (e.target === scrollThumb) return;
-  const rect = scrollTrack.getBoundingClientRect();
-  const y = e.clientY - rect.top;
-  const trackH = rect.height;
-  const thumbH = scrollThumb.clientHeight;
-  const progress = Math.max(0, Math.min(1, (y - thumbH / 2) / (trackH - thumbH)));
-  lenis.scrollTo(lenis.limit * progress, { immediate: false, duration: 0.5 });
-});
+// ── Lenis + Scrollbar ──
+const lenis = initLenis();
 
 // ── Loading screen ──
-window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
-  if (loader) {
-    setTimeout(() => {
-      loader.classList.add('hidden');
-      setTimeout(() => { loader.remove(); }, 800);
-    }, 1500);
-  }
-});
+initLoader(1500);
 
 // ── WhatsApp Popup ──
-(function () {
-  const floatBtn = document.querySelector('.whatsapp-float');
-  const popup = document.querySelector('.whatsapp-popup');
-  const closeBtn = document.querySelector('.whatsapp-popup-close');
-  const openChatBtn = document.querySelector('.whatsapp-open-chat');
-  if (!floatBtn || !popup || !closeBtn || !openChatBtn) return;
-
-  const phoneNumber = '919099898794'; // placeholder
-  const message = encodeURIComponent('Hi! I would like to book a design consultation with your team. I want to discuss design ideas for my property. Please share your next available slots for a phone call or site visit.');
-
-  floatBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    popup.classList.toggle('open');
-  });
-
-  closeBtn.addEventListener('click', () => {
-    popup.classList.remove('open');
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!popup.contains(e.target) && e.target !== floatBtn && !floatBtn.contains(e.target)) {
-      popup.classList.remove('open');
-    }
-  });
-
-  openChatBtn.addEventListener('click', () => {
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-  });
-})();
+initWhatsApp();
 
 // ── Mobile input: prefix on focus, placeholder on blur, digits only ──
 (function () {
