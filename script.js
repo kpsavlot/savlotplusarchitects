@@ -239,7 +239,7 @@ document.addEventListener('click', function() {
   const cats = stats?.querySelectorAll('.category-labels, .commercial-wrapper, .turnkey-wrapper');
 
   if (photo) { photo.style.opacity = '0'; photo.style.transform = 'translateX(-40px)'; photo.style.willChange = 'opacity,transform'; }
-  if (content3) { content3.style.opacity = '0'; content3.style.transform = 'translateX(40px)'; }
+  if (content3) { content3.style.opacity = '0'; content3.style.transform = 'translateX(-40px)'; }
   if (line) { line.style.opacity = '0'; line.style.transform = 'scaleX(0)'; }
   if (cats && cats.length) cats.forEach(cat => { cat.style.opacity = '0'; cat.style.transform = 'translateY(10px)'; });
 
