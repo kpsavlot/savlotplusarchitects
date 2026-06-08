@@ -22,6 +22,42 @@ initLenis();
   });
 })();
 
+// ── Set hero-parent height per formula ──
+(function () {
+  const parent = document.querySelector('.portfolio-hero-parent');
+  const hero = document.querySelector('.portfolio-hero');
+  const filter = document.querySelector('.portfolio-filter');
+  if (!parent || !hero || !filter) return;
+  function sync() {
+    const heroH = hero.offsetHeight;
+    const filterH = filter.offsetHeight;
+    parent.style.height = `calc(200svh - ${heroH}px + 50px)`;
+    hero.style.marginBottom = filterH + 'px';
+    filter.style.top = heroH + 'px';
+  }
+  sync();
+  window.addEventListener('resize', sync);
+})();
+
+// ── Mobile Menu Toggle ──
+document.addEventListener('click', function(e) {
+  const wrapper = e.target.closest('.hamburger-wrapper');
+  if (wrapper) {
+    e.stopPropagation();
+    wrapper.closest('.pill-menu')?.classList.toggle('active');
+    return;
+  }
+  const parentLink = e.target.closest('.menu-item-has-children > a');
+  if (parentLink) {
+    e.preventDefault();
+    e.stopPropagation();
+    parentLink.parentElement.classList.toggle('active');
+    return;
+  }
+  document.querySelector('.pill-menu')?.classList.remove('active');
+  document.querySelectorAll('.menu-item-has-children.active').forEach(el => el.classList.remove('active'));
+});
+
 // ── Header animation ──
 (function () {
   const logo = document.querySelector('.logo');
@@ -73,18 +109,6 @@ const cardObserver = new IntersectionObserver((entries) => {
   const mainBtns = document.querySelectorAll('.main-filter-btn');
   const subBtns = document.querySelectorAll('.sub-filter-btn');
   const cards = document.querySelectorAll('.portfolio-card-grid > section');
-  const blanks = [
-    { el: document.querySelector('.blank-card'), row: 1 },
-    { el: document.querySelector('.blank-card2'), row: 2 },
-    { el: document.querySelector('.blank-card3'), row: 3 },
-    { el: document.querySelector('.blank-card4'), row: 4 },
-  ];
-  const cardSlots = [
-    { col: 1, row: 1 }, { col: 2, row: 1 },
-    { col: 1, row: 2 }, { col: 3, row: 2 },
-    { col: 1, row: 3 }, { col: 2, row: 3 },
-    { col: 2, row: 4 }, { col: 3, row: 4 },
-  ];
   if (!mainBtns.length || !subBtns.length) return;
 
   let activeMain = 'interior';
@@ -103,26 +127,12 @@ const cardObserver = new IntersectionObserver((entries) => {
       if (matchMain && matchSub) visible.push(i);
     });
 
-    cards.forEach(c => { c.style.display = 'none'; c.style.gridColumn = ''; c.style.gridRow = ''; });
-    blanks.forEach(b => { b.el.style.display = 'none'; });
+    cards.forEach(c => { c.style.display = 'none'; });
 
-    void document.body.offsetHeight;
-
-    const usedRows = new Set();
-    visible.forEach((cardIndex, slotIndex) => {
+    visible.forEach(cardIndex => {
       const card = cards[cardIndex];
       card.style.display = '';
-      if (slotIndex < cardSlots.length) {
-        const slot = cardSlots[slotIndex];
-        card.style.gridColumn = String(slot.col);
-        card.style.gridRow = String(slot.row);
-        usedRows.add(slot.row);
-      }
       cardObserver.observe(card);
-    });
-
-    blanks.forEach(b => {
-      b.el.style.display = usedRows.has(b.row) ? '' : 'none';
     });
   }
 
