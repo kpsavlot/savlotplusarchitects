@@ -305,6 +305,25 @@ const params = new URLSearchParams(window.location.search);
 const projectId = params.get('id') || '1';
 renderProject(projectId);
 
+// ── Mobile Menu Toggle ──
+document.addEventListener('click', function(e) {
+  const wrapper = e.target.closest('.hamburger-wrapper');
+  if (wrapper) {
+    e.stopPropagation();
+    wrapper.closest('.pill-menu')?.classList.toggle('active');
+    return;
+  }
+  const parentLink = e.target.closest('.menu-item-has-children > a');
+  if (parentLink) {
+    e.preventDefault();
+    e.stopPropagation();
+    parentLink.parentElement.classList.toggle('active');
+    return;
+  }
+  document.querySelector('.pill-menu')?.classList.remove('active');
+  document.querySelectorAll('.menu-item-has-children.active').forEach(el => el.classList.remove('active'));
+});
+
 // ── Gallery drag scroll + custom cursor ──
 (function () {
   if (!window.matchMedia('(pointer: fine)').matches) return;
