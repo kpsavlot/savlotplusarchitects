@@ -1,3 +1,4 @@
+html { scroll-behavior: smooth; }
 .portfolio-page {
   display: flex;
   flex-direction: column;

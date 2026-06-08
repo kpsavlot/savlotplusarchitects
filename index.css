@@ -1,4 +1,4 @@
-html { scrollbar-width: none; -ms-overflow-style: none; }
+html { scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; }
 html::-webkit-scrollbar { display: none; }
 html.lenis { height: auto; scrollbar-width: none; -ms-overflow-style: none; }
 html.lenis::-webkit-scrollbar { display: none; }
@@ -27,7 +27,6 @@ html.lenis::-webkit-scrollbar { display: none; }
 #scroll-thumb.visible {
   opacity: 1;
 }
-.lenis.lenis-smooth { scroll-behavior: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 .lenis.lenis-scrolling iframe { pointer-events: none; }
