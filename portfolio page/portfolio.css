@@ -1466,3 +1466,7 @@ html {
   font-family: "Host Grotesk", sans-serif;
 }
 .whatsapp-open-chat:hover { background: #054d44; }
+
+@media (pointer: coarse) {
+  .custom-cursor { display: none !important; }
+}

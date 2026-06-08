@@ -1269,3 +1269,8 @@ html { scrollbar-width: none; -ms-overflow-style: none; }
   font-family: "Host Grotesk", sans-serif;
 }
 .whatsapp-open-chat:hover { background: #054d44; }
+
+@media (pointer: coarse) {
+  .video-cursor,
+  .gallery-cursor { display: none !important; }
+}
