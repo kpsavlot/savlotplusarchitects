@@ -2422,26 +2422,26 @@ a {
   --color-5: #285aeb;
   transition: --color-1 0.5s ease, --color-2 0.5s ease, --color-3 0.5s ease, --color-4 0.5s ease,--color-5 0.5s ease;
 }
-.icon-fb {
+.icon-yt {
   cursor: pointer;
-  mask-image: url('./public/facebook.svg');
-  -webkit-mask-image: url('./public/facebook.svg');
+  mask-image: url('./public/youtube.svg');
+  -webkit-mask-image: url('./public/youtube.svg');
   background-color: #ffffff;
   transition: background-color 0.3s ease;
 }
-.icon-fb:hover {
-  background-color: #1877f2;
+.icon-yt:hover {
+  background-color: #ff0000;
   transition: background-color 0.5s ease;
 }
-.icon-in {
+.icon-pt {
   cursor: pointer;
-  mask-image: url('./public/in.svg');
-  -webkit-mask-image: url('./public/in.svg');
+  mask-image: url('./public/pinterest.svg');
+  -webkit-mask-image: url('./public/pinterest.svg');
   background-color: #fff;
   transition: background-color 0.3s ease;
 }
-.icon-in:hover {
-  background-color: #0a66c2;
+.icon-pt:hover {
+  background-color: #e60023;
   transition: background-color 0.5s ease;
 }
 .icon-wa {

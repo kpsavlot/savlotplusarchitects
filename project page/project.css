@@ -783,22 +783,22 @@ a { color: inherit; text-decoration: inherit; }
   background-image: radial-gradient(circle at 30% 107%, #fdf497, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
   transition: background-image 0.5s ease;
 }
-.icon-fb {
+.icon-yt {
   cursor: pointer;
-  mask-image: url('./public/facebook.svg');
-  -webkit-mask-image: url('./public/facebook.svg');
+  mask-image: url('./public/youtube.svg');
+  -webkit-mask-image: url('./public/youtube.svg');
   background-color: #fff;
   transition: background-color 0.3s ease;
 }
-.icon-fb:hover { background-color: #1877f2; transition: background-color 0.5s ease; }
-.icon-in {
+.icon-yt:hover { background-color: #ff0000; transition: background-color 0.5s ease; }
+.icon-pt {
   cursor: pointer;
-  mask-image: url('./public/in.svg');
-  -webkit-mask-image: url('./public/in.svg');
+  mask-image: url('./public/pinterest.svg');
+  -webkit-mask-image: url('./public/pinterest.svg');
   background-color: #fff;
   transition: background-color 0.3s ease;
 }
-.icon-in:hover { background-color: #0a66c2; transition: background-color 0.5s ease; }
+.icon-pt:hover { background-color: #e60023; transition: background-color 0.5s ease; }
 .icon-wa {
   mask-image: url('./public/whatsapp.svg');
   -webkit-mask-image: url('./public/whatsapp.svg');
