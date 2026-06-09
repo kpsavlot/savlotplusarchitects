@@ -725,15 +725,11 @@ a { color: inherit; text-decoration: inherit; }
 }
 
 @media screen and (max-width: 768px) {
-  .pill-menu { top: 10px; right: 20px; }
-  .header { flex-wrap: wrap; }
+  .pill-menu { top: 0; right: 0; }
+  .header { position: relative; flex-wrap: wrap; }
   .logo { width: 100%; }
   .savlot-architects { font-size: 20px; }
   .kailash-m-savlot { font-size: 14px; }
-}
-
-@media screen and (max-width: 480px) {
-  .pill-menu { top: 8px; right: 15px; }
 }
 
 /* ── Loading Screen ── */
