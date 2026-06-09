@@ -320,79 +320,144 @@ document.addEventListener('click', function(e) {
     parentLink.parentElement.classList.toggle('active');
     return;
   }
-  document.querySelector('.pill-menu')?.classList.remove('active');
-  document.querySelectorAll('.menu-item-has-children.active').forEach(el => el.classList.remove('active'));
+  closeMenu();
 });
+function closeMenu() {
+  document.querySelectorAll('.pill-menu').forEach(m => m.classList.remove('active'));
+  document.querySelectorAll('.menu-item-has-children.active').forEach(el => el.classList.remove('active'));
+}
+document.addEventListener('wheel', closeMenu, { passive: true });
+document.addEventListener('touchstart', e => {
+  if (!e.target.closest('.pill-menu')) closeMenu();
+}, { passive: true });
 
 // ── Gallery drag scroll + custom cursor ──
 (function () {
-  if (!window.matchMedia('(pointer: fine)').matches) return;
   const track = document.getElementById('project-gallery');
   if (!track) return;
   const wrapper = track.closest('.gallery-wrapper');
   if (!wrapper) return;
   const gap = 30;
+  const isFine = window.matchMedia('(pointer: fine)').matches;
   const leftArrow = '<svg viewBox="0 0 24 24"><path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const rightArrow = '<svg viewBox="0 0 24 24"><path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  const cursor = document.createElement('div');
-  cursor.className = 'gallery-cursor';
-  cursor.innerHTML = rightArrow;
-  document.body.appendChild(cursor);
+  let cursor;
+  if (isFine) {
+    cursor = document.createElement('div');
+    cursor.className = 'gallery-cursor';
+    cursor.innerHTML = rightArrow;
+    document.body.appendChild(cursor);
+  }
   let isDragging = false, startX = 0, startTranslate = 0, moved = false, translateX = 0;
+  let velX = 0, lastX = 0, lastTime = 0;
+  let momentumId = null;
 
   function step() {
     const img = track.querySelector('.gallery-image');
     return img ? img.offsetWidth + gap : 860;
   }
 
-  function setTranslate(x) {
+  function setTranslate(x, snap) {
     translateX = Math.min(0, Math.max(x, -(track.scrollWidth - wrapper.clientWidth)));
     track.style.transform = 'translateX(' + translateX + 'px)';
   }
 
-  wrapper.addEventListener('mouseenter', () => { cursor.classList.add('visible'); track.style.cursor = 'none'; });
-  wrapper.addEventListener('mouseleave', () => { cursor.classList.remove('visible'); track.style.cursor = ''; isDragging = false; });
-  wrapper.addEventListener('mousemove', e => {
-    const rect = wrapper.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    cursor.innerHTML = x < rect.width / 2 ? leftArrow : rightArrow;
-    cursor.style.left = (e.clientX - 50) + 'px';
-    cursor.style.top = (e.clientY - 50) + 'px';
+  function pointerStart(clientX) {
+    cancelAnimationFrame(momentumId);
+    momentumId = null;
+    track.style.transition = 'none';
+    isDragging = true; startX = clientX; startTranslate = translateX; moved = false;
+    lastX = clientX; lastTime = performance.now(); velX = 0;
+  }
+  function pointerMove(clientX) {
     if (isDragging) {
-      setTranslate(startTranslate + (e.clientX - startX));
-      if (Math.abs(e.clientX - startX) > 10) moved = true;
+      const now = performance.now();
+      const dx = clientX - lastX;
+      const dt = now - lastTime;
+      if (dt > 0) velX = dx / dt * 16;
+      lastX = clientX; lastTime = now;
+      setTranslate(startTranslate + (clientX - startX));
+      if (Math.abs(clientX - startX) > 10) moved = true;
     }
-  });
-  wrapper.addEventListener('mousedown', e => { isDragging = true; startX = e.clientX; startTranslate = translateX; moved = false; e.preventDefault(); });
-  document.addEventListener('mouseup', () => {
-    if (isDragging && !moved) {
-      const rect = wrapper.getBoundingClientRect();
-      const x = startX - rect.left;
-      const target = translateX + (x < rect.width / 2 ? step() : -step());
-      track.style.transition = 'transform 0.4s ease';
-      setTranslate(target);
-      track.addEventListener('transitionend', function h() { track.style.transition = ''; track.removeEventListener('transitionend', h); });
+  }
+  function pointerEnd() {
+    if (isDragging) {
+      if (!moved) {
+        const rect = wrapper.getBoundingClientRect();
+        const x = startX - rect.left;
+        const target = translateX + (x < rect.width / 2 ? step() : -step());
+        track.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        setTranslate(target);
+        track.addEventListener('transitionend', function h() { track.style.transition = ''; track.removeEventListener('transitionend', h); });
+      } else if (Math.abs(velX) > 0.3) {
+        const friction = 0.92;
+        const minVel = 0.5;
+        const maxT = 0;
+        const minT = -(track.scrollWidth - wrapper.clientWidth);
+        let v = velX;
+        (function momentum() {
+          v *= friction;
+          if (Math.abs(v) < minVel) return;
+          let t = translateX + v;
+          if (t > maxT || t < minT) {
+            t = Math.max(minT, Math.min(maxT, t));
+            const dist = Math.abs(t - translateX);
+            track.style.transition = 'transform ' + Math.min(0.3, dist * 0.003) + 's cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            setTranslate(t);
+            track.addEventListener('transitionend', function h() { track.style.transition = ''; track.removeEventListener('transitionend', h); });
+            return;
+          }
+          setTranslate(t);
+          momentumId = requestAnimationFrame(momentum);
+        })();
+      }
     }
     isDragging = false;
-  });
+  }
+
+  if (isFine) {
+    wrapper.addEventListener('mouseenter', () => { cursor.classList.add('visible'); track.style.cursor = 'none'; });
+    wrapper.addEventListener('mouseleave', () => { cursor.classList.remove('visible'); track.style.cursor = ''; isDragging = false; });
+    wrapper.addEventListener('mousemove', e => {
+      const rect = wrapper.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      cursor.innerHTML = x < rect.width / 2 ? leftArrow : rightArrow;
+      cursor.style.left = (e.clientX - 50) + 'px';
+      cursor.style.top = (e.clientY - 50) + 'px';
+      if (isDragging) pointerMove(e.clientX);
+    });
+    wrapper.addEventListener('mousedown', e => { pointerStart(e.clientX); e.preventDefault(); });
+    document.addEventListener('mouseup', pointerEnd);
+  }
+  wrapper.addEventListener('touchstart', e => { pointerStart(e.touches[0].clientX); }, { passive: true });
+  wrapper.addEventListener('touchmove', e => { pointerMove(e.touches[0].clientX); }, { passive: true });
+  wrapper.addEventListener('touchend', pointerEnd);
 })();
 
-// ── Video custom cursor ──
+// ── Video custom cursor + touch play overlay ──
 (function () {
-  if (!window.matchMedia('(pointer: fine)').matches) return;
   const video = document.getElementById('video-element');
   if (!video) return;
   const wrapper = video.closest('.video-wrapper');
   if (!wrapper) return;
+  const isFine = window.matchMedia('(pointer: fine)').matches;
   const playIcon = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="white"/></svg>';
-  const cursor = document.createElement('div');
-  cursor.className = 'video-cursor';
-  cursor.innerHTML = playIcon;
-  document.body.appendChild(cursor);
 
-  let activated = false;
+  let cursor;
+  let overlay;
+  if (isFine) {
+    cursor = document.createElement('div');
+    cursor.className = 'video-cursor';
+    cursor.innerHTML = playIcon;
+    document.body.appendChild(cursor);
+  } else {
+    overlay = document.createElement('div');
+    overlay.className = 'video-play-overlay';
+    overlay.innerHTML = playIcon;
+    wrapper.appendChild(overlay);
+  }
+
   let seeking = false;
-  let hideTimer = null;
   const BAR = 45;
 
   function isBar(e) {
@@ -401,50 +466,54 @@ document.addEventListener('click', function(e) {
     return e.clientY - b.top > b.height - BAR;
   }
 
-  function s() { cursor.classList.add('visible'); video.style.cursor = 'none'; }
-  function h() { cursor.classList.remove('visible'); video.style.cursor = ''; }
+  function showPlayCursor() { if (cursor) { cursor.classList.add('visible'); video.style.cursor = 'none'; } }
+  function hidePlayCursor() { if (cursor) { cursor.classList.remove('visible'); video.style.cursor = ''; } }
+  function showOverlay() { if (overlay) overlay.classList.add('visible'); }
+  function hideOverlay() { if (overlay) overlay.classList.remove('visible'); }
 
-  wrapper.addEventListener('mouseenter', e => {
-    if (!video.paused || isBar(e)) return;
-    s();
-  });
-  wrapper.addEventListener('mouseleave', h);
-  wrapper.addEventListener('mousemove', e => {
-    cursor.style.left = (e.clientX - 50) + 'px';
-    cursor.style.top = (e.clientY - 50) + 'px';
-    if (!video.paused) { h(); return; }
-    if (isBar(e)) { h(); return; }
-    s();
-  });
+  if (isFine) {
+    wrapper.addEventListener('mouseenter', e => {
+      if (!video.paused || isBar(e)) return;
+      showPlayCursor();
+    });
+    wrapper.addEventListener('mouseleave', hidePlayCursor);
+    wrapper.addEventListener('mousemove', e => {
+      cursor.style.left = (e.clientX - 50) + 'px';
+      cursor.style.top = (e.clientY - 50) + 'px';
+      if (!video.paused) { hidePlayCursor(); return; }
+      if (isBar(e)) { hidePlayCursor(); return; }
+      showPlayCursor();
+    });
+  }
 
-  video.addEventListener('click', () => {
-    if (!activated) {
-      activated = true;
+  function togglePlay() {
+    if (video.paused) {
       video.setAttribute('controls', '');
       video.play().catch(() => {});
-      return;
-    }
-    if (!video.hasAttribute('controls') && video.paused && !seeking) {
-      video.setAttribute('controls', '');
-      video.play().catch(() => {});
-    }
-  });
-
-  video.addEventListener('seeking', () => { seeking = true; clearTimeout(hideTimer); });
-  video.addEventListener('seeked', () => { seeking = false; });
-  video.addEventListener('play', () => { clearTimeout(hideTimer); h(); });
-  video.addEventListener('pause', () => {
-    if (seeking) return;
-    hideTimer = setTimeout(() => {
-      if (seeking || !video.paused) return;
+      hideOverlay();
+    } else {
+      video.pause();
       video.removeAttribute('controls');
-      s();
-    }, 80);
-  });
-  video.addEventListener('ended', () => {
-    clearTimeout(hideTimer);
-    video.removeAttribute('controls');
-    s();
+      showOverlay();
+    }
+  }
+
+  if (isFine) {
+    video.addEventListener('click', togglePlay);
+  } else if (overlay) {
+    overlay.addEventListener('click', togglePlay);
+  }
+  video.addEventListener('seeked', () => { seeking = false; });
+  video.addEventListener('seeking', () => { seeking = true; });
+  video.addEventListener('play', () => { hidePlayCursor(); hideOverlay(); });
+  video.addEventListener('pause', () => {
+    if (video.paused) {
+      if (isFine) {
+        setTimeout(() => { if (video.paused) showPlayCursor(); }, 300);
+      } else {
+        showOverlay();
+      }
+    }
   });
 })();
 
@@ -462,9 +531,9 @@ initLenis();
   const floatingLogo = floating.querySelector('.logo');
   if (floatingLogo) floatingLogo.style.opacity = '1';
   document.body.appendChild(floating);
-  const gridTop = main.getBoundingClientRect().top + window.lenis.animatedScroll;
+  const gridTop = main.getBoundingClientRect().top + window.lenis.scroll;
   window.lenis.on('scroll', e => {
-    if (e.animatedScroll > gridTop) {
+    if (e.scroll > gridTop) {
       floating.classList.toggle('visible', e.direction < 0);
     } else {
       floating.classList.remove('visible');

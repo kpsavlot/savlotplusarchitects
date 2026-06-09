@@ -12,9 +12,9 @@ initLenis();
   floating.classList.add('floating-header');
   floating.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
   document.body.appendChild(floating);
-  const gridTop = grid.getBoundingClientRect().top + window.lenis.animatedScroll;
+  const gridTop = grid.getBoundingClientRect().top + window.lenis.scroll;
   window.lenis.on('scroll', (e) => {
-    if (e.animatedScroll > gridTop) {
+    if (e.scroll > gridTop) {
       floating.classList.toggle('visible', e.direction < 0);
     } else {
       floating.classList.remove('visible');
@@ -54,9 +54,16 @@ document.addEventListener('click', function(e) {
     parentLink.parentElement.classList.toggle('active');
     return;
   }
-  document.querySelector('.pill-menu')?.classList.remove('active');
-  document.querySelectorAll('.menu-item-has-children.active').forEach(el => el.classList.remove('active'));
+  closeMenu();
 });
+function closeMenu() {
+  document.querySelectorAll('.pill-menu').forEach(m => m.classList.remove('active'));
+  document.querySelectorAll('.menu-item-has-children.active').forEach(el => el.classList.remove('active'));
+}
+document.addEventListener('wheel', closeMenu, { passive: true });
+document.addEventListener('touchstart', e => {
+  if (!e.target.closest('.pill-menu')) closeMenu();
+}, { passive: true });
 
 // ── Header animation ──
 (function () {

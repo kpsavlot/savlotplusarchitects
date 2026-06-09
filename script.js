@@ -110,19 +110,24 @@ import { createObserver, initLenis, initLoader, initWhatsApp } from './common.js
 })();
 
 // ── Mobile Menu Toggle ──
-document.querySelector('.hamburger-wrapper')?.addEventListener('click', function(e) {
+document.querySelectorAll('.hamburger-wrapper').forEach(w => w.addEventListener('click', function(e) {
   e.stopPropagation();
-  document.querySelector('.pill-menu')?.classList.toggle('active');
-});
-document.querySelector('.menu-item-has-children > a')?.addEventListener('click', function(e) {
+  this.closest('.pill-menu')?.classList.toggle('active');
+}));
+document.querySelectorAll('.menu-item-has-children > a').forEach(a => a.addEventListener('click', function(e) {
   e.preventDefault();
   e.stopPropagation();
   this.parentElement.classList.toggle('active');
-});
-document.addEventListener('click', function() {
-  document.querySelector('.pill-menu')?.classList.remove('active');
+}));
+document.addEventListener('click', closeMenu);
+function closeMenu() {
+  document.querySelectorAll('.pill-menu').forEach(m => m.classList.remove('active'));
   document.querySelectorAll('.menu-item-has-children.active').forEach(el => el.classList.remove('active'));
-});
+}
+document.addEventListener('wheel', closeMenu, { passive: true });
+document.addEventListener('touchstart', e => {
+  if (!e.target.closest('.pill-menu')) closeMenu();
+}, { passive: true });
 
 // ── Service Section: Card Stack ──
 (function () {
