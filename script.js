@@ -22,8 +22,8 @@ import { createObserver, initLenis, initLoader, initWhatsApp } from './common.js
   const video2Url = new URL('./public/hero-video-2.mp4', import.meta.url).href;
 
   const hc = [
-    { title: 'THE NOIR RESIDENCE', desc: 'Currently in the final styling phase. This turnkey project in Ahmedabad explores the balance between ambient lighting and deep, tactile textures.', status: 'HANDOVER PHASE', location: 'SATELLITE, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: video1Url },
-    { title: 'THE MONOLITH HOUSE', desc: 'Full Architecture & Turnkey execution. Achieved 40% more natural light via a central atrium. 14 Months from soil-test to shoes-off.', status: 'COMPLETED', location: 'BOPAL, AHMEDABAD', scope: 'ARCHITECTURE + INTERIORS', video: video2Url },
+    { title: 'RIVIERA ELITE', desc: 'Interior design project successfully completed and handed over to the client. Elegant spaces crafted with premium finishes and meticulous detailing.', status: 'COMPLETED & HANDED OVER', location: 'SKY CITY TOWNSHIP, SHELA', scope: 'INTERIOR', video: video1Url, link: '../project page/project.html?id=5' },
+    { title: 'SPRING 3BHK', desc: 'A complete interior transformation delivered and handed over. Designed for modern living with optimized layouts and a curated material palette.', status: 'COMPLETED & HANDED OVER', location: 'SATELLITE, AHMEDABAD', scope: 'INTERIOR', video: video2Url, link: '../project page/project.html?id=1' },
   ];
 
   let ci = 0;
@@ -33,6 +33,7 @@ import { createObserver, initLenis, initLoader, initWhatsApp } from './common.js
   const sEls = document.querySelectorAll('.status-handover-container b');
   const lEl = document.querySelectorAll('.status-handover-container')[1]?.querySelector('b');
   const scEl = document.querySelector('.scope-architecture-container b');
+  const kmEl = document.querySelector('.hero-know-more');
 
   function updateContent(i) {
     const d = hc[i];
@@ -56,6 +57,7 @@ import { createObserver, initLenis, initLoader, initWhatsApp } from './common.js
     if (sEls[0]) sEls[0].textContent = d.status;
     if (lEl) lEl.textContent = d.location;
     if (scEl) scEl.textContent = d.scope;
+    if (kmEl && d.link) kmEl.href = d.link;
   }
 
   const v = document.getElementById('hero-video');
