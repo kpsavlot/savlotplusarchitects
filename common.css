@@ -194,7 +194,7 @@ body { margin: 0; }
   letter-spacing: -0.08em;
   line-height: 102.72%;
   font-weight: 500;
-  font-family: inherit;
+  font-family: "Bank Gothic Light";
   display: inline-block;
   text-align: left;
 }
@@ -756,7 +756,7 @@ a { color: inherit; text-decoration: inherit; }
 }
 .loader-title {
   margin: 0;
-  font-family: Bank Gothic Light;
+  font-family: "Bank Gothic Light";
   font-size: 32px;
   line-height: 102.72%;
   letter-spacing: -0.08em;
@@ -765,7 +765,7 @@ a { color: inherit; text-decoration: inherit; }
 }
 .loader-subtitle {
   margin: 0;
-  font-family: Bank Gothic Light;
+  font-family: "Bank Gothic Light";
   font-size: 20px;
   line-height: 102.72%;
   letter-spacing: -0.08em;
