@@ -1,4 +1,16 @@
 import { createObserver, initLenis, initLoader, initWhatsApp } from '../common.js';
+import projectData from '../project-data.js';
+
+// ── Sync card text from shared project data ──
+document.querySelectorAll('#portfolio-card-grid [data-id]').forEach(link => {
+  const id = link.getAttribute('data-id');
+  const data = projectData[id];
+  if (!data) return;
+  const titleEl = link.querySelector('.project-title');
+  const locEl = link.querySelector('.location');
+  if (titleEl) titleEl.textContent = data.title;
+  if (locEl) locEl.textContent = data.location;
+});
 
 // ── Lenis smooth scroll ──
 initLenis();

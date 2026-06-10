@@ -2029,7 +2029,9 @@ select:invalid, textarea::placeholder, input::placeholder {
     box-sizing: border-box;
   }
   .content {
-    min-width: 100%;
+  }
+  .stats {
+    display: none;
   }
   .our-service,
   .title {
@@ -2155,6 +2157,24 @@ select:invalid, textarea::placeholder, input::placeholder {
   }
   .frame-group {
     width: 100%;
+  }
+  .item:nth-child(n+2) {
+    display: none;
+  }
+  .item:nth-child(1) {
+    position: relative;
+    width: 100%;
+  }
+  .item-content .title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .item-content {
+    width: auto;
+  }
+  .carousel-arrow,
+  .arrows {
+    display: none;
   }
 }
 @media screen and (max-width: 450px) {
@@ -2290,17 +2310,10 @@ select:invalid, textarea::placeholder, input::placeholder {
   }
   .content {
     width: auto;
-    max-width: 400px;
   }
   .title {
     font-size: 28px;
     line-height: 32px;
-  }
-  .description {
-    max-height: none;
-  }
-  .hero-know-more {
-    top: 160px;
   }
   .about-inner {
     padding: 0 40px;
@@ -2376,9 +2389,6 @@ select:invalid, textarea::placeholder, input::placeholder {
     top: auto;
     left: auto;
     margin-top: 6px;
-  }
-  .stats {
-    display: none;
   }
   .interior-card {
     height: 100svh !important;
@@ -2609,24 +2619,6 @@ select:invalid, textarea::placeholder, input::placeholder {
   .termsconditions {
     justify-content: center;
     text-align: center;
-  }
-  .item:nth-child(n+2) {
-    display: none;
-  }
-  .item:nth-child(1) {
-    position: relative;
-    width: 100%;
-  }
-  .item-content .title {
-    font-size: 36px;
-    line-height: 40px;
-  }
-  .item-content {
-    width: auto;
-  }
-  .carousel-arrow,
-  .arrows {
-    display: none;
   }
   .our-service {
     font-size: 17px;

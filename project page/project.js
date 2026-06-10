@@ -1,4 +1,5 @@
 import { createObserver, initLenis, initLoader, initWhatsApp } from '../common.js';
+import projectData from '../project-data.js';
 
 // ── Header animation ──
 (function () {
@@ -26,11 +27,9 @@ const galleryImgs = [gallery1Url, gallery2Url, gallery3Url];
 const p05HeroUrl = new URL('./public/project-05/project-05-bg.avif', import.meta.url).href;
 const p05PosterUrl = new URL('./public/project-05/project-05-poster.avif', import.meta.url).href;
 const p05VideoMp4Url = new URL('./public/project-05/project-05-video.mp4', import.meta.url).href;
-const p05VideoWebmUrl = new URL('./public/project-05/project-05-video.webm', import.meta.url).href;
-const p05Gallery1Url = new URL('./public/project-05/project-05-img01.avif', import.meta.url).href;
-const p05Gallery2Url = new URL('./public/project-05/project-05-img02.avif', import.meta.url).href;
-const p05Gallery3Url = new URL('./public/project-05/project-05-img03.avif', import.meta.url).href;
-const p05GalleryImgs = [p05Gallery1Url, p05Gallery2Url, p05Gallery3Url];
+const p05GalleryImgs = Array.from({length: 24}, (_, i) =>
+  new URL(`./public/project-05/project-05-img (${i + 1}).avif`, import.meta.url).href
+);
 
 // ── Project-01 specific assets ──
 const p01HeroUrl = new URL('./public/project-01/project-01-bg.avif', import.meta.url).href;
@@ -44,7 +43,7 @@ const p01GalleryImgs = Array.from({length: 24}, (_, i) =>
 const projects = {
   1: {
     hero: p05HeroUrl,
-    title: 'THE MONOLITH HOUSE',
+    title: 'SPRING 3BHK',
     location: 'SHILAJ, 2021',
     brief: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     points: [
@@ -57,7 +56,7 @@ const projects = {
       { value: '35%', label: 'Energy Bill Reduction' },
       { value: '85%', label: 'Daylight Autonomy' },
     ],
-    video: { poster: p05PosterUrl, sources: [p05VideoMp4Url, p05VideoWebmUrl] },
+    video: { poster: p05PosterUrl, sources: [p05VideoMp4Url] },
     gallery: p05GalleryImgs,
   },
   2: {
@@ -116,8 +115,8 @@ const projects = {
   },
   5: {
     hero: p01HeroUrl,
-    title: 'THE NOIR RESIDENCE',
-    location: 'BOPAL, 2024',
+    title: 'RIVIERA ELITE',
+    location: 'SKY CITY TOWNSHIP, 2024',
     brief: 'Currently in the final styling phase. This turnkey project explores the balance between ambient lighting and deep, tactile textures. A study in contrasts \u2014 matte against gloss, rough stone against smooth leather.',
     points: [
       { heading: 'THE CHALLENGE', text: 'Creating drama without darkness \u2014 keeping the interiors moody yet welcoming.' },
@@ -218,6 +217,11 @@ function animateStats() {
 function renderProject(id) {
   const data = projects[id];
   if (!data) return;
+
+  if (projectData[id]) {
+    data.title = projectData[id].title;
+    data.location = projectData[id].location;
+  }
 
   document.getElementById('hero-image').src = data.hero;
   document.getElementById('hero-image').alt = data.title;

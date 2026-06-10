@@ -300,19 +300,19 @@
   padding: 15px;
   box-sizing: border-box;
 }
-.bopal-2024,
-.project-1 {
+.location,
+.project-title {
   position: relative;
   line-height: 129%;
   text-transform: uppercase;
 }
-.project-1 {
+.project-title {
   margin: 0;
   font-size: inherit;
   font-weight: 900;
   font-family: inherit;
 }
-.bopal-2024 {
+.location {
   font-size: 13px;
   font-family: "Host Grotesk";
   color: #e4e4e4;
@@ -575,7 +575,7 @@
     font-size: 16px;
     line-height: 24px;
   }
-  .project-1 {
+  .project-title {
     font-size: 20px;
     line-height: 26px;
   }
@@ -776,11 +776,11 @@
   .content-parent6 {
     height: 340px;
   }
-  .project-1 {
+  .project-title {
     font-size: 18px;
     line-height: 22px;
   }
-  .bopal-2024 {
+  .location {
     font-size: 14px;
   }
   .footer-links a {
