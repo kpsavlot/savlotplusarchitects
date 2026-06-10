@@ -13,7 +13,7 @@ import projectData from '../project-data.js';
   logo.style.transition = 'opacity 0.8s ease';
 })();
 
-// ── Asset URLs (bundler-friendly) ──
+// ── Asset URLs (CDN) ──
 const heroImgUrl = new URL('./public/project-bg@2x.png', import.meta.url).href;
 const posterUrl = new URL('./public/28-1@2x.png', import.meta.url).href;
 const videoMp4Url = new URL('./public/project-video.mp4', import.meta.url).href;
@@ -23,67 +23,23 @@ const gallery2Url = new URL('./public/Image2@2x.png', import.meta.url).href;
 const gallery3Url = new URL('./public/Image@2x.png', import.meta.url).href;
 const galleryImgs = [gallery1Url, gallery2Url, gallery3Url];
 
+const cdn = 'https://res.cloudinary.com/dge8i8jqs';
+
 // ── Project-05 specific assets ──
-const p05HeroUrl = new URL('./public/project-05/project-05-bg.avif', import.meta.url).href;
-const p05PosterUrl = new URL('./public/project-05/project-05-poster.avif', import.meta.url).href;
-const p05VideoMp4Url = new URL('./public/project-05/project-05-video.mp4', import.meta.url).href;
-const p05GalleryImgs = [
-  new URL('./public/project-05/project-05-img-01.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-02.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-03.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-04.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-05.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-06.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-07.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-08.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-09.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-10.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-11.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-12.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-13.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-14.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-15.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-16.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-17.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-18.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-19.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-20.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-21.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-22.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-23.avif', import.meta.url).href,
-  new URL('./public/project-05/project-05-img-24.avif', import.meta.url).href,
-];
+const p05HeroUrl = `${cdn}/image/upload/q_auto/f_auto/project-asset/project-05/project-05-bg.avif`;
+const p05PosterUrl = `${cdn}/image/upload/q_auto/f_auto/project-asset/project-05/project-05-poster.avif`;
+const p05VideoMp4Url = `${cdn}/video/upload/q_auto/f_auto/project-asset/project-05/project-05-video.mp4`;
+const p05GalleryImgs = Array.from({ length: 24 }, (_, i) =>
+  `${cdn}/image/upload/q_auto/f_auto/project-asset/project-05/project-05-img-${String(i + 1).padStart(2, '0')}.avif`
+);
 
 // ── Project-01 specific assets ──
-const p01HeroUrl = new URL('./public/project-01/project-01-bg.avif', import.meta.url).href;
-const p01PosterUrl = new URL('./public/project-01/project-01-poster.png', import.meta.url).href;
-const p01VideoMp4Url = new URL('./public/project-01/project-01-video.mp4', import.meta.url).href;
-const p01GalleryImgs = [
-  new URL('./public/project-01/project-01-img-01.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-02.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-03.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-04.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-05.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-06.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-07.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-08.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-09.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-10.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-11.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-12.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-13.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-14.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-15.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-16.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-17.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-18.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-19.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-20.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-21.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-22.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-23.avif', import.meta.url).href,
-  new URL('./public/project-01/project-01-img-24.avif', import.meta.url).href,
-];
+const p01HeroUrl = `${cdn}/image/upload/q_auto/f_auto/project-asset/project-01/project-01-bg.avif`;
+const p01PosterUrl = `${cdn}/image/upload/q_auto/f_auto/project-asset/project-01/project-01-poster.avif`;
+const p01VideoMp4Url = `${cdn}/video/upload/q_auto/f_auto/project-asset/project-01/project-01-video.mp4`;
+const p01GalleryImgs = Array.from({ length: 24 }, (_, i) =>
+  `${cdn}/image/upload/q_auto/f_auto/project-asset/project-01/project-01-img-${String(i + 1).padStart(2, '0')}.avif`
+);
 
 // ── Project Data ──
 const projects = {
