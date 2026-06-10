@@ -493,14 +493,14 @@
 [class^="content-parent"]:hover::before {
   transform: scale(1.05);
 }
-.content-parent::before { background-image: url(./public/content-parent@3x.avif); }
-.content-parent2::before { background-image: url(./public/content-parent1@3x.avif); }
-.content-parent3::before { background-image: url(./public/content-parent2@3x.avif); }
-.content-parent4::before { background-image: url(./public/content-parent3@3x.avif); }
-.content-parent5::before { background-image: url(./public/content-parent4@3x.avif); }
-.content-parent6::before { background-image: url(./public/content-parent5@3x.avif); }
-.content-parent7::before { background-image: url(./public/content-parent6@3x.avif); }
-.content-parent8::before { background-image: url(./public/content-parent7@3x.avif); }
+.content-parent::before { background-image: url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/portfolio-asset/content-parent_3x.avif); }
+.content-parent2::before { background-image: url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/portfolio-asset/content-parent1_3x.avif); }
+.content-parent3::before { background-image: url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/portfolio-asset/content-parent2_3x.avif); }
+.content-parent4::before { background-image: url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/portfolio-asset/content-parent3_3x.avif); }
+.content-parent5::before { background-image: url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/portfolio-asset/content-parent4_3x.avif); }
+.content-parent6::before { background-image: url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/portfolio-asset/content-parent5_3x.avif); }
+.content-parent7::before { background-image: url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/portfolio-asset/content-parent6_3x.avif); }
+.content-parent8::before { background-image: url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/portfolio-asset/content-parent7_3x.avif); }
 
 .content, .content3 { position: relative; z-index: 1; opacity: 0; transition: opacity 0.4s ease; }
 [class^="content-parent"]:hover > .content,
