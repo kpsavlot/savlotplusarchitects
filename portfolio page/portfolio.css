@@ -224,7 +224,14 @@
 .card06,
 .card07,
 .card08 {
-  height: auto;
+  width: 430px;
+  display: flex;
+  max-width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px;
+  color: #fff;
+  font-family: Geom;
 }
 
 @media screen and (max-width: 1440px) {
@@ -264,15 +271,7 @@
   100% { transform: translateY(0);    opacity: 0; }
 }
 .card01 {
-  width: 430px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  text-align: center;
-  font-size: 25px;
-  color: #fff;
-  font-family: Geom;
+  align-items: flex-start;
 }
 .content,
 .content-parent {
@@ -318,20 +317,14 @@
   font-family: "Host Grotesk";
   color: #e4e4e4;
 }
-.card02,
 .content-parent2 {
   display: flex;
   justify-content: center;
   max-width: 100%;
 }
 .card02 {
-  width: 430px;
   height: 538px;
   align-items: flex-start;
-  text-align: center;
-  font-size: 25px;
-  color: #fff;
-  font-family: Geom;
 }
 .content-parent2 {
   height: 286px;
@@ -340,8 +333,7 @@
   position: relative;
   align-items: center;
 }
-.blank-card,
-.card03 {
+.blank-card {
   width: 430px;
   display: flex;
   align-items: flex-start;
@@ -353,11 +345,7 @@
   grid-row: 1;
 }
 .card03 {
-  max-width: 100%;
-  text-align: center;
-  font-size: 25px;
-  color: #fff;
-  font-family: Geom;
+  align-items: flex-start;
 }
 .content-parent3,
 .content3 {
@@ -385,8 +373,7 @@
   padding: 15px;
   box-sizing: border-box;
 }
-.blank-card2,
-.card04 {
+.blank-card2 {
   width: 430px;
   height: 538px;
   align-items: flex-start;
@@ -397,35 +384,24 @@
   grid-column: 2;
   grid-row: 2;
 }
+
 .card04 {
-  text-align: center;
-  font-size: 25px;
-  color: #fff;
-  font-family: Geom;
-}
-.card04,
-.card05,
-.content-parent4 {
-  display: flex;
-  justify-content: center;
-  max-width: 100%;
+  height: 538px;
+  align-items: flex-start;
 }
 .content-parent4 {
   height: 430px;
   flex: 1;
+  display: flex;
+  max-width: 100%;
   overflow: hidden;
   position: relative;
   flex-direction: column;
   align-items: center;
 }
 .card05 {
-  width: 430px;
   height: 538px;
   align-items: flex-start;
-  text-align: center;
-  font-size: 25px;
-  color: #fff;
-  font-family: Geom;
 }
 .content-parent5 {
   height: 287px;
@@ -435,7 +411,6 @@
   flex-direction: column;
   align-items: center;
 }
-.card06,
 .content-parent5,
 .content-parent6 {
   display: flex;
@@ -443,13 +418,8 @@
   max-width: 100%;
 }
 .card06 {
-  width: 430px;
   height: 538px;
   align-items: flex-start;
-  text-align: center;
-  font-size: 25px;
-  color: #fff;
-  font-family: Geom;
 }
 .content-parent6 {
   height: 414px;
@@ -476,19 +446,12 @@
   grid-row: 4;
 }
 .blank-card4,
-.card07,
 .content-parent7 {
   display: flex;
   justify-content: center;
 }
 .card07 {
-  width: 430px;
   align-items: flex-start;
-  max-width: 100%;
-  text-align: center;
-  font-size: 25px;
-  color: #fff;
-  font-family: Geom;
 }
 .content-parent7 {
   height: 538px;
@@ -497,21 +460,17 @@
   position: relative;
   flex-direction: column;
 }
-.card08,
 .content-parent7,
 .content-parent8 {
+  display: flex;
   align-items: center;
   max-width: 100%;
 }
 .card08 {
-  width: 430px;
   height: 538px;
-  display: flex;
   flex-direction: column;
-  text-align: center;
-  font-size: 25px;
-  color: #fff;
-  font-family: Geom;
+  align-items: center;
+  justify-content: flex-start;
 }
 .content-parent8 {
   width: 100%;
@@ -519,6 +478,7 @@
   overflow: hidden;
   position: relative;
   justify-content: center;
+  flex-direction: column;
 }
 [class^="content-parent"]::before {
   content: '';
@@ -533,14 +493,14 @@
 [class^="content-parent"]:hover::before {
   transform: scale(1.05);
 }
-.content-parent::before { background-image: url(./public/content-parent@3x.png); }
-.content-parent2::before { background-image: url(./public/content-parent1@3x.png); }
-.content-parent3::before { background-image: url(./public/content-parent2@3x.png); }
-.content-parent4::before { background-image: url(./public/content-parent3@3x.png); }
-.content-parent5::before { background-image: url(./public/content-parent4@3x.png); }
-.content-parent6::before { background-image: url(./public/content-parent5@3x.png); }
-.content-parent7::before { background-image: url(./public/content-parent6@3x.png); }
-.content-parent8::before { background-image: url(./public/content-parent7@3x.png); }
+.content-parent::before { background-image: url(./public/content-parent@3x.avif); }
+.content-parent2::before { background-image: url(./public/content-parent1@3x.avif); }
+.content-parent3::before { background-image: url(./public/content-parent2@3x.avif); }
+.content-parent4::before { background-image: url(./public/content-parent3@3x.avif); }
+.content-parent5::before { background-image: url(./public/content-parent4@3x.avif); }
+.content-parent6::before { background-image: url(./public/content-parent5@3x.avif); }
+.content-parent7::before { background-image: url(./public/content-parent6@3x.avif); }
+.content-parent8::before { background-image: url(./public/content-parent7@3x.avif); }
 
 .content, .content3 { position: relative; z-index: 1; opacity: 0; transition: opacity 0.4s ease; }
 [class^="content-parent"]:hover > .content,

@@ -22,10 +22,28 @@ const gallery2Url = new URL('./public/Image2@2x.png', import.meta.url).href;
 const gallery3Url = new URL('./public/Image@2x.png', import.meta.url).href;
 const galleryImgs = [gallery1Url, gallery2Url, gallery3Url];
 
+// ── Project-05 specific assets ──
+const p05HeroUrl = new URL('./public/project-05/project-05-bg.avif', import.meta.url).href;
+const p05PosterUrl = new URL('./public/project-05/project-05-poster.avif', import.meta.url).href;
+const p05VideoMp4Url = new URL('./public/project-05/project-05-video.mp4', import.meta.url).href;
+const p05VideoWebmUrl = new URL('./public/project-05/project-05-video.webm', import.meta.url).href;
+const p05Gallery1Url = new URL('./public/project-05/project-05-img01.avif', import.meta.url).href;
+const p05Gallery2Url = new URL('./public/project-05/project-05-img02.avif', import.meta.url).href;
+const p05Gallery3Url = new URL('./public/project-05/project-05-img03.avif', import.meta.url).href;
+const p05GalleryImgs = [p05Gallery1Url, p05Gallery2Url, p05Gallery3Url];
+
+// ── Project-01 specific assets ──
+const p01HeroUrl = new URL('./public/project-01/project-01-bg.avif', import.meta.url).href;
+const p01PosterUrl = new URL('./public/project-01/project-01-poster.png', import.meta.url).href;
+const p01VideoMp4Url = new URL('./public/project-01/project-01-video.mp4', import.meta.url).href;
+const p01GalleryImgs = Array.from({length: 24}, (_, i) =>
+  new URL(`./public/project-01/project-01-img (${i + 1}).avif`, import.meta.url).href
+);
+
 // ── Project Data ──
 const projects = {
   1: {
-    hero: heroImgUrl,
+    hero: p05HeroUrl,
     title: 'THE MONOLITH HOUSE',
     location: 'SHILAJ, 2021',
     brief: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -39,8 +57,8 @@ const projects = {
       { value: '35%', label: 'Energy Bill Reduction' },
       { value: '85%', label: 'Daylight Autonomy' },
     ],
-    video: { poster: posterUrl, sources: [videoMp4Url, videoWebmUrl] },
-    gallery: galleryImgs,
+    video: { poster: p05PosterUrl, sources: [p05VideoMp4Url, p05VideoWebmUrl] },
+    gallery: p05GalleryImgs,
   },
   2: {
     hero: heroImgUrl,
@@ -97,7 +115,7 @@ const projects = {
     gallery: galleryImgs,
   },
   5: {
-    hero: heroImgUrl,
+    hero: p01HeroUrl,
     title: 'THE NOIR RESIDENCE',
     location: 'BOPAL, 2024',
     brief: 'Currently in the final styling phase. This turnkey project explores the balance between ambient lighting and deep, tactile textures. A study in contrasts \u2014 matte against gloss, rough stone against smooth leather.',
@@ -111,8 +129,8 @@ const projects = {
       { value: '35%', label: 'Matte Finish' },
       { value: '6', label: 'Art Niches' },
     ],
-    video: { poster: posterUrl, sources: [videoMp4Url, videoWebmUrl] },
-    gallery: galleryImgs,
+    video: { poster: p01PosterUrl, sources: [p01VideoMp4Url] },
+    gallery: p01GalleryImgs,
   },
   6: {
     hero: heroImgUrl,
