@@ -2296,6 +2296,12 @@ select:invalid, textarea::placeholder, input::placeholder {
     font-size: 28px;
     line-height: 32px;
   }
+  .description {
+    max-height: none;
+  }
+  .hero-know-more {
+    top: 160px;
+  }
   .about-inner {
     padding: 0 40px;
     gap: 0;
