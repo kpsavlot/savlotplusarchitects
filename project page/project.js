@@ -27,17 +27,63 @@ const galleryImgs = [gallery1Url, gallery2Url, gallery3Url];
 const p05HeroUrl = new URL('./public/project-05/project-05-bg.avif', import.meta.url).href;
 const p05PosterUrl = new URL('./public/project-05/project-05-poster.avif', import.meta.url).href;
 const p05VideoMp4Url = new URL('./public/project-05/project-05-video.mp4', import.meta.url).href;
-const p05GalleryImgs = Array.from({length: 24}, (_, i) =>
-  new URL(`./public/project-05/project-05-img (${i + 1}).avif`, import.meta.url).href
-);
+const p05GalleryImgs = [
+  new URL('./public/project-05/project-05-img (1).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (2).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (3).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (4).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (5).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (6).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (7).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (8).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (9).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (10).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (11).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (12).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (13).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (14).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (15).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (16).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (17).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (18).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (19).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (20).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (21).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (22).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (23).avif', import.meta.url).href,
+  new URL('./public/project-05/project-05-img (24).avif', import.meta.url).href,
+];
 
 // ── Project-01 specific assets ──
 const p01HeroUrl = new URL('./public/project-01/project-01-bg.avif', import.meta.url).href;
 const p01PosterUrl = new URL('./public/project-01/project-01-poster.png', import.meta.url).href;
 const p01VideoMp4Url = new URL('./public/project-01/project-01-video.mp4', import.meta.url).href;
-const p01GalleryImgs = Array.from({length: 24}, (_, i) =>
-  new URL(`./public/project-01/project-01-img (${i + 1}).avif`, import.meta.url).href
-);
+const p01GalleryImgs = [
+  new URL('./public/project-01/project-01-img (1).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (2).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (3).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (4).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (5).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (6).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (7).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (8).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (9).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (10).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (11).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (12).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (13).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (14).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (15).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (16).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (17).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (18).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (19).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (20).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (21).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (22).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (23).avif', import.meta.url).href,
+  new URL('./public/project-01/project-01-img (24).avif', import.meta.url).href,
+];
 
 // ── Project Data ──
 const projects = {
