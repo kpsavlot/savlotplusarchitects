@@ -458,7 +458,7 @@ document.addEventListener('touchstart', e => {
   wrapper.addEventListener('touchend', pointerEnd);
 })();
 
-// ── Video custom cursor + touch play overlay ──
+// ── Video controls ──
 (function () {
   const video = document.getElementById('video-element');
   if (!video) return;
@@ -467,76 +467,74 @@ document.addEventListener('touchstart', e => {
   const isFine = window.matchMedia('(pointer: fine)').matches;
   const playIcon = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="white"/></svg>';
 
-  let cursor;
-  let overlay;
-  if (isFine) {
-    cursor = document.createElement('div');
-    cursor.className = 'video-cursor';
-    cursor.innerHTML = playIcon;
-    document.body.appendChild(cursor);
-  } else {
-    overlay = document.createElement('div');
-    overlay.className = 'video-play-overlay';
-    overlay.innerHTML = playIcon;
-    wrapper.appendChild(overlay);
+  if (!isFine) {
+    const BAR = 45;
+
+    function showControls() { video.controls = true; }
+
+    video.addEventListener('click', function (e) {
+      const rect = wrapper.getBoundingClientRect();
+      if (e.clientY - rect.top > rect.height - BAR) return;
+      if (video.paused) {
+        showControls();
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+
+    video.addEventListener('seeked', () => { showControls(); });
+    video.addEventListener('play', showControls);
+    return;
   }
 
+  // ── Desktop only below ──
   let seeking = false;
   const BAR = 45;
 
+  const cursor = document.createElement('div');
+  cursor.className = 'video-cursor';
+  cursor.innerHTML = playIcon;
+  document.body.appendChild(cursor);
+
+  function showPlayCursor() { cursor.classList.add('visible'); video.style.cursor = 'none'; }
+  function hidePlayCursor() { cursor.classList.remove('visible'); video.style.cursor = ''; }
   function isBar(e) {
     if (!video.hasAttribute('controls')) return false;
     const b = wrapper.getBoundingClientRect();
     return e.clientY - b.top > b.height - BAR;
   }
 
-  function showPlayCursor() { if (cursor) { cursor.classList.add('visible'); video.style.cursor = 'none'; } }
-  function hidePlayCursor() { if (cursor) { cursor.classList.remove('visible'); video.style.cursor = ''; } }
-  function showOverlay() { if (overlay) overlay.classList.add('visible'); }
-  function hideOverlay() { if (overlay) overlay.classList.remove('visible'); }
-
-  if (isFine) {
-    wrapper.addEventListener('mouseenter', e => {
-      if (!video.paused || isBar(e)) return;
-      showPlayCursor();
-    });
-    wrapper.addEventListener('mouseleave', hidePlayCursor);
-    wrapper.addEventListener('mousemove', e => {
-      cursor.style.left = (e.clientX - 50) + 'px';
-      cursor.style.top = (e.clientY - 50) + 'px';
-      if (!video.paused) { hidePlayCursor(); return; }
-      if (isBar(e)) { hidePlayCursor(); return; }
-      showPlayCursor();
-    });
-  }
+  wrapper.addEventListener('mouseenter', e => {
+    if (!video.paused || isBar(e)) return;
+    showPlayCursor();
+  });
+  wrapper.addEventListener('mouseleave', hidePlayCursor);
+  wrapper.addEventListener('mousemove', e => {
+    cursor.style.left = (e.clientX - 50) + 'px';
+    cursor.style.top = (e.clientY - 50) + 'px';
+    if (!video.paused) { hidePlayCursor(); return; }
+    if (isBar(e)) { hidePlayCursor(); return; }
+    showPlayCursor();
+  });
 
   function togglePlay() {
     if (video.paused) {
       video.setAttribute('controls', '');
       video.play().catch(() => {});
-      hideOverlay();
     } else {
       video.pause();
       video.removeAttribute('controls');
-      showOverlay();
     }
   }
 
-  if (isFine) {
-    video.addEventListener('click', togglePlay);
-  } else if (overlay) {
-    overlay.addEventListener('click', togglePlay);
-  }
+  video.addEventListener('click', togglePlay);
   video.addEventListener('seeked', () => { seeking = false; });
   video.addEventListener('seeking', () => { seeking = true; });
-  video.addEventListener('play', () => { hidePlayCursor(); hideOverlay(); });
+  video.addEventListener('play', hidePlayCursor);
   video.addEventListener('pause', () => {
-    if (video.paused) {
-      if (isFine) {
-        setTimeout(() => { if (video.paused) showPlayCursor(); }, 300);
-      } else {
-        showOverlay();
-      }
+    if (video.paused && !seeking) {
+      setTimeout(() => { if (video.paused) showPlayCursor(); }, 300);
     }
   });
 })();

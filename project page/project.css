@@ -321,23 +321,6 @@
 .video-element:not([controls])::-webkit-media-controls { display: none !important; }
 .video-element:not([controls])::-webkit-media-controls-panel { display: none !important; }
 .video-element:not([controls])::-webkit-media-controls-start-playback-button { display: none !important; }
-.video-play-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  cursor: pointer;
-}
-.video-play-overlay.visible { opacity: 1; }
-.video-play-overlay svg {
-  width: 64px;
-  height: 64px;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
-}
 .video-cursor {
   position: fixed;
   pointer-events: none;
@@ -586,9 +569,6 @@
   .stat-card {
     height: 300px;
   }
-  .stat-value {
-    font-size: 72px;
-  }
   .stat-label {
     font-size: 22px;
   }
@@ -641,9 +621,6 @@
   .stat-card {
     height: 250px;
     padding: 15px;
-  }
-  .stat-value {
-    font-size: 56px;
   }
   .stat-label {
     font-size: 18px;
