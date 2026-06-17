@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="../common.css" />
+    <link rel="stylesheet" href="./interior.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geom:wght@500;600;700;800;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@700&display=swap"
+    />
+
+    <style>
+      @font-face {
+        font-family: "Bank Gothic Light";
+        src: url(data:font/woff2;base64,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);
+        font-weight: 400;
+        font-display: swap;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader" class="loader-overlay">
+      <div class="loader-logo">
+        <p class="loader-title">Savlot + Architects</p>
+        <p class="loader-subtitle">Kailash M Savlot</p>
+      </div>
+      <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    </div>
+
+    <div id="scroll-track"><div id="scroll-thumb"></div></div>
+
+    <div class="interior-page" id="top">
+      <section class="hero-section-parent">
+        <div class="hero-section">
+          <header class="interior-header">
+            <div class="header">
+              <div class="logo">
+                <h1 class="savlot-architects">Savlot + Architects</h1>
+                <h3 class="kailash-m-savlot">Kailash M Savlot</h3>
+              </div>
+              <div class="pill-menu">
+                <ul class="nav-links">
+                  <li><a href="../index.html">HOME</a></li>
+                  <li><a href="../portfolio page/portfolio.html">PORTFOLIO</a></li>
+                  <li><a href="../index.html#about-section">ABOUT</a></li>
+                  <li><a href="../index.html#cta-section">CONTACT</a></li>
+                </ul>
+                <div class="hamburger-wrapper">
+                  <div class="menu-button">
+                    <span class="project-name"></span>
+                    <span class="project-name2"></span>
+                    <span class="project-name"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div class="hero-container">
+            <div class="hero-sub-heading">
+              <h3 class="sub-heading">INTERIOR DESIGN SERVICE</h3>
+            </div>
+            <div class="hero-heading">
+              <h1 class="hero-heading-text">CREATING<br />IMMERSIVE<br />ENVIRONMENTS</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+      <main class="interior-type-section">
+        <section class="interior-type-heading-wrapper">
+          <div class="interior-type-heading">
+            <h1 class="expertise-title">
+              OUR EXPERTISE IN<br />MATERIALITY & SPACE.
+            </h1>
+          </div>
+          <div class="interior-type-sub-heading">
+            <b class="specialization-text"
+              >We specialize in high-end sectors where design serves as a<br />silent
+              language of authority and comfort.</b
+            >
+          </div>
+        </section>
+        <div class="interior-type-grid">
+          <section class="residential-card">
+            <div class="content-parent">
+              <div class="content">
+                <div class="hero-sub-heading">
+                  <h2 class="residential">RESIDENTIAL</h2>
+                </div>
+                <div class="card-subtitle">
+                  <b class="luxury-homes">LUXURY HOMES & PENTHOUSES</b>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="commercial-card">
+            <div class="content-parent2">
+              <div class="content">
+                <div class="hero-sub-heading">
+                  <h2 class="residential">COMMEERCIAL</h2>
+                </div>
+                <div class="card-subtitle-sm">
+                  <b class="executive-hubs">EXECUTIVE HUBS & STUDIOS</b>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="retail-card">
+            <div class="content-parent3">
+              <div class="content">
+                <div class="hero-sub-heading">
+                  <h2 class="residential">RETAILS</h2>
+                </div>
+                <div class="card-subtitle-sm">
+                  <b class="executive-hubs">SHOWROOMS & OUTLETS</b>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="cafe-restaurant-card">
+            <div class="content-parent4">
+              <div class="content">
+                <div class="hero-sub-heading">
+                  <h2 class="residential">CAFE & RESTORENT</h2>
+                </div>
+                <div class="card-subtitle-sm">
+                  <b class="executive-hubs">BAKERY, CAFETERIAS & RESTRORENTS</b>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <section class="method-section">
+        <section class="method-heading-wrapper">
+          <div class="method-heading">
+            <h1 class="methodology">METHOD<br />OLOGY</h1>
+          </div>
+          <div class="method-sub-heading">
+            <b class="process-text"
+              >Our process is as rigorous as our design. We balance creative
+              vision with logistical perfection to ensure a seamless
+              transformation from concept to reality.</b
+            >
+          </div>
+        </section>
+        <section class="method-point-grid">
+          <div class="method-point">
+            <div class="hero-sub-heading">
+              <h1 class="step-number-lg">01</h1>
+            </div>
+            <div class="method-step">
+              <h1 class="consultation">CONSULTATION</h1>
+            </div>
+          </div>
+          <div class="method-point-alt">
+            <div class="step-number-wrapper">
+              <h2 class="step-number">02</h2>
+            </div>
+            <div class="method-step">
+              <h2 class="consultation">CONCEPT</h2>
+            </div>
+          </div>
+          <div class="method-point-wide">
+            <div class="step-number-wrapper">
+              <h2 class="step-number">03</h2>
+            </div>
+            <div class="method-step-wide">
+              <h1 class="consultation">DESIGN<br />IMPLEMENTATION</h1>
+            </div>
+          </div>
+          <div class="method-point-alt2">
+            <div class="step-number-wrapper">
+              <h2 class="step-number">04</h2>
+            </div>
+            <div class="method-step-wide">
+              <h1 class="consultation">PROJECT<br />MANAGMENT</h1>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section class="cta-section">
+        <div class="cta-parent">
+          <div class="hero-sub-heading">
+            <h1 class="transformation-title">
+              START YOUR<br />TRANSFORMATION
+            </h1>
+          </div>
+          <div class="cta-actions">
+            <button class="get-a-quote-button3">
+              <img class="subtract-iconL3" alt="" src="./public/Subtract.svg" />
+              <b class="get-a-quote">GET A QUOTE</b>
+              <img class="subtract-iconR3" alt="" src="./public/Subtract.svg" />
+            </button>
+            <div class="cta-text-wrapper">
+              <b class="connect-text"
+                >Connect with our studio to begin the journey of transforming
+                the interior.</b
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer-section">
+        <div class="div4">
+          <div class="animated-logo">
+            <img loading="lazy" height="100%" src="../portfolio page/public/div2@3x.png" alt="">
+          </div>
+          <div class="div12">
+            <div class="logo-parent">
+              <div class="logo2">
+                <h2 class="savlot-architects2">Savlot + Architects</h2>
+                <h3 class="kailash-m-savlot2">Kailash M Savlot</h3>
+              </div>
+              <div class="contacts">
+                <div class="email">
+                  <div class="infosavlotplusarchitectscom">
+                    <a href="mailto:info@savlotplusarchitects.com">info@savlotplusarchitects.com</a>
+                  </div>
+                </div>
+                <div class="social-media-links2">
+                  <a href="https://www.instagram.com/savlotplusarchitects/" target="_blank" aria-label="Instagram"><div class="social-icon icon-ig"></div></a>
+                  <a href="https://www.youtube.com/@savlotplusarchitects" target="_blank" aria-label="YouTube"><div class="social-icon icon-yt"></div></a>
+                  <a href="https://in.pinterest.com/kailashsavlot/" target="_blank" aria-label="Pinterest"><div class="social-icon icon-pt"></div></a>
+                  <a href="https://wa.me/919099898794" target="_blank" aria-label="WhatsApp"><div class="social-icon icon-wa"></div></a>
+                </div>
+              </div>
+            </div>
+            <div class="footer-links-parent">
+              <div class="footer-links">
+                <a class="links" href="../index.html">home</a>
+                <a class="links" href="../portfolio page/portfolio.html">portfolio</a>
+                <a class="links" href="../index.html#about-section">about us</a>
+                <a class="links" href="../index.html#cta-section">contact us</a>
+              </div>
+              <div class="termsconditions">
+                <div class="infosavlotplusarchitectscom">
+                  &copy; 2026 savlot plus architects
+                </div>
+                <div class="infosavlotplusarchitectscom">
+                  <a class="terms-link" href="#">terms & conditions</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <footer class="footer-section-mobile">
+        <div class="div4">
+          <div class="animated-logo">
+            <img loading="lazy" height="100%" src="../portfolio page/public/div2@3x.png" alt="">
+          </div>
+          <div class="footer-mobile-content">
+            <div class="logo2">
+              <h2 class="savlot-architects2">Savlot + Architects</h2>
+              <h3 class="kailash-m-savlot2">Kailash M Savlot</h3>
+            </div>
+            <div class="footer-links">
+              <a class="links" href="../index.html">home</a>
+              <a class="links" href="../portfolio page/portfolio.html">portfolio</a>
+              <a class="links" href="../index.html#about-section">about us</a>
+              <a class="links" href="../index.html#cta-section">contact us</a>
+            </div>
+            <div class="footer-mobile-bottom">
+              <div class="contacts">
+                <div class="email">
+                  <div class="infosavlotplusarchitectscom">
+                    <a href="mailto:info@savlotplusarchitects.com">info@savlotplusarchitects.com</a>
+                  </div>
+                </div>
+                <div class="social-media-links2">
+                  <a href="https://www.instagram.com/savlotplusarchitects/" target="_blank" aria-label="Instagram"><div class="social-icon icon-ig"></div></a>
+                  <a href="https://www.youtube.com/@savlotplusarchitects" target="_blank" aria-label="YouTube"><div class="social-icon icon-yt"></div></a>
+                  <a href="https://in.pinterest.com/kailashsavlot/" target="_blank" aria-label="Pinterest"><div class="social-icon icon-pt"></div></a>
+                  <a href="https://wa.me/919099898794" target="_blank" aria-label="WhatsApp"><div class="social-icon icon-wa"></div></a>
+                </div>
+              </div>
+              <div class="termsconditions">
+                <div class="infosavlotplusarchitectscom">&copy; 2026 savlot plus architects</div>
+                <div class="infosavlotplusarchitectscom"><a class="terms-link" href="#">terms & conditions</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div class="whatsapp-float" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </div>
+    <div class="whatsapp-popup">
+      <div class="whatsapp-popup-header">
+        <span class="whatsapp-popup-title">WhatsApp</span>
+        <button class="whatsapp-popup-close">&times;</button>
+      </div>
+      <div class="whatsapp-popup-body">
+        <div class="whatsapp-message received">
+          <div class="whatsapp-message-text">Hello, How can i help you?</div>
+          <span class="whatsapp-message-time">just now</span>
+        </div>
+      </div>
+      <div class="whatsapp-popup-footer">
+        <button class="whatsapp-open-chat">Open chat</button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
+    <script type="module">
+      import { createObserver, initLenis, initLoader, initWhatsApp } from '../common.js';
+      initLoader();
+      initLenis();
+      initWhatsApp();
+
+      // ── Card reveal ──
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const cp = entry.target.querySelector('[class^="content-parent"]');
+            if (cp) cp.classList.add('revealed');
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      (function () {
+        const cards = document.querySelectorAll('.interior-type-grid > section');
+        if (!cards.length) return;
+        cards.forEach(card => cardObserver.observe(card));
+      })();
+
+      // ── Mobile Menu Toggle ──
+      document.addEventListener('click', function(e) {
+        const wrapper = e.target.closest('.hamburger-wrapper');
+        if (wrapper) {
+          e.stopPropagation();
+          wrapper.closest('.pill-menu')?.classList.toggle('active');
+          return;
+        }
+        const parentLink = e.target.closest('.menu-item-has-children > a');
+        if (parentLink) {
+          e.preventDefault();
+          e.stopPropagation();
+          parentLink.parentElement.classList.toggle('active');
+          return;
+        }
+        closeMenu();
+      });
+      function closeMenu() {
+        document.querySelectorAll('.pill-menu').forEach(m => m.classList.remove('active'));
+        document.querySelectorAll('.menu-item-has-children.active').forEach(el => el.classList.remove('active'));
+      }
+      document.addEventListener('wheel', closeMenu, { passive: true });
+      document.addEventListener('touchstart', e => {
+        if (!e.target.closest('.pill-menu')) closeMenu();
+      });
+
+      // ── Heading fade-up ──
+      (function () {
+        const el = document.querySelector('.expertise-title');
+        if (!el) return;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(40px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        createObserver(([entry]) => {
+          if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+        }, { threshold: 0.3 }).observe(el);
+      })();
+
+      (function () {
+        const el = document.querySelector('.specialization-text');
+        if (!el) return;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        createObserver(([entry]) => {
+          if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+        }, { threshold: 0.3 }).observe(el);
+      })();
+
+      // ── Methodology heading fade-up ──
+      (function () {
+        const el = document.querySelector('.methodology');
+        if (!el) return;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(40px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        createObserver(([entry]) => {
+          if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+        }, { threshold: 0.3 }).observe(el);
+      })();
+
+      (function () {
+        const el = document.querySelector('.process-text');
+        if (!el) return;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        createObserver(([entry]) => {
+          if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+        }, { threshold: 0.3 }).observe(el);
+      })();
+
+      // ── Method point grid stagger ──
+      (function () {
+        const els = document.querySelectorAll('.method-point, .method-point-alt, .method-point-wide, .method-point-alt2');
+        if (!els.length) return;
+        els.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = `opacity 0.6s ease ${i * 0.12}s, transform 0.6s ease ${i * 0.12}s`;
+          createObserver(([entry]) => {
+            if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+          }, { threshold: 0.2 }).observe(el);
+        });
+      })();
+
+      // ── CTA title fade-up ──
+      (function () {
+        const el = document.querySelector('.transformation-title');
+        if (!el) return;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(40px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        createObserver(([entry]) => {
+          if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+        }, { threshold: 0.3 }).observe(el);
+      })();
+    </script>
+  </body>
+</html>
