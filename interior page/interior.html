@@ -366,6 +366,25 @@
         if (!e.target.closest('.pill-menu')) closeMenu();
       });
 
+      // ── Floating header on scroll up ──
+      (function () {
+        const original = document.querySelector('.interior-header');
+        const trigger = document.querySelector('.interior-type-section');
+        if (!original || !trigger || !window.lenis) return;
+        const floating = original.cloneNode(true);
+        floating.classList.add('floating-header');
+        floating.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+        document.body.appendChild(floating);
+        const triggerTop = trigger.getBoundingClientRect().top + window.lenis.scroll;
+        window.lenis.on('scroll', (e) => {
+          if (e.scroll > triggerTop) {
+            floating.classList.toggle('visible', e.direction < 0);
+          } else {
+            floating.classList.remove('visible');
+          }
+        });
+      })();
+
       // ── Heading fade-up ──
       (function () {
         const el = document.querySelector('.expertise-title');
@@ -436,6 +455,41 @@
         createObserver(([entry]) => {
           if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
         }, { threshold: 0.3 }).observe(el);
+      })();
+
+      // ── Footer glow reveal (matching portfolio page) ──
+      (function () {
+        const footer = document.querySelector('.footer-section');
+        if (!footer) return;
+
+        const logo = document.querySelector('.animated-logo');
+        const fadeEls = footer.querySelectorAll('.savlot-architects2, .kailash-m-savlot2, .contacts, .footer-links, .termsconditions');
+
+        let animated = false;
+
+        function onScroll() {
+          if (animated) return;
+          const rect = footer.getBoundingClientRect();
+          const vh = window.innerHeight;
+          if (rect.top < vh * 0.85) {
+            animated = true;
+            if (logo) { logo.style.opacity = '1'; logo.style.animation = 'zoomIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards'; }
+            fadeEls.forEach((el, i) => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+              el.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`;
+            });
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onScroll);
+          }
+        }
+
+        fadeEls.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; });
+        if (logo) { logo.style.opacity = '0'; }
+
+        window.addEventListener('scroll', onScroll);
+        window.addEventListener('resize', onScroll);
+        onScroll();
       })();
     </script>
   </body>
