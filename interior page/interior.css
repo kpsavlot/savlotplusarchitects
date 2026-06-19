@@ -545,9 +545,9 @@
 .transformation-title {
   margin: 0;
   position: relative;
-  font-size: clamp(27px, 6.5vw, 90px);
-  letter-spacing: clamp(8px, 1.5vw, 22px);
-  line-height: 90px;
+  font-size: clamp(22px, 6vw, 90px);
+  letter-spacing: clamp(4px, 1.5vw, 22px);
+  line-height: 1;
   text-transform: uppercase;
   font-weight: 900;
   font-family: inherit;
@@ -664,6 +664,16 @@
     padding: 15px 30px;
   }
 }
+.interior-header.floating-header {
+  color: #000;
+  --nav-link-color: #000;
+}
+.interior-header.floating-header .project-name {
+  border-top-color: #000;
+}
+.interior-header.floating-header .project-name2 {
+  border-top-color: #000;
+}
 @media screen and (max-width: 800px) {
   .interior-header {
     padding: 10px 20px;
@@ -729,9 +739,6 @@
   .cta-parent {
     gap: 24px;
   }
-  .transformation-title {
-    line-height: 54px;
-  }
   .cta-actions {
     gap: 16px;
     flex-wrap: wrap;
@@ -787,7 +794,5 @@
     padding: 32px 15px;
     box-sizing: border-box;
   }
-  .transformation-title {
-    line-height: 36px;
-  }
+
 }
