@@ -84,7 +84,7 @@
 .sub-heading {
   margin: 0;
   position: relative;
-  font-size: inherit;
+  font-size: clamp(16px, 1.8vw, 24px);
   letter-spacing: 0.01em;
   line-height: 89%;
   font-weight: 700;
@@ -94,8 +94,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 85px;
+  font-size: clamp(28px, 6vw, 85px);
   font-family: Geom;
+  max-width: 100%;
+  min-width: 0;
 }
 .hero-heading-text {
   margin: 0;
@@ -105,6 +107,10 @@
   line-height: 103%;
   font-weight: 900;
   font-family: inherit;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .interior-header {
   display: flex;
@@ -166,15 +172,15 @@
 }
 .expertise-title {
   margin: 0;
-  width: 654px;
+  max-width: 654px;
+  width: 100%;
   position: relative;
-  font-size: inherit;
+  font-size: clamp(29px, 3.5vw, 48px);
   letter-spacing: 0.1em;
   line-height: 100.46%;
   font-weight: 700;
   font-family: inherit;
   display: inline-block;
-  flex-shrink: 0;
 }
 .interior-type-sub-heading {
   display: flex;
@@ -287,12 +293,14 @@
 .residential {
   margin: 0;
   position: relative;
-  font-size: inherit;
+  font-size: clamp(29px, 3.5vw, 48px);
   letter-spacing: 0.12em;
   line-height: 129%;
   text-transform: uppercase;
   font-weight: 900;
   font-family: inherit;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .card-subtitle {
   display: flex;
@@ -337,12 +345,12 @@
   font-family: "Hanken Grotesk";
 }
 .executive-hubs {
-  width: 336px;
+  max-width: 336px;
+  width: 100%;
   position: relative;
   letter-spacing: 1.2px;
   line-height: 16px;
   text-transform: uppercase;
-  flex-shrink: 0;
 }
 .retail-card {
   height: 500px;
@@ -415,7 +423,7 @@
 .methodology {
   margin: 0;
   position: relative;
-  font-size: inherit;
+  font-size: clamp(29px, 5vw, 97px);
   letter-spacing: 0.43em;
   line-height: 90%;
   font-weight: 900;
@@ -435,13 +443,14 @@
   font-family: "Hanken Grotesk";
 }
 .process-text {
-  width: 528px;
+  max-width: 528px;
+  width: 100%;
   position: relative;
+  font-size: clamp(12px, 1.2vw, 16px);
   line-height: 26px;
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  flex-shrink: 0;
 }
 .method-point-grid {
   align-self: stretch;
@@ -462,27 +471,14 @@
   align-items: flex-start;
   padding: 50px 20px;
   box-sizing: border-box;
-  grid-column: 1;
-  grid-row: 1;
+  min-width: 0;
 }
-.step-number-lg,
 .method-step {
   display: flex;
   align-items: center;
-}
-.step-number-lg {
-  margin: 0;
-  width: 84px;
-  position: relative;
-  font-size: inherit;
-  font-weight: 700;
-  font-family: inherit;
-  flex-shrink: 0;
-}
-.method-step {
   align-self: stretch;
   justify-content: center;
-  font-size: 48px;
+  font-size: clamp(29px, 3.5vw, 48px);
   font-family: Geom;
 }
 .consultation {
@@ -491,31 +487,20 @@
   min-width: 0;
   position: relative;
   font-size: inherit;
-  letter-spacing: 5px;
-  line-height: 47px;
+  letter-spacing: clamp(2px, 0.2vw, 5px);
+  line-height: 1;
   text-transform: uppercase;
   font-weight: 800;
   font-family: inherit;
   word-break: break-word;
   overflow-wrap: break-word;
 }
-.step-number-wrapper,
-.method-point-alt {
+.step-number-wrapper {
   display: flex;
   flex-direction: column;
-}
-.method-point-alt {
-  height: 312.5px;
-  background: var(--Review-Card);
-  align-items: flex-start;
-  padding: 50px 20px;
-  box-sizing: border-box;
-  grid-column: 2;
-  grid-row: 1;
-}
-.step-number-wrapper {
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 .step-number {
   margin: 0;
@@ -524,49 +509,14 @@
   font-weight: 700;
   font-family: inherit;
 }
-.method-point-wide {
-  height: 312.5px;
-  background: var(--Review-Card);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 50px 20px;
-  box-sizing: border-box;
-  grid-column: 3;
-  grid-row: 1;
-}
-.method-step-wide,
-.step-number-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.step-number-wrapper {
-  flex-direction: column;
-}
-.method-step-wide {
-  align-self: stretch;
-  font-size: 48px;
-  font-family: Geom;
-}
 @property --color1-1 { syntax: '<color>'; inherits: false; initial-value: #ff4d4d; }
 @property --color1-2 { syntax: '<color>'; inherits: false; initial-value: #479dff; }
 
 .cta-parent,
-.cta-section,
-.method-point-alt2 {
+.cta-section {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-}
-.method-point-alt2 {
-  height: 312.5px;
-  background: var(--Review-Card);
-  align-items: flex-start;
-  padding: 50px 20px;
-  grid-column: 4;
-  grid-row: 1;
 }
 .cta-parent,
 .cta-section {
@@ -595,8 +545,8 @@
 .transformation-title {
   margin: 0;
   position: relative;
-  font-size: inherit;
-  letter-spacing: 22px;
+  font-size: clamp(27px, 6.5vw, 90px);
+  letter-spacing: clamp(8px, 1.5vw, 22px);
   line-height: 90px;
   text-transform: uppercase;
   font-weight: 900;
@@ -677,7 +627,8 @@
   max-width: 100%;
 }
 .connect-text {
-  width: 407px;
+  max-width: 407px;
+  width: 100%;
   position: relative;
   line-height: 26px;
   text-transform: uppercase;
@@ -717,9 +668,8 @@
   .interior-header {
     padding: 10px 20px;
   }
-  .hero-heading-text {
-    font-size: 42px;
-    line-height: 53px;
+  .hero-container {
+    padding: 0 25px 60px;
   }
 
   .interior-type-section {
@@ -729,11 +679,22 @@
   }
   .expertise-title,
   .residential {
-    font-size: 38px;
     line-height: 39px;
   }
   .residential {
     line-height: 50px;
+  }
+  .interior-type-grid {
+    grid-template-columns: 1fr;
+  }
+  .residential-card,
+  .commercial-card,
+  .retail-card,
+  .cafe-restaurant-card {
+    height: auto;
+    min-height: 400px;
+    grid-column: auto;
+    grid-row: auto;
   }
   .method-section {
     gap: 20px;
@@ -744,33 +705,31 @@
     min-width: 100%;
   }
   .methodology {
-    font-size: 48px;
-    line-height: 52px;
+    font-size: clamp(29px, 10vw, 97px);
   }
   .method-sub-heading {
     min-width: 100%;
   }
-  .step-number-lg {
-    font-size: 51px;
+  .method-point-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    align-self: center;
   }
-  .consultation {
-    font-size: 38px;
-    line-height: 38px;
+  .method-point {
+    height: auto;
   }
   .step-number {
     font-size: 51px;
   }
   .cta-section {
     height: auto;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 40px 25px;
     box-sizing: border-box;
   }
   .cta-parent {
     gap: 24px;
   }
   .transformation-title {
-    font-size: 45px;
     line-height: 54px;
   }
   .cta-actions {
@@ -784,12 +743,10 @@
     padding: 8px 15px;
   }
   .sub-heading {
-    font-size: 19px;
     line-height: 17px;
   }
-  .hero-heading-text {
-    font-size: 25px;
-    line-height: 35px;
+  .hero-container {
+    padding: 0 15px 40px;
   }
 
   .interior-type-section {
@@ -798,13 +755,18 @@
     padding-bottom: 41px;
     box-sizing: border-box;
   }
+  .interior-type-grid {
+    gap: 16px;
+  }
   .expertise-title,
   .residential {
-    font-size: 29px;
     line-height: 29px;
   }
   .residential {
     line-height: 37px;
+  }
+  .content {
+    padding: 30px 20px;
   }
   .method-section {
     gap: 20px;
@@ -813,26 +775,19 @@
     box-sizing: border-box;
   }
   .methodology {
-    font-size: 29px;
     line-height: 35px;
-  }
-  .step-number-lg {
-    font-size: 38px;
-  }
-  .consultation {
-    font-size: 29px;
-    line-height: 28px;
   }
   .step-number {
     font-size: 38px;
   }
+  .method-point {
+    padding: 30px 15px;
+  }
   .cta-section {
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding: 32px 15px;
     box-sizing: border-box;
   }
   .transformation-title {
-    font-size: 27px;
     line-height: 36px;
   }
 }

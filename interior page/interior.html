@@ -156,14 +156,14 @@
         </section>
         <section class="method-point-grid">
           <div class="method-point">
-            <div class="hero-sub-heading">
-              <h1 class="step-number-lg">01</h1>
+            <div class="step-number-wrapper">
+              <h2 class="step-number">01</h2>
             </div>
             <div class="method-step">
-              <h1 class="consultation">CONSULTATION</h1>
+              <h2 class="consultation">CONSULTATION</h2>
             </div>
           </div>
-          <div class="method-point-alt">
+          <div class="method-point">
             <div class="step-number-wrapper">
               <h2 class="step-number">02</h2>
             </div>
@@ -171,20 +171,20 @@
               <h2 class="consultation">CONCEPT</h2>
             </div>
           </div>
-          <div class="method-point-wide">
+          <div class="method-point">
             <div class="step-number-wrapper">
               <h2 class="step-number">03</h2>
             </div>
-            <div class="method-step-wide">
-              <h1 class="consultation">DESIGN<br />IMPLEMENTATION</h1>
+            <div class="method-step">
+              <h2 class="consultation">DESIGN<br />IMPLEMENTATION</h2>
             </div>
           </div>
-          <div class="method-point-alt2">
+          <div class="method-point">
             <div class="step-number-wrapper">
               <h2 class="step-number">04</h2>
             </div>
-            <div class="method-step-wide">
-              <h1 class="consultation">PROJECT<br />MANAGMENT</h1>
+            <div class="method-step">
+              <h2 class="consultation">PROJECT<br />MANAGMENT</h2>
             </div>
           </div>
         </section>
@@ -414,7 +414,7 @@
 
       // ── Method point grid stagger ──
       (function () {
-        const els = document.querySelectorAll('.method-point, .method-point-alt, .method-point-wide, .method-point-alt2');
+        const els = document.querySelectorAll('.method-point');
         if (!els.length) return;
         els.forEach((el, i) => {
           el.style.opacity = '0';
