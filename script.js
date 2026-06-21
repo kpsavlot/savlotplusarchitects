@@ -19,8 +19,8 @@ import { createObserver, initLenis, initLoader, initWhatsApp } from './common.js
 
   const MIN_DURATION = 8000;
   const cdn = 'https://res.cloudinary.com/dge8i8jqs';
-  const video1Url = `${cdn}/video/upload/q_auto/f_auto/index-asset/hero-video-1.mp4`;
-  const video2Url = `${cdn}/video/upload/q_auto/f_auto/index-asset/hero-video-2.mp4`;
+  const video1Url = `${cdn}/video/upload/index-asset/hero-video-1.mp4`;
+  const video2Url = `${cdn}/video/upload/index-asset/hero-video-2.mp4`;
 
   const hc = [
     { title: 'RIVIERA ELITE', desc: 'Interior design project successfully completed and handed over to the client. Elegant spaces crafted with premium finishes and meticulous detailing.', status: 'COMPLETED & HANDED OVER', location: 'SKY CITY TOWNSHIP, SHELA', scope: 'INTERIOR', video: video1Url, link: '../project page/project.html?id=5' },
