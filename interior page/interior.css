@@ -727,6 +727,7 @@
   }
   .method-point {
     height: auto;
+    min-height: 200px;
   }
   .step-number {
     font-size: 51px;
@@ -742,6 +743,7 @@
   .cta-actions {
     gap: 16px;
     flex-wrap: wrap;
+    justify-content: left;
   }
 
 }
@@ -754,6 +756,7 @@
   }
   .hero-container {
     padding: 0 15px 40px;
+    justify-content: end;
   }
 
   .interior-type-section {

@@ -477,6 +477,39 @@ a { color: inherit; text-decoration: inherit; }
   .termsconditions { flex-wrap: wrap; }
 }
 
+/* ── Footer responsive overrides (consolidated from all pages) ── */
+@media screen and (max-width: 1024px) {
+  .savlot-architects2 { font-size: 25px; }
+  .termsconditions { font-size: 13px; }
+}
+@media screen and (max-width: 950px) {
+  .footer-section { padding: 23px 25px; box-sizing: border-box; }
+  .savlot-architects2 { font-size: 26px; line-height: 26px; }
+}
+@media screen and (max-width: 880px) {
+  .footer-section { padding: 23px 25px; box-sizing: border-box; }
+  .savlot-architects2 { font-size: 26px; line-height: 26px; }
+  .footer-links-parent { gap: 141px; }
+  .termsconditions { flex-wrap: wrap; }
+}
+@media screen and (max-width: 450px) {
+  .savlot-architects2 { font-size: 19px; line-height: 20px; }
+  .kailash-m-savlot2 { font-size: 16px; line-height: 16px; }
+  .footer-links-parent { gap: 70px; }
+}
+@media screen and (max-width: 480px) {
+  .savlot-architects2 { font-size: 16px; }
+  .kailash-m-savlot2 { font-size: 13px; }
+  .footer-links a { font-size: 14px; }
+  .termsconditions { flex-direction: column; gap: 10px; }
+}
+
+.footer-links,
+.termsconditions,
+.logo-parent {
+  will-change: transform, opacity;
+}
+
 /* ── Social Media Icons (base) ── */
 .social-icon {
   width: 30px;

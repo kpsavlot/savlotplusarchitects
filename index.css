@@ -2116,21 +2116,6 @@ select:invalid, textarea::placeholder, input::placeholder {
   .lets-build-your-container {
     font-size: 56px;
   }
-  .footer-section {
-    /* height: auto; */
-    padding: 23px 25px;
-    box-sizing: border-box;
-  }
-  .savlot-architects2 {
-    font-size: 26px;
-    line-height: 26px;
-  }
-  .footer-links-parent {
-    gap: 141px;
-  }
-  .termsconditions {
-    flex-wrap: wrap;
-  }
   .lets-build-your-container {
     font-size: 33px;
   }
@@ -2283,17 +2268,6 @@ select:invalid, textarea::placeholder, input::placeholder {
   .lets-build-your-container {
     font-size: 42px;
   }
-  .savlot-architects2 {
-    font-size: 19px;
-    line-height: 20px;
-  }
-  .kailash-m-savlot2 {
-    font-size: 16px;
-    line-height: 16px;
-  }
-  .footer-links-parent {
-    gap: 70px;
-  }
 }
 
 /* ── Enhanced Responsive ── */
@@ -2329,12 +2303,6 @@ select:invalid, textarea::placeholder, input::placeholder {
   .lets-build-your-container-wrapper {
     margin-right: 20px;
   }
-  .savlot-architects2 {
-    font-size: 25px;
-  }
-  .termsconditions {
-    font-size: 13px;
-  }
   .the-stories-behind {
     font-size: 42px;
   }
@@ -2352,8 +2320,7 @@ select:invalid, textarea::placeholder, input::placeholder {
     min-height: auto;
   }
   .project-section-inner,
-  .cta-section,
-  .footer-section {
+  .cta-section {
     height: 100svh;
   }
   .interior-card,
@@ -2576,50 +2543,6 @@ select:invalid, textarea::placeholder, input::placeholder {
   .lets-build-your-container-wrapper {
     margin-right: 40px;
   }
-  .footer-section {
-    height: auto;
-    padding: 20px;
-  }
-  .div12 {
-    flex-direction: column;
-    gap: 30px;
-  }
-  .logo-parent {
-    width: 100%;
-    height: auto;
-    align-items: center;
-    gap: 15px;
-  }
-  .animated-logo {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .logo2 {
-    align-items: center;
-    text-align: center;
-  }
-  .contacts {
-    align-items: center;
-  }
-  .social-media-links2 {
-    justify-content: center;
-  }
-  .footer-links-parent {
-    width: 100%;
-    height: auto;
-    align-items: center;
-    gap: 30px;
-  }
-  .footer-links {
-    width: 100%;
-    align-items: center;
-    gap: 16px;
-  }
-  .termsconditions {
-    justify-content: center;
-    text-align: center;
-  }
   .our-service {
     font-size: 17px;
   }
@@ -2717,19 +2640,6 @@ select:invalid, textarea::placeholder, input::placeholder {
     padding: 20px 15px;
     width: 100%;
     box-sizing: border-box;
-  }
-  .savlot-architects2 {
-    font-size: 16px;
-  }
-  .kailash-m-savlot2 {
-    font-size: 13px;
-  }
-  .footer-links a {
-    font-size: 14px;
-  }
-  .termsconditions {
-    flex-direction: column;
-    gap: 10px;
   }
   .projects-text {
     font-size: 50px;

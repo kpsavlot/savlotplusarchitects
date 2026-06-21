@@ -459,10 +459,12 @@
 
       // ── Footer glow reveal (matching portfolio page) ──
       (function () {
-        const footer = document.querySelector('.footer-section');
+        const desktop = document.querySelector('.footer-section');
+        const mobile = document.querySelector('.footer-section-mobile');
+        const footer = (desktop && desktop.offsetParent !== null) ? desktop : mobile;
         if (!footer) return;
 
-        const logo = document.querySelector('.animated-logo');
+        const logo = footer.querySelector('.animated-logo');
         const fadeEls = footer.querySelectorAll('.savlot-architects2, .kailash-m-savlot2, .contacts, .footer-links, .termsconditions');
 
         let animated = false;

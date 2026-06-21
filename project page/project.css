@@ -527,9 +527,6 @@
   .explore-title {
     font-size: 37px;
   }
-  .termsconditions {
-    font-size: 13px;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -654,13 +651,6 @@
   }
   .explore-button:hover .explore-text {
     transform: translateX(30px);
-  }
-  .footer-links a {
-    font-size: 14px;
-  }
-  .termsconditions {
-    flex-direction: column;
-    gap: 10px;
   }
 }
 

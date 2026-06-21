@@ -516,11 +516,7 @@
 .portfolio-filter,
 .main-filter,
 .sub-filter,
-.portfolio-card-grid > section,
-.logo2,
-.contacts,
-.footer-links,
-.termsconditions {
+.portfolio-card-grid > section {
   will-change: transform, opacity;
 }
 @media screen and (max-width: 975px) {
@@ -542,14 +538,6 @@
   }
   .portfolio-filter {
     flex-wrap: wrap;
-  }
-  .footer-section {
-    padding: 23px 25px;
-    box-sizing: border-box;
-  }
-  .savlot-architects2 {
-    font-size: 26px;
-    line-height: 26px;
   }
 }
 @media screen and (max-width: 700px) {
@@ -578,17 +566,6 @@
   .project-title {
     font-size: 20px;
     line-height: 26px;
-  }
-  .savlot-architects2 {
-    font-size: 19px;
-    line-height: 20px;
-  }
-  .kailash-m-savlot2 {
-    font-size: 16px;
-    line-height: 16px;
-  }
-  .footer-links-parent {
-    gap: 70px;
   }
 }
 
@@ -629,9 +606,6 @@
   .sub-filter {
     gap: 20px;
     flex-wrap: wrap;
-  }
-  .termsconditions {
-    font-size: 13px;
   }
 }
 
@@ -782,13 +756,6 @@
   }
   .location {
     font-size: 14px;
-  }
-  .footer-links a {
-    font-size: 14px;
-  }
-  .termsconditions {
-    flex-direction: column;
-    gap: 10px;
   }
 }
 
