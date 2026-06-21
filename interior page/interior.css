@@ -46,6 +46,8 @@
   color: #fff;
   font-family: "Host Grotesk";
   --nav-link-color: #fff;
+  --sub-menu-link-color: #fff;
+  --dropdown-arrow-filter: none;
   --pill-menu-hover-bg: rgba(255, 255, 255, 0.1);
   --pill-menu-active-bg: rgba(255, 255, 255, 0.3);
   --pill-menu-active-shadow: none;
@@ -580,6 +582,8 @@
   white-space: nowrap;
   overflow: hidden;
   transition: --color1-1 0.2s ease, --color1-2 0.2s ease;
+  text-decoration: none;
+  color: inherit;
 }
 .get-a-quote {
   position: relative;

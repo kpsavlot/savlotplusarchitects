@@ -55,6 +55,19 @@ body { margin: 0; }
   vertical-align: middle;
   transition: transform 0.2s ease;
   user-select: none;
+  position: relative;
+}
+.dropdown-arrow svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.dropdown-arrow svg path {
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 @media screen and (min-width: 1201px) {
   .dropdown-arrow { display: none; }
@@ -744,6 +757,7 @@ a { color: inherit; text-decoration: inherit; }
     display: inline-block;
     cursor: pointer;
     transform: rotate(90deg);
+    transform-origin: center;
     filter: var(--dropdown-arrow-filter);
   }
   .menu-item-has-children.active .dropdown-arrow {

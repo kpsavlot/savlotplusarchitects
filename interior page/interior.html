@@ -52,6 +52,16 @@
               <div class="pill-menu">
                 <ul class="nav-links">
                   <li><a href="../index.html">HOME</a></li>
+                  <li class="menu-item-has-children">
+                    <a href="#">
+                      SERVICES
+                      <span class="dropdown-arrow"><svg viewBox="0 0 16 16"><path d="M6 4l4 4-4 4"/></svg></span>
+                    </a>
+                    <ul class="sub-menu">
+                      <li><a href="../interior page/interior.html">INTERIOR DESIGN</a></li>
+                      <li><a href="#">ARCHITECTURE</a></li>
+                    </ul>
+                  </li>
                   <li><a href="../portfolio page/portfolio.html">PORTFOLIO</a></li>
                   <li><a href="../index.html#about-section">ABOUT</a></li>
                   <li><a href="../index.html#cta-section">CONTACT</a></li>
@@ -197,11 +207,11 @@
             </h1>
           </div>
           <div class="cta-actions">
-            <button class="get-a-quote-button3">
+            <a href="../index.html#cta-section" class="get-a-quote-button3">
               <img class="subtract-iconL3" alt="" src="./public/Subtract.svg" />
               <b class="get-a-quote">GET A QUOTE</b>
               <img class="subtract-iconR3" alt="" src="./public/Subtract.svg" />
-            </button>
+            </a>
             <div class="cta-text-wrapper">
               <b class="connect-text"
                 >Connect with our studio to begin the journey of transforming
@@ -239,6 +249,8 @@
             <div class="footer-links-parent">
               <div class="footer-links">
                 <a class="links" href="../index.html">home</a>
+                <a class="links" href="../interior page/interior.html">interior design</a>
+                <a class="links" href="#">architecture</a>
                 <a class="links" href="../portfolio page/portfolio.html">portfolio</a>
                 <a class="links" href="../index.html#about-section">about us</a>
                 <a class="links" href="../index.html#cta-section">contact us</a>
@@ -267,6 +279,8 @@
             </div>
             <div class="footer-links">
               <a class="links" href="../index.html">home</a>
+              <a class="links" href="../interior page/interior.html">interior design</a>
+              <a class="links" href="#">architecture</a>
               <a class="links" href="../portfolio page/portfolio.html">portfolio</a>
               <a class="links" href="../index.html#about-section">about us</a>
               <a class="links" href="../index.html#cta-section">contact us</a>
@@ -338,6 +352,23 @@
         const cards = document.querySelectorAll('.interior-type-grid > section');
         if (!cards.length) return;
         cards.forEach(card => cardObserver.observe(card));
+      })();
+
+      // ── Card click → portfolio filter ──
+      (function () {
+        const links = {
+          'residential-card': 'residential',
+          'commercial-card': 'commercial',
+          'retail-card': 'retails',
+        };
+        Object.entries(links).forEach(([cls, sub]) => {
+          const card = document.querySelector('.' + cls);
+          if (!card) return;
+          card.style.cursor = 'pointer';
+          card.addEventListener('click', () => {
+            window.location.href = `../portfolio page/portfolio.html?main=interior&sub=${sub}`;
+          });
+        });
       })();
 
       // ── Mobile Menu Toggle ──

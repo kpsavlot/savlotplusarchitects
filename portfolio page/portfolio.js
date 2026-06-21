@@ -133,6 +133,15 @@ const cardObserver = new IntersectionObserver((entries) => {
   let activeMain = 'interior';
   let activeSub = 'all';
 
+  const params = new URLSearchParams(location.search);
+  if (params.get('main')) activeMain = params.get('main');
+  if (params.get('sub')) activeSub = params.get('sub');
+
+  mainBtns.forEach(b => b.classList.remove('active'));
+  subBtns.forEach(b => b.classList.remove('active'));
+  mainBtns.forEach(b => { if (b.dataset.filter === activeMain) b.classList.add('active'); });
+  subBtns.forEach(b => { if (b.dataset.filter === activeSub) b.classList.add('active'); });
+
   function filterCards() {
     const visible = [];
     cards.forEach((card, i) => {
