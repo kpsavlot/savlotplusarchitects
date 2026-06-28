@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="../common.css" />
+    <link rel="stylesheet" href="./architecture.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geom:wght@500;600;700;800;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair Display:ital,wght@0,800;1,400&display=swap"
+    />
+
+    <style>
+      @font-face {
+        font-family: "Bank Gothic Light";
+        src: url(data:font/woff2;base64,d09GMgABAAAAACIoAA8AAAAAUxQAACHMAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGhgbjCQcIAZgAIQOEQgK/GzaQwuDTAABNgIkA4cUBCAFhXQHg2wbHj8F7NgjsHEAeB49ckRRNfme/V8mcHPI7FB5EotwCMNkMpqZYlDrKkzEGmzeOGw49jVksvdVwmTzLv1zjtDYJ7kHsM0OwdoMStFGwMAEDCREQNpI0IkYoE4dRqGbMRfW1tqL0qksys1tLqKdmwvX8ZELAKJqyO97545gEe4JhdCgUCgkKiqwZIlDqCRM1ghFYWTIPuT/x3+saf4/igv/SUmRQSPZ1jaOQ5PNlF0Cz/YmbY9LXG+BToBgaPlUiLHSkjARxIZ7pfbfNSAAlcCBeW51e5TS3xSi8uY7PbFVoYGIk35eZ7rq+ULgK7JL03XYwsvQjt06dpKevuHpW/FVOrJdB1i+wNnBY3/JxwEHeCrC3Cm6EDXAUwF4A8KJ1w7DSDSsQ81Wala4Vdax4iGYIzpB2rv0a2zfz/I6vPYYh/qKuK48xB99FWd4lTlok+OD5darwjPFkQCASMLDM/1fE9/psx22oHLJSgANJjqKAWLlM7jxh7hyrqoELNhgiCGxy5cq0mG4VgwlXm4BcahD6LHmJ5vBSdc9mhmIqpk3y2YiDmFEn3npy+f8uzLXnvVwi3b6zt2Nu2/v2mf39T29P+9/D5mYog95MRwKicMh3qHsHabcTDE7hdUxbBAnATeKZQvAgCu4EbMSDe+EC3bStCN1QGpvm+WGDOtOV7tLurehCaX7QpOpHIkNy2HXgAt34b7bTGieKP2ERYvbaXqh5kR3tnCPJhQm6QncnNhWCd2LMABXcqPcmT8u7KxMTKKuJqMkgBLSLH2n1Ck1e+C4ftqwdZfCPS8ap/sJJumJD55OjoCGhbIKmulejSYZxULPLQomLyWGELOkcNNicyHKrIxe1KzUV6dThDvaXeUjMU3Q/QSTFhoFFtKnrl29rdew2ordcdxWE8HK6IBmpT5bO2Vvl44Nr96EwP2oGdsK2sgx2OkvafN+YtOlJIVxSkeQJ5HwOlT1EbfBs2MjeMqJPyWmTzQ3vwYUVR1VMUN1wJpix7YDsSCMgiu5IUHpGAneMRKRCFDxNOhzDJgyaELhvhsSpS8FdEqzpjqw7SxoL2FguXaAGy1Kd2IYJEqWrBOSBNJIn2t12CsW9NHxkk4pnEZ34veqd4kmhZ744Kkbnm1nQ3cvDMCV3OhO6TRRp8j6jpJocdCwUqfjZVbGYjOgPfJInrxUclXUmnuSyKf8QHdCr+MAdEN3ZMCzoqK2Ai7KhLSWGTbwAQ+j44lOgU4ro1QfozMyZo/XVKoapJSOuBrWR8mkoE+X+EtmVFmpiPQ1DAgWCNpFbheeCihd4xlcQkkOh0wxVXpoFnm6kfwBpnTNBy6EBTTK5CaeA+kchameaiPax5EpOYOBvAH4BBe9FyFMxHRk2qJUUwGwWAaxCVze4jNyAQOyADdmQh8vFHALLCkAGlPB78dxLk/sylvayIomCiCLgbreQGQML4YVX00f5jMewQ+a3G3ijcpXgEBBGIKFCN1AuDwDzu0rIiUXJ14ypVSzpFPLoFenWYs+d9wzYdITT78+nD0XbrAzACZhjD9TYHI3SwD0JDeO+IbhmfX5aQJBJwBktp/4N4gRAJGL4OMBII6dBADEo6D4UzEBgFyNcIEAdDTjiNFjAeUjAH9EKFYa7fDFf7+YPsJJnpypncbpyIU8PvAi0ohsosiDRML+k1+/ANFmu3wTPFEwSZMNDSeez+QBriNLmm/Wfd9TPdkTPd7lbWxpdY2tvGH/r/++wvTz6a3T656eeHITABDWzdEM/A+95bZ1x1335MQJ9036Hnhoqu4jL7wEiMO6FYW0ZgJ1EAC5Tc3Mv+8P/AQQ+F3AfwYPEpni6eXto4zq...);
+        font-weight: 400;
+        font-display: swap;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader" class="loader-overlay">
+      <div class="loader-logo">
+        <p class="loader-title">Savlot + Architects</p>
+        <p class="loader-subtitle">Kailash M Savlot</p>
+      </div>
+      <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    </div>
+
+    <div id="scroll-track"><div id="scroll-thumb"></div></div>
+
+    <div class="architecture-page" id="top">
+      <section class="hero-section-parent">
+        <div class="hero-section">
+          <header class="architecture-header">
+            <div class="header">
+              <div class="logo">
+                <h1 class="savlot-architects">Savlot + Architects</h1>
+                <h3 class="kailash-m-savlot">Kailash M Savlot</h3>
+              </div>
+              <div class="pill-menu">
+                <ul class="nav-links">
+                  <li><a href="../index.html">HOME</a></li>
+                  <li class="menu-item-has-children">
+                    <a href="#">
+                      SERVICES
+                      <span class="dropdown-arrow"><svg viewBox="0 0 16 16"><path d="M6 4l4 4-4 4"/></svg></span>
+                    </a>
+                    <ul class="sub-menu">
+                      <li><a href="../interior page/interior.html">INTERIOR DESIGN</a></li>
+                      <li><a href="../architecture page/architecture.html">ARCHITECTURE</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="../portfolio page/portfolio.html">PORTFOLIO</a></li>
+                  <li><a href="../index.html#about-section">ABOUT</a></li>
+                  <li><a href="../index.html#cta-section">CONTACT</a></li>
+                </ul>
+                <div class="hamburger-wrapper">
+                  <div class="menu-button">
+                    <span class="project-name"></span>
+                    <span class="project-name2"></span>
+                    <span class="project-name"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div class="hero-container">
+            <div class="sub-heading">
+              <h3 class="sub-heading2">ARCHITECTURE SERVICE</h3>
+            </div>
+            <div class="heading">
+              <h1 class="heading2">VISIONARY</h1>
+            </div>
+            <div class="sub-heading-1">
+              <h2 class="heading3">ARCHITECTUE</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="arch-type-section">
+        <section class="arch-heading">
+          <div class="heading4">
+            <h1 class="specialized-domains">SPECIALIZED<br />DOMAINS</h1>
+          </div>
+          <div class="sub-heading3">
+            <div class="tailored-architectural-solutio">
+              Tailored architectural solutions across diverse typologies,
+              ensuring each structure speaks a unique visual language.
+            </div>
+          </div>
+        </section>
+        <div class="point-grid">
+          <section class="point">
+            <div class="no">
+              <h2 class="h2">01</h2>
+            </div>
+            <div class="content">
+              <div class="type-title">RESIDENTIAL PLANNING</div>
+              <div class="type-des">
+                <div class="creating-private-sanctuaries">
+                  Creating private sanctuaries that<br />harmonize personal
+                  style with functional spatial choreography.
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="point">
+            <div class="no">
+              <h2 class="h2">02</h2>
+            </div>
+            <div class="content">
+              <div class="type-title">URBAN DESIGN</div>
+              <div class="type-des">
+                <div class="creating-private-sanctuaries">
+                  Developing complex urban systems that promote community
+                  engagement and sustainable growth.
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="point">
+            <div class="no">
+              <h2 class="h2">03</h2>
+            </div>
+            <div class="content">
+              <div class="type-title">SUSTAINABLE ARCHITECTURE</div>
+              <div class="type-des">
+                <div class="creating-private-sanctuaries">
+                  Integrating high-performance energy systems with low-impact
+                  materials for a regenerative future.
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="point">
+            <div class="no">
+              <h2 class="h2">04</h2>
+            </div>
+            <div class="content">
+              <div class="type-title">RENOVATIONS</div>
+              <div class="type-des">
+                <div class="creating-private-sanctuaries">
+                  Transforming historical structures through contemporary
+                  intervention and meticulous restoration.
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+      <main class="method-section">
+        <section class="method-heading-cont">
+          <div class="method-sub-heading">
+            <h2 class="the-process">THE PROCESS</h2>
+          </div>
+          <div class="method-heading">
+            <h2 class="our-design-journey">OUR DESIGN JOURNEY</h2>
+          </div>
+        </section>
+        <div class="step-main">
+          <div class="step-parent">
+            <div class="step">
+              <div class="step-cont">
+                <div class="step-sub-heading">
+                  <b class="phase-01">PHASE 01</b>
+                </div>
+                <div class="step-heading">
+                  <h2 class="discovery">DISCOVERY</h2>
+                </div>
+                <div class="step-desc">
+                  <div class="deep-architectural-auditing">
+                    Deep architectural auditing and site analysis to
+                    understand<br />the ecological and cultural context of the
+                    project.
+                  </div>
+                </div>
+              </div>
+              <img
+                class="step-photo-icon"
+                loading="lazy"
+                alt=""
+                src="./public/step-photo2@2x.png"
+              />
+            </div>
+          </div>
+          <div class="step-parent">
+            <div class="step">
+              <img
+                class="step-photo-icon"
+                loading="lazy"
+                alt=""
+                src="./public/step-photo3@2x.png"
+              />
+
+              <section class="step-cont2">
+                <div class="step-sub-heading2">
+                  <b class="phase-01">PHASE 02</b>
+                </div>
+                <div class="step-heading2">
+                  <h1 class="discovery">SCHEMATIC<br />DESIGN</h1>
+                </div>
+                <div class="step-desc2">
+                  <div class="deep-architectural-auditing">
+                    Developing the 3D vocabulary and spatial flow. This is
+                    where<br />the structural brutalism meets poetic light
+                    manipulation.
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div class="step-parent">
+            <div class="step">
+              <section class="step-cont3">
+                <div class="step-sub-heading">
+                  <b class="phase-01">PHASE 03</b>
+                </div>
+                <div class="step-heading">
+                  <h1 class="discovery">TECHNICAL<br />DOC</h1>
+                </div>
+                <div class="step-desc">
+                  <div class="deep-architectural-auditing">
+                    Transforming vision into clinical blueprints. Precise<br />specifications
+                    for every material, from raw concrete to<br />refined steel.
+                  </div>
+                </div>
+              </section>
+              <img
+                class="step-photo-icon"
+                loading="lazy"
+                alt=""
+                src="./public/step-photo1@2x.png"
+              />
+            </div>
+          </div>
+          <div class="step-parent">
+            <div class="step">
+              <img
+                class="step-photo-icon"
+                loading="lazy"
+                alt=""
+                src="./public/step-photo@2x.png"
+              />
+
+              <div class="step-cont4">
+                <div class="step-sub-heading2">
+                  <b class="phase-01">PHASE 04</b>
+                </div>
+                <div class="step-heading2">
+                  <h2 class="discovery">OVERSIGHT</h2>
+                </div>
+                <div class="step-desc2">
+                  <div class="deep-architectural-auditing">
+                    On-ground execution management ensuring the final<br />structure
+                    mirrors the conceptual purity of the initial vision.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <section class="cta-section">
+        <div class="cta-parent">
+          <section class="cta-cont">
+            <div class="sub-heading">
+              <h1 class="buid-your-vision">BUID<br />YOUR<br />VISION</h1>
+            </div>
+            <div class="text">
+              <div class="deep-architectural-auditing">
+                Ready to transform your spatial requirements into an
+                architectural landmark? Let's discuss your project today.
+              </div>
+            </div>
+          </section>
+          <div class="btn-cont">
+            <div class="get-a-quote-button">
+              <b class="get-a-quote">GET A QUOTE</b>
+              <img class="subtract-icon" alt="" src="./public/Subtract.svg" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer-section">
+        <div class="div4">
+          <div class="animated-logo">
+            <img loading="lazy" height="100%" src="../portfolio page/public/div2@3x.png" alt="">
+          </div>
+          <div class="div12">
+            <div class="logo-parent">
+              <div class="logo2">
+                <h2 class="savlot-architects2">Savlot + Architects</h2>
+                <h3 class="kailash-m-savlot2">Kailash M Savlot</h3>
+              </div>
+              <div class="contacts">
+                <div class="email">
+                  <div class="infosavlotplusarchitectscom">
+                    <a href="mailto:info@savlotplusarchitects.com">info@savlotplusarchitects.com</a>
+                  </div>
+                </div>
+                <div class="social-media-links2">
+                  <a href="https://www.instagram.com/savlotplusarchitects/" target="_blank" aria-label="Instagram"><div class="social-icon icon-ig"></div></a>
+                  <a href="https://www.youtube.com/@savlotplusarchitects" target="_blank" aria-label="YouTube"><div class="social-icon icon-yt"></div></a>
+                  <a href="https://in.pinterest.com/kailashsavlot/" target="_blank" aria-label="Pinterest"><div class="social-icon icon-pt"></div></a>
+                  <a href="https://wa.me/919099898794" target="_blank" aria-label="WhatsApp"><div class="social-icon icon-wa"></div></a>
+                </div>
+              </div>
+            </div>
+            <div class="footer-links-parent">
+              <div class="footer-links">
+                <a class="links" href="../index.html">home</a>
+                <a class="links" href="../interior page/interior.html">interior design</a>
+                <a class="links" href="../architecture page/architecture.html">architecture</a>
+                <a class="links" href="../portfolio page/portfolio.html">portfolio</a>
+                <a class="links" href="../index.html#about-section">about us</a>
+                <a class="links" href="../index.html#cta-section">contact us</a>
+              </div>
+              <div class="termsconditions">
+                <div class="infosavlotplusarchitectscom">
+                  &copy; 2026 savlot plus architects
+                </div>
+                <div class="infosavlotplusarchitectscom">
+                  <a class="terms-link" href="#">terms & conditions</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <footer class="footer-section-mobile">
+        <div class="div4">
+          <div class="animated-logo">
+            <img loading="lazy" height="100%" src="../portfolio page/public/div2@3x.png" alt="">
+          </div>
+          <div class="footer-mobile-content">
+            <div class="logo2">
+              <h2 class="savlot-architects2">Savlot + Architects</h2>
+              <h3 class="kailash-m-savlot2">Kailash M Savlot</h3>
+            </div>
+            <div class="footer-links">
+              <a class="links" href="../index.html">home</a>
+              <a class="links" href="../interior page/interior.html">interior design</a>
+              <a class="links" href="../architecture page/architecture.html">architecture</a>
+              <a class="links" href="../portfolio page/portfolio.html">portfolio</a>
+              <a class="links" href="../index.html#about-section">about us</a>
+              <a class="links" href="../index.html#cta-section">contact us</a>
+            </div>
+            <div class="footer-mobile-bottom">
+              <div class="contacts">
+                <div class="email">
+                  <div class="infosavlotplusarchitectscom">
+                    <a href="mailto:info@savlotplusarchitects.com">info@savlotplusarchitects.com</a>
+                  </div>
+                </div>
+                <div class="social-media-links2">
+                  <a href="https://www.instagram.com/savlotplusarchitects/" target="_blank" aria-label="Instagram"><div class="social-icon icon-ig"></div></a>
+                  <a href="https://www.youtube.com/@savlotplusarchitects" target="_blank" aria-label="YouTube"><div class="social-icon icon-yt"></div></a>
+                  <a href="https://in.pinterest.com/kailashsavlot/" target="_blank" aria-label="Pinterest"><div class="social-icon icon-pt"></div></a>
+                  <a href="https://wa.me/919099898794" target="_blank" aria-label="WhatsApp"><div class="social-icon icon-wa"></div></a>
+                </div>
+              </div>
+              <div class="termsconditions">
+                <div class="infosavlotplusarchitectscom">&copy; 2026 savlot plus architects</div>
+                <div class="infosavlotplusarchitectscom"><a class="terms-link" href="#">terms & conditions</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div class="whatsapp-float" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </div>
+    <div class="whatsapp-popup">
+      <div class="whatsapp-popup-header">
+        <span class="whatsapp-popup-title">WhatsApp</span>
+        <button class="whatsapp-popup-close">&times;</button>
+      </div>
+      <div class="whatsapp-popup-body">
+        <div class="whatsapp-message received">
+          <div class="whatsapp-message-text">Hello, How can i help you?</div>
+          <span class="whatsapp-message-time">just now</span>
+        </div>
+      </div>
+      <div class="whatsapp-popup-footer">
+        <button class="whatsapp-open-chat">Open chat</button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
+    <script type="module">
+      import { createObserver, initLenis, initLoader, initWhatsApp } from '../common.js';
+      initLoader();
+      initLenis();
+      initWhatsApp();
+
+      // ── Mobile Menu Toggle ──
+      document.addEventListener('click', function(e) {
+        const wrapper = e.target.closest('.hamburger-wrapper');
+        if (wrapper) {
+          e.stopPropagation();
+          wrapper.closest('.pill-menu')?.classList.toggle('active');
+          return;
+        }
+        const parentLink = e.target.closest('.menu-item-has-children > a');
+        if (parentLink) {
+          e.preventDefault();
+          e.stopPropagation();
+          parentLink.parentElement.classList.toggle('active');
+          return;
+        }
+        closeMenu();
+      });
+      function closeMenu() {
+        document.querySelectorAll('.pill-menu').forEach(m => m.classList.remove('active'));
+        document.querySelectorAll('.menu-item-has-children.active').forEach(el => el.classList.remove('active'));
+      }
+      document.addEventListener('wheel', closeMenu, { passive: true });
+      document.addEventListener('touchstart', e => {
+        if (!e.target.closest('.pill-menu')) closeMenu();
+      });
+
+      // ── Floating header on scroll up ──
+      (function () {
+        const original = document.querySelector('.architecture-header');
+        const trigger = document.querySelector('.arch-type-section');
+        if (!original || !trigger || !window.lenis) return;
+        const floating = original.cloneNode(true);
+        floating.classList.add('floating-header');
+        floating.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+        document.body.appendChild(floating);
+        const triggerTop = trigger.getBoundingClientRect().top + window.lenis.scroll;
+        window.lenis.on('scroll', (e) => {
+          if (e.scroll > triggerTop) {
+            floating.classList.toggle('visible', e.direction < 0);
+          } else {
+            floating.classList.remove('visible');
+          }
+        });
+      })();
+
+      // ── Section heading fade-up ──
+      (function () {
+        const el = document.querySelector('.specialized-domains');
+        if (!el) return;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(40px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        createObserver(([entry]) => {
+          if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+        }, { threshold: 0.3 }).observe(el);
+      })();
+
+      (function () {
+        const el = document.querySelector('.tailored-architectural-solutio');
+        if (!el) return;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        createObserver(([entry]) => {
+          if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+        }, { threshold: 0.3 }).observe(el);
+      })();
+
+      // ── Method heading fade-up ──
+      (function () {
+        const el = document.querySelector('.the-process');
+        if (!el) return;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(40px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        createObserver(([entry]) => {
+          if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+        }, { threshold: 0.3 }).observe(el);
+      })();
+
+      (function () {
+        const el = document.querySelector('.our-design-journey');
+        if (!el) return;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        createObserver(([entry]) => {
+          if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+        }, { threshold: 0.3 }).observe(el);
+      })();
+
+      // ── Process steps stagger ──
+      (function () {
+        const els = document.querySelectorAll('.step-parent');
+        if (!els.length) return;
+        els.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = `opacity 0.6s ease ${i * 0.15}s, transform 0.6s ease ${i * 0.15}s`;
+          createObserver(([entry]) => {
+            if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+          }, { threshold: 0.2 }).observe(el);
+        });
+      })();
+
+      // ── CTA title fade-up ──
+      (function () {
+        const el = document.querySelector('.buid-your-vision');
+        if (!el) return;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(40px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        createObserver(([entry]) => {
+          if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+        }, { threshold: 0.3 }).observe(el);
+      })();
+
+      // ── Footer glow reveal ──
+      (function () {
+        const desktop = document.querySelector('.footer-section');
+        const mobile = document.querySelector('.footer-section-mobile');
+        const footer = (desktop && desktop.offsetParent !== null) ? desktop : mobile;
+        if (!footer) return;
+
+        const logo = footer.querySelector('.animated-logo');
+        const fadeEls = footer.querySelectorAll('.savlot-architects2, .kailash-m-savlot2, .contacts, .footer-links, .termsconditions');
+
+        let animated = false;
+
+        function onScroll() {
+          if (animated) return;
+          const rect = footer.getBoundingClientRect();
+          const vh = window.innerHeight;
+          if (rect.top < vh * 0.85) {
+            animated = true;
+            if (logo) { logo.style.opacity = '1'; logo.style.animation = 'zoomIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards'; }
+            fadeEls.forEach((el, i) => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+              el.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`;
+            });
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onScroll);
+          }
+        }
+
+        fadeEls.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; });
+        if (logo) { logo.style.opacity = '0'; }
+
+        window.addEventListener('scroll', onScroll);
+        window.addEventListener('resize', onScroll);
+        onScroll();
+      })();
+    </script>
+  </body>
+</html>

@@ -8,8 +8,8 @@
   "license": "ISC",
   "name": "my_projects_s_project_-_1",
   "scripts": {
-"start": "parcel index.html \"project page/project.html\" \"portfolio page/portfolio.html\" \"interior page/interior.html\"",
-"build": "parcel build index.html \"project page/project.html\" \"portfolio page/portfolio.html\" \"interior page/interior.html\" --dist-dir ./dist --no-source-maps"
+"start": "parcel index.html \"project page/project.html\" \"portfolio page/portfolio.html\" \"interior page/interior.html\" \"architecture page/architecture.html\"",
+"build": "parcel build index.html \"project page/project.html\" \"portfolio page/portfolio.html\" \"interior page/interior.html\" \"architecture page/architecture.html\" --dist-dir ./dist --no-source-maps"
   },
   "version": "1.0.0",
   "dependencies": {
