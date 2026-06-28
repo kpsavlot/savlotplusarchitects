@@ -27,3 +27,5 @@ build/
 
 # Dependencies
 node_modules/
+
+public/hero-video-1.mov
