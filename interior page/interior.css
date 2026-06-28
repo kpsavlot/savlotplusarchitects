@@ -61,7 +61,7 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background-image: url(./public/hero-section@3x.png);
+  background-image: linear-gradient(to right, rgba(0,0,0,0.6), transparent), url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/interior-asset/hero-image.avif);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -268,10 +268,10 @@
 [class^="content-parent"]:hover::before {
   transform: scale(1.05);
 }
-.content-parent::before { background-image: url(./public/content-parent@3x.png); }
-.content-parent2::before { background-image: url(./public/content-parent1@3x.png); }
-.content-parent3::before { background-image: url(./public/content-parent2@3x.png); }
-.content-parent4::before { background-image: url(./public/content-parent3@3x.png); }
+.content-parent::before { background-image: url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/interior-asset/residential-image.avif); }
+.content-parent2::before { background-image: url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/interior-asset/commercial-image.avif); }
+.content-parent3::before { background-image: url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/interior-asset/retail-image.avif); }
+.content-parent4::before { background-image: url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/interior-asset/cafe_restro-image.avif); }
 [class^="content-parent"]::after {
   content: '';
   position: absolute;

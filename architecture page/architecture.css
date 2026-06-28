@@ -29,7 +29,6 @@
   width: 100%;
   position: relative;
   background-color: #fff;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -75,7 +74,7 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background-image: url(./public/hero-section@3x.png);
+  background-image: linear-gradient(to right, rgba(0,0,0,0.6), transparent), url(https://res.cloudinary.com/dge8i8jqs/image/upload/q_auto/f_auto/architecture-asset/hero-image.avif);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -115,7 +114,7 @@
 .heading2 {
   margin: 0;
   position: relative;
-  font-size: clamp(28px, 5vw, 64px);
+  font-size: clamp(45px, 5vw, 64px);
   letter-spacing: clamp(2px, 0.5vw, 8px);
   line-height: 1.03;
   font-weight: 900;
@@ -131,7 +130,7 @@
 .heading3 {
   margin: 0;
   position: relative;
-  font-size: clamp(28px, 5vw, 64px);
+  font-size: clamp(45px, 5vw, 64px);
   letter-spacing: clamp(1px, 0.4vw, 6px);
   line-height: 1;
   font-style: italic;
@@ -313,9 +312,8 @@
 }
 .method-section {
   align-items: flex-start;
-  padding: 0 0 100px;
   box-sizing: border-box;
-  gap: 127px;
+  gap: var(--method-gap, 127px);
   max-width: 100%;
   z-index: 5;
   text-align: right;
@@ -326,11 +324,16 @@
 .method-heading-cont {
   align-items: center;
   justify-content: center;
-  padding: 100px 50px;
+  padding: 80px 50px;
   text-align: center;
   font-size: clamp(16px, 2.5vw, 30px);
   color: #5d5f5f;
   font-family: "Playfair Display";
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: linear-gradient(to bottom, #fff calc(100% - 85px), transparent 100%);
+  align-self: stretch;
 }
 .method-sub-heading {
   display: flex;
@@ -366,6 +369,7 @@
   flex-direction: column;
   align-items: flex-start;
   max-width: 100%;
+  padding: 0 0 100px;
 }
 .step,
 .step-parent {
@@ -545,32 +549,77 @@
   color: #e8e8e8;
   font-family: "Host Grotesk";
 }
-.btn-cont,
-.get-a-quote-button {
+@property --color1-1 { syntax: '<color>'; inherits: false; initial-value: #ff4d4d; }
+@property --color1-2 { syntax: '<color>'; inherits: false; initial-value: #479dff; }
+.cta-actions,
+.get-a-quote-button3 {
   display: flex;
   align-items: center;
 }
-.btn-cont {
+.cta-actions {
   justify-content: center;
-  padding: 20px 0;
+  gap: 32px;
+  max-width: 100%;
+  font-size: 16px;
+  color: #454545;
+  font-family: "Hanken Grotesk";
 }
-.get-a-quote-button {
-  height: 48px;
-  width: 196px;
+.get-a-quote-button3 {
+  cursor: pointer;
+  border: 0;
+  padding: 7px 7px 7px 9px;
+  background-color: transparent;
+  position: relative;
   box-shadow: 3px 3px 5px rgba(44, 66, 137, 0.18);
   border-radius: 25px;
-  background: linear-gradient(90deg, #ff4d4d, #479dff);
-  padding: 7px 7px 6px 9px;
-  box-sizing: border-box;
+  background: linear-gradient(90deg, var(--color1-1), var(--color1-2));
+  display: flex;
+  align-items: center;
   gap: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: --color1-1 0.2s ease, --color1-2 0.2s ease;
+  text-decoration: none;
+  color: inherit;
 }
-.get-a-quote,
-.subtract-icon {
+.get-a-quote {
   position: relative;
+  font-size: 20px;
+  font-family: Geom;
+  color: #fff;
+  text-align: left;
+  transition: all .2s ease;
 }
-.subtract-icon {
+.subtract-iconR3 {
   height: 35px;
   width: 35px;
+  position: relative;
+  transition: all .2s ease 0.05s;
+}
+.subtract-iconL3 {
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  left: -65px;
+  z-index: 2;
+  flex-shrink: 0;
+  transition: all .2s ease;
+}
+.get-a-quote-button3:hover {
+  --color1-1: #fff;
+  --color1-2: #fff;
+}
+.get-a-quote-button3:hover .subtract-iconR3 {
+  transform: translateX(50px);
+  filter: invert(1);
+}
+.get-a-quote-button3:hover .subtract-iconL3 {
+  transform: translateX(72px);
+  filter: invert(1);
+}
+.get-a-quote-button3:hover .get-a-quote {
+  transform: translateX(37px);
+  color: #000;
 }
 @media screen and (max-width: 1350px) {
   .arch-heading {
@@ -585,10 +634,6 @@
   }
   .point-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .method-section {
-    padding-bottom: 42px;
-    box-sizing: border-box;
   }
   .step {
     flex-wrap: wrap;
@@ -620,6 +665,7 @@
 }
 @media screen and (max-width: 800px) {
   .hero-container {
+    gap: 8px;
     padding: 0 25px 60px;
   }
   .architecture-header {
@@ -637,11 +683,6 @@
   }
   .sub-heading3 {
     display: block;
-  }
-  .method-section {
-    gap: 63px;
-    padding-bottom: 27px;
-    box-sizing: border-box;
   }
   .method-heading-cont {
     padding-left: 25px;
@@ -694,7 +735,6 @@
     box-sizing: border-box;
   }
   .method-section {
-    gap: 32px;
   }
   .cta-section {
     padding-top: 32px;
