@@ -162,6 +162,41 @@ const cardObserver = new IntersectionObserver((entries) => {
       card.style.display = '';
       cardObserver.observe(card);
     });
+
+    // ── Dynamically layout visible cards with random blank per row ──
+    const grid = document.querySelector('.portfolio-card-grid');
+    const existingBlanks = grid.querySelectorAll('.blank-card, .blank-card2, .blank-card3, .blank-card4');
+    const neededRows = Math.ceil(visible.length / 2);
+
+    // Reset all cards
+    cards.forEach(c => { c.style.gridColumn = ''; c.style.gridRow = ''; });
+
+    // Hide all existing blanks
+    existingBlanks.forEach(b => { b.style.display = 'none'; b.style.gridColumn = ''; b.style.gridRow = ''; });
+
+    // Ensure enough blank divs exist
+    for (let i = existingBlanks.length; i < neededRows; i++) {
+      const div = document.createElement('div');
+      div.className = 'blank-card';
+      grid.appendChild(div);
+    }
+
+    // Re-query blanks to include newly created ones
+    const allBlanks = grid.querySelectorAll('.blank-card, .blank-card2, .blank-card3, .blank-card4');
+
+    let vi = 0;
+    for (let row = 0; row < neededRows; row++) {
+      const bc = Math.floor(Math.random() * 3); // random blank column 0-2
+      allBlanks[row].style.display = '';
+      allBlanks[row].style.gridColumn = String(bc + 1);
+      allBlanks[row].style.gridRow = String(row + 1);
+      for (let col = 0; col < 3 && vi < visible.length; col++) {
+        if (col === bc) continue;
+        cards[visible[vi]].style.gridColumn = String(col + 1);
+        cards[visible[vi]].style.gridRow = String(row + 1);
+        vi++;
+      }
+    }
   }
 
   function setActiveMain(btn) {
